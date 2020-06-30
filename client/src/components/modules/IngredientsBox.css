@@ -1,0 +1,23 @@
+
+.IngredientsBox-text {
+    width: 50%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.IngredientsBox-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.IngredientsBox-step-ingedients {
+    font-size: 1.75rem;
+    padding-left:1.5rem;
+}
+
+.IngredientsBox-step-number {
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}

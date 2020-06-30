@@ -1,0 +1,51 @@
+.DirectionStep-container{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.DirectionStep-header-container{
+    width:100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 3em;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
+}
+
+.DirectionStep-header-number {
+    background-color: #FDCB6E;
+    border-radius: 50%;
+    line-height: 4rem;
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.DirectionStep-header-name {
+    width: 18ch;
+    font-size: 4rem;
+}
+
+.DirectionStep-header-break {
+    width: 3ch;
+}
+
+.DirectionStep-contents{
+    font-size: 2rem;
+    line-height: 1.1;
+    text-align: justify;
+    transition: max-height .5s ease-out;
+    overflow: hidden;   
+    max-height: 400px; 
+    padding: 0px 40px;    
+}
+
+.hidden {
+    max-height: 0;
+}
