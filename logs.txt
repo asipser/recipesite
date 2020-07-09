@@ -1,2 +1,2 @@
-{"level":30,"time":1593482964443,"pid":14260,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
-{"level":30,"time":1593482964505,"pid":14260,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1593567713748,"pid":6280,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1593567713797,"pid":6280,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}

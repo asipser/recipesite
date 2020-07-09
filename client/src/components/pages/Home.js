@@ -2,9 +2,12 @@ import React, { Component, useState } from "react";
 
 import "../../utilities.css";
 import "./Home.css";
+import logo from "../public/home.png";
 import DirectionStep from "../modules/DirectionStep";
 import IngredientsBox from "../modules/IngredientsBox";
-const Home = (props) => {
+
+
+const Home = () => {
   const [activeSteps, setActiveSteps] = useState([]);
 
   const toggleActiveStep = (stepNumber) => {
@@ -49,7 +52,7 @@ const Home = (props) => {
 
       <div className="app-container">
         <div className="banner">
-          <img width="128" height="128" src="images/home.png" />
+          <img width="128" height="128" src={logo} />
           <div className="recipe-title-container">
             <div className="recipe-title-text">Chicken Paprikash</div>
             <div className="recipe-title-time">Total Time: 2 hours</div>

@@ -2,6 +2,7 @@ import React from 'react';
 import "./IngredientsBox.css";
 
 const IngredientsBox = ({ activeSteps, steps }) => {
+
     const ingredientsText = activeSteps.sort().map(stepNumber => {
         return (
             <>
@@ -18,6 +19,7 @@ const IngredientsBox = ({ activeSteps, steps }) => {
             </>
         )
     })
+
     return (
         <div className="IngredientsBox-text">
             {ingredientsText}
