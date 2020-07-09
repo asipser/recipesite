@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Home from "./pages/Home.js";
 import "../utilities.css";
+import AddRecipe from "./pages/AddRecipe.js";
 
 class App extends Component {
   constructor(props) {
@@ -11,12 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="app-container">
         <Router>
-          <Home path="/" />
+          <AddRecipe path="/" />
+          <Home path="/home" />
           <NotFound default />
         </Router>
-      </>
+      </div>
     );
   }
 }

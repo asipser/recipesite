@@ -50,26 +50,25 @@ const Home = () => {
   return (
     <>
 
-      <div className="app-container">
-        <div className="banner">
-          <img width="128" height="128" src={logo} />
-          <div className="recipe-title-container">
-            <div className="recipe-title-text">Chicken Paprikash</div>
-            <div className="recipe-title-time">Total Time: 2 hours</div>
-          </div>
+
+      <div className="banner">
+        <img width="128" height="128" src={logo} />
+        <div className="recipe-title-container">
+          <div className="recipe-title-text">Chicken Paprikash</div>
+          <div className="recipe-title-time">Total Time: 2 hours</div>
         </div>
-        <div className="recipe-container">
-          <div className="ingredients-container">
-            <IngredientsBox activeSteps={activeSteps} steps={data.steps} />
-          </div>
-          <div className="directions-container">
-            {data.steps.map(
-              (step, number) =>
-                (
-                  <DirectionStep toggleStep={toggleActiveStep} key={`step-${number}`} {...step} number={number} />
-                )
-            )}
-          </div>
+      </div>
+      <div className="recipe-container">
+        <div className="ingredients-container">
+          <IngredientsBox activeSteps={activeSteps} steps={data.steps} />
+        </div>
+        <div className="directions-container">
+          {data.steps.map(
+            (step, number) =>
+              (
+                <DirectionStep toggleStep={toggleActiveStep} key={`step-${number}`} {...step} number={number} />
+              )
+          )}
         </div>
       </div>
     </>
