@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./EditableText.css";
 
 const EditableText = ({ text, childRef, children, divClassName }) => {
   const [isEditing, setIsEditing] = useState(true);
@@ -33,11 +34,10 @@ const EditableText = ({ text, childRef, children, divClassName }) => {
     );
   } else {
     return (
-      <div className={divClassName} onClick={handleClick}>
+      <div className={`${divClassName} EditableText-hover`} onClick={handleClick}>
         {text}
       </div>
     );
   }
 };
-
 export default EditableText;
