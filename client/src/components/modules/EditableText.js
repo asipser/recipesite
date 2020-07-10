@@ -1,48 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const EditableText = ({text, childRef, children}) => {
+const EditableText = ({ text, childRef, children, divClassName }) => {
+  const [isEditing, setIsEditing] = useState(true);
 
-	const [isEditing, setIsEditing] = useState(false);
+  const handleOnBlur = () => {
+    setIsEditing(false);
+  };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      setIsEditing(false);
+    }
+  };
 
-	const handleOnBlur = () => {
-		setIsEditing(false);
-	}
+  const handleClick = () => {
+    setIsEditing(true);
+  };
 
-	const handleKeyPress = (event) => {
-		if(event.key === 'Enter'){
-			setIsEditing(false);
-		}
-	}
-	
-	const handleClick = () => {
-		setIsEditing(true);
-	}
-
-	useEffect(() => {
+  useEffect(() => {
     if (childRef && childRef.current && isEditing === true) {
       childRef.current.focus();
     }
   }, [isEditing, childRef]);
 
-	let renderText;
+  let renderText;
 
-	if (isEditing) {
-		renderText = (
-			<div onKeyPress={handleKeyPress} onBlur={handleOnBlur}>
-			{children}
-		</div>
-		);
-	} else {
-		renderText = (
-			<div onClick={handleClick}>
-				{text}
-			</div>
-		);
-	}
-
-	return renderText;
-
+  if (isEditing) {
+    return (
+      <div className={divClassName} onKeyPress={handleKeyPress} onBlur={handleOnBlur}>
+        {children}
+      </div>
+    );
+  } else {
+    return (
+      <div className={divClassName} onClick={handleClick}>
+        {text}
+      </div>
+    );
+  }
 };
 
 export default EditableText;
