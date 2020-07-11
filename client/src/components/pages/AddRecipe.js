@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./AddRecipe.css";
 import EditableText from "../modules/EditableText";
 import IngredientsTable from "../modules/IngredientsTable";
+import DirectionAdder from "../modules/DirectionAdder";
 
 const AddRecipe = () => {
   const inputRef = useRef();

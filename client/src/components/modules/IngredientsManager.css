@@ -1,0 +1,14 @@
+.IngredientsManager-Ingredient-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+
+.IngredientsManager-Ingredient {
+  cursor: pointer;
+}
+
+.IngredientsManager-Ingredient-selected {
+  color: #0984e3;
+}
