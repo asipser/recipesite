@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./EditableText.css";
 
-const EditableText = ({ text, childRef, children, divClassName }) => {
+const EditableText = ({ placeholder, text, childRef, children, divClassName }) => {
   const [isEditing, setIsEditing] = useState(true);
 
   const handleOnBlur = () => {
-    setIsEditing(false);
+    if (text) {
+      console.log("no text bitch");
+      console.log(text);
+      setIsEditing(false);
+    }
   };
 
   const handleKeyPress = (event) => {
@@ -24,8 +28,6 @@ const EditableText = ({ text, childRef, children, divClassName }) => {
     }
   }, [isEditing, childRef]);
 
-  let renderText;
-
   if (isEditing) {
     return (
       <div className={divClassName} onKeyPress={handleKeyPress} onBlur={handleOnBlur}>
@@ -35,7 +37,7 @@ const EditableText = ({ text, childRef, children, divClassName }) => {
   } else {
     return (
       <div className={`${divClassName} EditableText-hover`} onClick={handleClick}>
-        {text}
+        {text ? text : placeholder}
       </div>
     );
   }

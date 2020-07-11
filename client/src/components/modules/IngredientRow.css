@@ -1,0 +1,42 @@
+.IngredientRow-Cell-Amount {
+  margin-right: 3rem;
+  text-align: center;
+  width: 6rem;
+  box-sizing: border-box;
+  border: 1px gray solid;
+}
+
+.IngredientRow-Cell-Unit {
+  margin-right: 3rem;
+  text-align: center;
+  width: 6rem;
+  box-sizing: border-box;
+  border: 1px gray solid;
+}
+
+.IngredientRow-Cell-Item {
+  margin-right: 3rem;
+  text-align: center;
+  width: 9rem;
+  box-sizing: border-box;
+  border: 1px gray solid;
+}
+
+.IngredientRow-Cell-Store {
+  margin-right: 3rem;
+  text-align: center;
+  width: 9rem;
+  box-sizing: border-box;
+  border: 1px gray solid;
+}
+
+.IngredientRow-Container {
+  margin-bottom: 1rem;
+}
+
+.IngredientRow-Form {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+}

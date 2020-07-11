@@ -1,28 +1,42 @@
 import React, { useState, useRef } from "react";
 import "./AddRecipe.css";
 import EditableText from "../modules/EditableText";
+import IngredientsTable from "../modules/IngredientsTable";
 
 const AddRecipe = () => {
   const inputRef = useRef();
 
   const handleChange = (event) => {
-    setText(event.target.value);
+    setTitleText(event.target.value);
   };
-  const [text, setText] = useState("Title");
+  const [titleText, setTitleText] = useState("");
+
+  const [ingredientsTableText, setIngredientsTableText] = useState([
+    ["", ""],
+    ["", ""],
+  ]);
 
   return (
     <div className="AddRecipe-Container">
       <div className="AddRecipe-RecipeHeader">
-        <EditableText divClassName={"AddRecipe-RecipeHeader-Title"} text={text} childRef={inputRef}>
+        <EditableText
+          divClassName={"AddRecipe-RecipeHeader-Title"}
+          text={titleText}
+          childRef={inputRef}
+          placeholder={"Title"}
+        >
           <input
             className={"AddRecipe-RecipeHeader-Title"}
             ref={inputRef}
-            value={text}
+            value={titleText}
             onChange={handleChange}
+            placeholder={"Title"}
           />
         </EditableText>
       </div>
-      <div className="AddRecipe-RecipeBody"></div>
+      <div className="AddRecipe-RecipeBody">
+        <IngredientsTable tableText={ingredientsTableText} setTableText={setIngredientsTableText} />
+      </div>
     </div>
   );
 };
