@@ -32,7 +32,8 @@
 }
 
 body,
-input {
+input,
+textarea {
   margin: 0;
   padding: 0;
   font-family: "Questrial", sans-serif;
