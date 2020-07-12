@@ -3,7 +3,7 @@ import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
 
 const IngredientsTable = ({ setTableText, tableText }) => {
-  const defaultRowCells = [
+  const defaultRowCells = () => [
     {
       placeholder: "Amount",
       divClassName: "IngredientRow-Cell-Amount",
@@ -22,22 +22,22 @@ const IngredientsTable = ({ setTableText, tableText }) => {
     },
   ];
 
-  return (
-    <div>
-      <IngredientRow
-        rowCells={[...defaultRowCells]}
-        setTableText={setTableText}
-        tableText={tableText}
-        rowNumber={0}
-      />
-      <IngredientRow
-        rowCells={[...defaultRowCells]}
-        setTableText={setTableText}
-        tableText={tableText}
-        rowNumber={1}
-      />
-    </div>
-  );
+  console.log(tableText);
+
+  const ingredientsRow = tableText.map((row, i) => {
+    return (
+      <div key={`row-${i}`}>
+        <IngredientRow
+          rowCells={defaultRowCells()}
+          setTableText={setTableText}
+          tableText={tableText}
+          rowNumber={i}
+        />
+      </div>
+    );
+  });
+
+  return <div>{ingredientsRow}</div>;
 };
 
 export default IngredientsTable;

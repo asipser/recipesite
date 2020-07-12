@@ -7,8 +7,12 @@ const IngredientRow = ({ rowNumber, rowCells, setTableText, tableText }) => {
     const inputRef = useRef();
 
     const handleChange = (event) => {
-      const tableTextCopy = [...tableText];
+      const tableTextCopy = tableText.map((row) => {
+        return row.slice();
+      });
       tableTextCopy[rowNumber][colNumber] = event.target.value;
+      console.log("table text these nuts");
+      console.log(tableTextCopy);
       setTableText(tableTextCopy);
     };
 
