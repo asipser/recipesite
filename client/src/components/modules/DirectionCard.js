@@ -3,7 +3,7 @@ import "./DirectionCard.css";
 import EditableText from "./EditableText";
 import AutosizeInput from "react-input-autosize";
 
-const DirectionCard = ({ setActiveDirection, isActive }) => {
+const DirectionCard = ({ setActiveDirection, isActive, directionNumber }) => {
   const textareaRef = useRef();
   const titleRef = useRef();
   const divClassName = "DirectionCard-Body-Text";
@@ -11,13 +11,18 @@ const DirectionCard = ({ setActiveDirection, isActive }) => {
   const [direction, setDirection] = useState("");
 
   return (
-    <div className="DirectionCard-Container" onClick={setActiveDirection}>
+    <div className="DirectionCard-Container" onClick={() => setActiveDirection(directionNumber)}>
       <div className={`DirectionCard-Header ${isActive && "DirectionCard-Active"}`}>
-        <EditableText text={directionTitle} childRef={titleRef} placeholder={"Title"}>
+        <EditableText
+          startComplete={false}
+          text={directionTitle}
+          childRef={titleRef}
+          placeholder={`Step ${directionNumber}`}
+        >
           <AutosizeInput
             ref={titleRef}
             inputStyle={{ fontSize: "1.2rem" }}
-            placeholder={"Title"}
+            placeholder={`Step ${directionNumber}`}
             value={directionTitle}
             onClick={(e) => e.stopPropagation()}
             onChange={(e) => setDirectionTitle(e.target.value)}
@@ -30,7 +35,7 @@ const DirectionCard = ({ setActiveDirection, isActive }) => {
             divClassName={"DirectionCard-Body-Text"}
             text={direction}
             childRef={textareaRef}
-            placeholder={"Direction here..."}
+            placeholder={`Step ${directionNumber} contents here.`}
           >
             <textarea
               className={divClassName}
@@ -38,7 +43,7 @@ const DirectionCard = ({ setActiveDirection, isActive }) => {
               value={direction}
               onClick={(e) => e.stopPropagation()}
               onChange={(e) => setDirection(e.target.value)}
-              placeholder={"Direction here..."}
+              placeholder={`Step ${directionNumber} contents here.`}
             />
           </EditableText>
         </div>

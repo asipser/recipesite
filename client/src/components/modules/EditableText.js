@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./EditableText.css";
 
-const EditableText = ({ placeholder, text, childRef, children, divClassName }) => {
-  const [isEditing, setIsEditing] = useState(true);
+const EditableText = ({ placeholder, text, childRef, children, divClassName, startComplete }) => {
+  // let users specify if they want it to not be in editing mode
+  const [isEditing, setIsEditing] = useState(startComplete != undefined ? startComplete : true);
 
   const handleOnBlur = () => {
     if (text) {

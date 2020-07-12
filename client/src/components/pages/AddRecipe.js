@@ -25,12 +25,12 @@ const AddRecipe = () => {
           divClassName={"AddRecipe-RecipeHeader-Title"}
           text={titleText}
           childRef={inputRef}
-          placeholder={"Title"}
+          placeholder={"Recipe Name"}
         >
           <AutosizeInput
             inputClassName={"AddRecipe-RecipeHeader-Title"}
             ref={inputRef}
-            placeholder={"Title"}
+            placeholder={"Recipe Name"}
             value={titleText}
             onChange={handleChange}
           />
