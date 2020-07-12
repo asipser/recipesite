@@ -3,8 +3,9 @@
   flex-direction: column;
   font-size: 1.1rem;
   line-height: 1.1rem;
-  width: 20%;
+  width: 11rem;
   user-select: none;
+  margin-left: 1rem;
 }
 
 .IngredientsManager-Ingredient {
@@ -13,4 +14,10 @@
 
 .IngredientsManager-Ingredient-selected {
   color: #0984e3;
+}
+
+.IngredientsManager-Ingredient-header {
+  font-size: 1.5rem;
+  margin-left: -1rem;
+  margin-bottom: 0.5rem;
 }

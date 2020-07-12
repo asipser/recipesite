@@ -26,28 +26,34 @@ const IngredientsManager = ({
     }
   };
 
-  return (
-    <div className={"IngredientsManager-Ingredient-container"}>
-      {allIngredients.map((ingredient, i) => {
-        console.log(
-          ingredient,
-          i,
-          directionIngredients,
-          selectedDirectionNumber,
-          directionIngredients[selectedDirectionNumber]
-        );
-        let ingredientClassName = "";
-        if (selectedDirectionNumber != -1) {
-          ingredientClassName += "IngredientsManager-Ingredient";
-          if (directionIngredients[selectedDirectionNumber].includes(i)) {
-            ingredientClassName += " IngredientsManager-Ingredient-selected";
-          }
-        }
+  const renderSelectedIngredients = () => {
+    if (selectedDirectionNumber == -1) return;
 
+    return directionIngredients[selectedDirectionNumber].map((ingredientIndex) => (
+      <div
+        key={`selected-ingredient-${ingredientIndex}`}
+        className="IngredientsManager-Ingredient IngredientsManager-Ingredient-selected"
+        onClick={() => {
+          toggleIngredient(ingredientIndex);
+        }}
+      >
+        {allIngredients[ingredientIndex]}
+      </div>
+    ));
+  };
+
+  const renderRemainderIngredients = () => {
+    const ingredientsClassName =
+      selectedDirectionNumber != -1 ? "IngredientsManager-Ingredient" : 0;
+    return allIngredients.map((ingredient, i) => {
+      if (
+        selectedDirectionNumber == -1 ||
+        !directionIngredients[selectedDirectionNumber].includes(i)
+      ) {
         return (
           <div
             key={`${ingredient}-${i}`}
-            className={ingredientClassName}
+            className={ingredientsClassName}
             onClick={() => {
               toggleIngredient(i);
             }}
@@ -55,7 +61,15 @@ const IngredientsManager = ({
             {ingredient}
           </div>
         );
-      })}
+      }
+    });
+  };
+
+  return (
+    <div className={"IngredientsManager-Ingredient-container"}>
+      <div className="IngredientsManager-Ingredient-header">Ingredients:</div>
+      {renderSelectedIngredients()}
+      {renderRemainderIngredients()}
     </div>
   );
 };
