@@ -3,6 +3,7 @@ import "./AddRecipe.css";
 import EditableText from "../modules/EditableText";
 import IngredientsTable from "../modules/IngredientsTable";
 import DirectionAdder from "../modules/DirectionAdder";
+import AutosizeInput from "react-input-autosize";
 
 const AddRecipe = () => {
   const inputRef = useRef();
@@ -43,12 +44,12 @@ const AddRecipe = () => {
           childRef={inputRef}
           placeholder={"Title"}
         >
-          <input
-            className={"AddRecipe-RecipeHeader-Title"}
+          <AutosizeInput
+            inputClassName={"AddRecipe-RecipeHeader-Title"}
             ref={inputRef}
+            placeholder={"Title"}
             value={titleText}
             onChange={handleChange}
-            placeholder={"Title"}
           />
         </EditableText>
       </div>

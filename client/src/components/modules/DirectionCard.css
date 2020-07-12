@@ -1,0 +1,63 @@
+.DirectionCard-Container {
+  user-select: none;
+  width: 30rem;
+  min-height: 12rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.DirectionCard-Header {
+  width: 100%;
+  height: 1.5rem;
+  font-size: 1.2rem;
+  padding: 5px 0px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.125);
+  text-align: center;
+}
+
+.DirectionCard-Body {
+  width: 100%;
+  min-height: 10.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.DirectionCard-Body-Text-Wrapper {
+  height: 90%;
+  width: 90%;
+  /* border: 0.5px solid rgba(128, 128, 128, 0.431); */
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.DirectionCard-Body-Text {
+  height: 100%;
+  width: 100%;
+  margin: 5px;
+}
+
+.DirectionCard-Body-Text:first-letter {
+  font-size: 1.1rem;
+}
+
+.DirectionCard-Footer {
+  height: 1.5rem;
+  font-size: 1.2rem;
+  padding: 5px 0px;
+  border-top: 0.5px solid gray;
+  text-align: center;
+}
+
+.DirectionCard-Active {
+  background-color: #0985e35e;
+}
