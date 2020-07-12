@@ -23,7 +23,12 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
   };
 
   useEffect(() => {
-    console.log(rowCells);
+    if (refs[0] && refs[0].current) {
+      refs[0].current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
     let rowFilled = true;
     for (let i = 0; i < rowCells.length; i++) {
       if (!rowCells[i].filled) {
@@ -35,8 +40,10 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
     }
   }, [rowCells]);
 
+  const refs = cellsMetadata.map((met) => useRef());
+
   const ingredientRow = cellsMetadata.map(({ placeholder, divClassName }, colNumber) => {
-    const inputRef = useRef();
+    const inputRef = refs[colNumber];
 
     return (
       <div key={`row-${rowNumber}-${colNumber}`}>
