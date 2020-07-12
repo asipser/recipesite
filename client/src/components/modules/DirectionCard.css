@@ -1,12 +1,12 @@
 .DirectionCard-Container {
   user-select: none;
-  width: 25rem;
-  height: 10rem;
-  font-size: 0.75rem;
+  width: 30rem;
+  min-height: 12rem;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
-  border-radius: 2px;
-  border: 1.1px solid black;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -18,29 +18,36 @@
   height: 1.5rem;
   font-size: 1.2rem;
   padding: 5px 0px;
-  border-bottom: 0.5px solid gray;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.125);
   text-align: center;
 }
 
 .DirectionCard-Body {
   width: 100%;
-  height: 100%;
+  min-height: 10.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .DirectionCard-Body-Text-Wrapper {
   height: 90%;
   width: 90%;
-  border: 0.5px solid rgba(128, 128, 128, 0.431);
+  /* border: 0.5px solid rgba(128, 128, 128, 0.431); */
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 .DirectionCard-Body-Text {
   height: 100%;
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
+  margin: 5px;
+}
+
+.DirectionCard-Body-Text:first-letter {
+  font-size: 1.1rem;
 }
 
 .DirectionCard-Footer {
