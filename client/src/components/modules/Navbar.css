@@ -1,0 +1,25 @@
+.Navbar-Container {
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #0985e387;
+}
+
+.Navbar-TitleText {
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.Navbar-Title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-ActionsContainer {
+  align-items: center;
+}
+
+.Navbar-Link {
+  font-size: 20px !important;
+}

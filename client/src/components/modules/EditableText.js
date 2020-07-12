@@ -8,8 +8,10 @@ const EditableText = ({
   children,
   divClassName,
   onFinishedEditing,
+  startComplete,
 }) => {
-  const [isEditing, setIsEditing] = useState(true);
+  // let users specify if they want it to not be in editing mode
+  const [isEditing, setIsEditing] = useState(startComplete != undefined ? startComplete : true);
 
   const handleOnBlur = () => {
     if (text) {
@@ -35,7 +37,7 @@ const EditableText = ({
   }, [isEditing, childRef]);
 
   useEffect(() => {
-    if (!isEditing) {
+    if (!isEditing && onFinishedEditing) {
       onFinishedEditing();
     }
   }, [isEditing]);

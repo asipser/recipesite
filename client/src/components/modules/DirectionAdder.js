@@ -36,7 +36,8 @@ const DirectionAdder = () => {
           <DirectionCard
             key={`DirectionCard-${i}`}
             isActive={i == selectedDirectionNumber}
-            setActiveDirection={() => setActiveDirection(i)}
+            directionNumber={i}
+            setActiveDirection={setActiveDirection}
           />
         ))}
       </div>
