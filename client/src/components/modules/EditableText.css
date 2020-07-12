@@ -1,3 +1,8 @@
-.EditableText-hover:hover {
-  border: 1px gray solid;
+.EditableText:hover {
+  border: 1px rgba(128, 128, 128, 0.479) solid;
+}
+
+.EditableText {
+  box-sizing: border-box;
+  display: inline-block;
 }

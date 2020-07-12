@@ -18,7 +18,8 @@ const EditableText = ({ placeholder, text, childRef, children, divClassName }) =
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
     setIsEditing(true);
   };
 
@@ -36,7 +37,7 @@ const EditableText = ({ placeholder, text, childRef, children, divClassName }) =
     );
   } else {
     return (
-      <div className={`${divClassName} EditableText-hover`} onClick={handleClick}>
+      <div className={`${divClassName} EditableText`} onClick={handleClick}>
         {text ? text : placeholder}
       </div>
     );

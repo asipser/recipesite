@@ -40,6 +40,12 @@ textarea {
   font-weight: 300;
 }
 
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+}
+
 .u-flex {
   display: flex;
 }

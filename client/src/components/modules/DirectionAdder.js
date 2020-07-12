@@ -11,8 +11,17 @@ const DirectionAdder = () => {
     "1 pound beef",
   ]);
 
-  const [directionIngredients, setDirectionIngredients] = useState([[1], [0, 1, 2]]);
-  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(0);
+  const [directionIngredients, setDirectionIngredients] = useState([[], []]);
+  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
+  const [directions, setDirections] = useState([{}, {}]);
+
+  const setActiveDirection = (directionNumber) => {
+    if (directionNumber == selectedDirectionNumber) {
+      setSelectedDirectionNumber(-1);
+    } else {
+      setSelectedDirectionNumber(directionNumber);
+    }
+  };
 
   return (
     <div className="DirectionAdder-container">
@@ -23,7 +32,13 @@ const DirectionAdder = () => {
         selectedDirectionNumber={selectedDirectionNumber}
       />
       <div className="DirectionAdder-directions-container">
-        <DirectionCard />
+        {directions.map((_, i) => (
+          <DirectionCard
+            key={`DirectionCard-${i}`}
+            isActive={i == selectedDirectionNumber}
+            setActiveDirection={() => setActiveDirection(i)}
+          />
+        ))}
       </div>
     </div>
   );

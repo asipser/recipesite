@@ -8,6 +8,7 @@
 .AddRecipe-RecipeHeader {
   padding: 1rem;
   height: 3rem;
+  text-align: center;
 }
 
 .AddRecipe-RecipeBody {
