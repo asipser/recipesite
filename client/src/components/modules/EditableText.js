@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./EditableText.css";
 
-const EditableText = ({ placeholder, text, childRef, children, divClassName }) => {
+const EditableText = ({
+  placeholder,
+  text,
+  childRef,
+  children,
+  divClassName,
+  onFinishedEditing,
+}) => {
   const [isEditing, setIsEditing] = useState(true);
 
   const handleOnBlur = () => {
     if (text) {
-      console.log("no text bitch");
-      console.log(text);
       setIsEditing(false);
     }
   };
@@ -28,6 +33,12 @@ const EditableText = ({ placeholder, text, childRef, children, divClassName }) =
       childRef.current.focus();
     }
   }, [isEditing, childRef]);
+
+  useEffect(() => {
+    if (!isEditing) {
+      onFinishedEditing();
+    }
+  }, [isEditing]);
 
   if (isEditing) {
     return (

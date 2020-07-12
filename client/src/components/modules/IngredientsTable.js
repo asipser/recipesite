@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
 
-const IngredientsTable = ({ setTableText, tableText }) => {
+const IngredientsTable = ({}) => {
   const defaultRowCells = () => [
     {
       placeholder: "Amount",
@@ -22,16 +22,34 @@ const IngredientsTable = ({ setTableText, tableText }) => {
     },
   ];
 
-  console.log(tableText);
+  const [rows, setRows] = useState([{ filled: false }]);
 
-  const ingredientsRow = tableText.map((row, i) => {
+  const handleFilledRow = (rowNumber) => {
+    const rowsCopy = [...rows];
+    rowsCopy[rowNumber].filled = true;
+    setRows(rowsCopy);
+  };
+
+  useEffect(() => {
+    let tableFilled = true;
+    console.log(rows);
+    for (let i = 0; i < rows.length; i++) {
+      if (!rows[i].filled) {
+        tableFilled = false;
+      }
+    }
+    if (tableFilled) {
+      setRows([...rows, { filled: false }]);
+    }
+  }, [rows]);
+
+  const ingredientsRow = rows.map((row, i) => {
     return (
       <div key={`row-${i}`}>
         <IngredientRow
-          rowCells={defaultRowCells()}
-          setTableText={setTableText}
-          tableText={tableText}
+          cellsMetadata={defaultRowCells()}
           rowNumber={i}
+          onFilledRow={() => handleFilledRow(i)}
         />
       </div>
     );

@@ -15,26 +15,6 @@ const AddRecipe = () => {
 
   const getNewRow = () => ["", "", "", ""];
 
-  const [ingredientsTableText, setIngredientsTableText] = useState([getNewRow()]);
-
-  const setTableAndAddRow = (newTable) => {
-    console.log(newTable);
-    let isTableFilled = true;
-    for (let rowNumber = 0; rowNumber < newTable.length; rowNumber++) {
-      for (let colNumber = 0; colNumber < newTable[rowNumber].length; colNumber++) {
-        if (ingredientsTableText[rowNumber][colNumber] === "") {
-          isTableFilled = false;
-        }
-      }
-    }
-
-    if (isTableFilled) {
-      setIngredientsTableText([...newTable, getNewRow()]);
-    } else {
-      setIngredientsTableText([...newTable]);
-    }
-  };
-
   return (
     <div className="AddRecipe-Container">
       <div className="AddRecipe-RecipeHeader">
@@ -54,7 +34,7 @@ const AddRecipe = () => {
         </EditableText>
       </div>
       <div className="AddRecipe-RecipeBody">
-        <IngredientsTable tableText={ingredientsTableText} setTableText={setTableAndAddRow} />
+        <IngredientsTable />
       </div>
     </div>
   );
