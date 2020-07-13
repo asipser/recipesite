@@ -3,7 +3,7 @@ import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
 
 const IngredientsTable = ({}) => {
-  const defaultRowCells = () => [
+  const getRowCellsMetadata = () => [
     {
       placeholder: "Amount",
       divClassName: "IngredientRow-Cell-Amount",
@@ -22,11 +22,20 @@ const IngredientsTable = ({}) => {
     },
   ];
 
-  const [rows, setRows] = useState([{ filled: false }]);
+  const getInitialRowState = () => ({
+    amount: "",
+    unit: "",
+    item: "",
+    store: "",
+    checkPantry: false,
+    filled: false,
+  });
 
-  const handleFilledRow = (rowNumber) => {
+  const [rows, setRows] = useState([getInitialRowState()]);
+
+  const handleFilledRow = (row, rowNumber) => {
     const rowsCopy = [...rows];
-    rowsCopy[rowNumber].filled = true;
+    rowsCopy[rowNumber] = { ...row, filled: true };
     setRows(rowsCopy);
   };
 
@@ -39,7 +48,7 @@ const IngredientsTable = ({}) => {
       }
     }
     if (tableFilled) {
-      setRows([...rows, { filled: false }]);
+      setRows([...rows, getInitialRowState()]);
     }
   }, [rows]);
 
@@ -47,9 +56,9 @@ const IngredientsTable = ({}) => {
     return (
       <div key={`row-${i}`}>
         <IngredientRow
-          cellsMetadata={defaultRowCells()}
+          cellsMetadata={getRowCellsMetadata()}
           rowNumber={i}
-          onFilledRow={() => handleFilledRow(i)}
+          onFilledRow={(row) => handleFilledRow(row, i)}
         />
       </div>
     );

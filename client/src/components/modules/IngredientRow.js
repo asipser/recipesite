@@ -9,11 +9,16 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
   });
 
   const [rowCells, setRowCells] = useState(cellsMetadata.map((cellMetadata) => defaultCell()));
+  const [checkPantry, setCheckPantry] = useState(false);
 
   const handleChange = (colNumber, event) => {
     const rowCellsCopy = [...rowCells];
     rowCellsCopy[colNumber].text = event.target.value;
     setRowCells(rowCellsCopy);
+  };
+
+  const handleCheckbox = (e) => {
+    setCheckPantry(!checkPantry);
   };
 
   const handleOnEditCell = (colNumber) => {
@@ -23,9 +28,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
   };
 
   useEffect(() => {
-    if (refs[0] && refs[0].current) {
-      refs[0].current.focus();
-    }
+    document.getElementById(`input-${rowNumber}-${0}`).focus();
   }, []);
 
   useEffect(() => {
@@ -36,17 +39,20 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
       }
     }
     if (rowFilled) {
-      onFilledRow();
+      onFilledRow({
+        amount: rowCells[0].text,
+        unit: rowCells[1].text,
+        item: rowCells[2].text,
+        store: rowCells[3].text,
+        checkPantry: checkPantry,
+      });
     }
-  }, [rowCells]);
-
-  const refs = cellsMetadata.map((met) => useRef());
+  }, [rowCells, checkPantry]);
 
   const ingredientRow = cellsMetadata.map(({ placeholder, divClassName }, colNumber) => {
-    const inputRef = refs[colNumber];
-
+    const inputRef = useRef();
     return (
-      <div key={`row-${rowNumber}-${colNumber}`}>
+      <div key={`cell-${rowNumber}-${colNumber}`}>
         <EditableText
           divClassName={divClassName}
           text={rowCells[colNumber].text}
@@ -57,6 +63,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
           <input
             className={divClassName}
             ref={inputRef}
+            id={`input-${rowNumber}-${colNumber}`}
             value={rowCells[colNumber].text}
             onChange={(event) => handleChange(colNumber, event)}
             placeholder={placeholder}
@@ -68,7 +75,11 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
 
   return (
     <div className={"IngredientRow-Container"}>
-      <form className={"IngredientRow-Form"}>{ingredientRow}</form>
+      <form className={"IngredientRow-Form"}>
+        {ingredientRow}
+        <input type={"checkbox"} onClick={handleCheckbox} />
+        <label>CheckPantry</label>
+      </form>
     </div>
   );
 };
