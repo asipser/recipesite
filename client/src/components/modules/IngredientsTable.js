@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
 
-const IngredientsTable = ({}) => {
+const IngredientsTable = ({ rows, setRows }) => {
   const getRowCellsMetadata = () => [
     {
       placeholder: "Amount",
@@ -30,8 +30,6 @@ const IngredientsTable = ({}) => {
     checkPantry: false,
     filled: false,
   });
-
-  const [rows, setRows] = useState([getInitialRowState()]);
 
   const handleFilledRow = (row, rowNumber) => {
     const rowsCopy = [...rows];
@@ -64,7 +62,7 @@ const IngredientsTable = ({}) => {
     );
   });
 
-  return <div>{ingredientsRow}</div>;
+  return <>{ingredientsRow}</>;
 };
 
 export default IngredientsTable;

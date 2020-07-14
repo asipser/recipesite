@@ -7,7 +7,7 @@ const Navbar = (props) => {
   return (
     <div className="u-flex Navbar-Container">
       <div className="Navbar-Title" onClick={() => navigate("/")}>
-        <img height="48px" width="auto" src={Icon} />
+        <img height="64px" width="auto" src={Icon} />
 
         <span className="Navbar-TitleText">Mister Chef</span>
       </div>

@@ -54,14 +54,14 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
     return (
       <div key={`cell-${rowNumber}-${colNumber}`}>
         <EditableText
-          divClassName={divClassName}
+          divClassName={`${divClassName} IngredientRow-Cell`}
           text={rowCells[colNumber].text}
           childRef={inputRef}
           placeholder={placeholder}
           onFinishedEditing={() => handleOnEditCell(colNumber)}
         >
           <input
-            className={divClassName}
+            className={"IngredientRow-Input"}
             ref={inputRef}
             id={`input-${rowNumber}-${colNumber}`}
             value={rowCells[colNumber].text}
@@ -77,8 +77,14 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
     <div className={"IngredientRow-Container"}>
       <form className={"IngredientRow-Form"}>
         {ingredientRow}
-        <input type={"checkbox"} onClick={handleCheckbox} />
-        <label>CheckPantry</label>
+        <div style={{ marginRight: "8px" }}>Check Pantry:</div>
+        <div>
+          <input
+            style={{ width: "18px", height: "100%" }}
+            type={"checkbox"}
+            onClick={handleCheckbox}
+          />
+        </div>
       </form>
     </div>
   );

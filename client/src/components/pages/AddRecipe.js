@@ -4,16 +4,21 @@ import EditableText from "../modules/EditableText";
 import IngredientsTable from "../modules/IngredientsTable";
 import DirectionAdder from "../modules/DirectionAdder";
 import AutosizeInput from "react-input-autosize";
+import RecipeProgression from "./RecipeProgression";
 
 const AddRecipe = () => {
   const inputRef = useRef();
-
   const handleChange = (event) => {
     setTitleText(event.target.value);
   };
-  const [titleText, setTitleText] = useState("");
 
-  const getNewRow = () => ["", "", "", ""];
+  const [titleText, setTitleText] = useState("");
+  const [rows, setRows] = useState([{}]);
+
+  const [createMode, setCreateMode] = useState("ingredients");
+  const getFilledRows = () => {
+    return rows.filter((row) => row.filled);
+  };
 
   return (
     <div className="AddRecipe-Container">
@@ -34,7 +39,15 @@ const AddRecipe = () => {
         </EditableText>
       </div>
       <div className="AddRecipe-RecipeBody">
-        <IngredientsTable />
+        {createMode == "ingredients" && <IngredientsTable setRows={setRows} rows={rows} />}
+        {createMode == "directions" && <DirectionAdder allIngredients={getFilledRows()} />}
+      </div>
+      <div className="AddRecipe-RecipeFooter">
+        <RecipeProgression
+          setProgress={setCreateMode}
+          progress={createMode}
+          onCompletion={() => alert("hello")}
+        />
       </div>
     </div>
   );

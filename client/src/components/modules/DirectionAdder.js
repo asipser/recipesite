@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import IngredientsManager from "./IngredientsManager";
+import IngredientsManager from "./IngredientSelecter";
 
 import "./DirectionAdder.css";
 import DirectionCard from "./DirectionCard";
+import IngredientSelecter from "./IngredientSelecter";
 
-const DirectionAdder = () => {
-  const [allIngredients, setAllIngredients] = useState([
-    "5 cups cheese",
-    "2 cups oil",
-    "1 pound beef",
-  ]);
-
-  const [directionIngredients, setDirectionIngredients] = useState([[], []]);
+const DirectionAdder = ({ allIngredients }) => {
+  const [directionIngredients, setDirectionIngredients] = useState([[]]);
   const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
-  const [directions, setDirections] = useState([{}, {}]);
+  const [directions, setDirections] = useState([{ title: "", time: 0, contents: "" }]);
 
   const setActiveDirection = (directionNumber) => {
     if (directionNumber == selectedDirectionNumber) {
@@ -23,9 +18,20 @@ const DirectionAdder = () => {
     }
   };
 
+  const updateDirection = (directionNumber, directionObj) => {
+    const directionsCopy = [...directions];
+    directionsCopy[directionNumber] = directionObj;
+    setDirections(directionsCopy);
+  };
+
+  const addDirection = () => {
+    setDirections([...directions, {}]);
+    setDirectionIngredients([...directionIngredients, []]);
+  };
+
   return (
     <div className="DirectionAdder-container">
-      <IngredientsManager
+      <IngredientSelecter
         allIngredients={allIngredients}
         directionIngredients={directionIngredients}
         setDirectionIngredients={setDirectionIngredients}
@@ -38,8 +44,13 @@ const DirectionAdder = () => {
             isActive={i == selectedDirectionNumber}
             directionNumber={i}
             setActiveDirection={setActiveDirection}
+            updateDirection={updateDirection}
+            direction={directions[i]}
           />
         ))}
+        <div onClick={addDirection} className="DirectionAdder-AddDirection-Button">
+          <span>Add Direction </span>
+        </div>
       </div>
     </div>
   );

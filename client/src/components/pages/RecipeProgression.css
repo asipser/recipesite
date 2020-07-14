@@ -1,0 +1,26 @@
+.RecipeProgression-container > div {
+  cursor: pointer;
+  background-color: #fdcb6e;
+  border-radius: 50%;
+  line-height: 8rem;
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+  user-select: none;
+}
+
+.RecipeProgression-container > div:hover {
+  background-color: #dfb361;
+}
+
+.RecipeProgression-container > :first-child {
+  margin-right: 2rem;
+}
+
+.RecipeProgression-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}

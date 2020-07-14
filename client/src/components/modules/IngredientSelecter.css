@@ -1,4 +1,4 @@
-.IngredientsManager-Ingredient-container {
+.IngredientSelecter-Ingredient-container {
   display: flex;
   flex-direction: column;
   font-size: 1.1rem;
@@ -8,15 +8,15 @@
   margin-left: 1rem;
 }
 
-.IngredientsManager-Ingredient {
+.IngredientSelecter-Ingredient {
   cursor: pointer;
 }
 
-.IngredientsManager-Ingredient-selected {
+.IngredientSelecter-Ingredient-selected {
   color: #0984e3;
 }
 
-.IngredientsManager-Ingredient-header {
+.IngredientSelecter-Ingredient-header {
   font-size: 1.5rem;
   margin-left: -1rem;
   margin-bottom: 0.5rem;

@@ -13,7 +13,11 @@
 }
 
 .AddRecipe-RecipeBody {
-  height: 100%;
+  flex-basis: 50%;
+}
+
+.AddRecipe-RecipeFooter {
+  height: 4rem;
 }
 
 .AddRecipe-RecipeHeader-Title {
