@@ -5,31 +5,28 @@ import "./IngredientSelecter.css";
 
 const IngredientSelecter = ({
   allIngredients,
-  directionIngredients,
-  setDirectionIngredients,
   selectedDirectionNumber,
+  directions,
+  setDirections,
 }) => {
   const toggleIngredient = (ingredientIndex) => {
     if (selectedDirectionNumber != -1) {
-      let newSelectedIngredients = directionIngredients[selectedDirectionNumber];
-      console.log(newSelectedIngredients);
-      if (directionIngredients[selectedDirectionNumber].includes(ingredientIndex)) {
+      let newSelectedIngredients = directions[selectedDirectionNumber].ingredients;
+      if (directions[selectedDirectionNumber].ingredients.includes(ingredientIndex)) {
         newSelectedIngredients = newSelectedIngredients.filter((i) => i != ingredientIndex);
       } else {
         newSelectedIngredients = [...newSelectedIngredients, ingredientIndex];
       }
-      setDirectionIngredients([
-        ...directionIngredients.slice(0, selectedDirectionNumber),
-        newSelectedIngredients,
-        ...directionIngredients.slice(selectedDirectionNumber + 1),
-      ]);
+      const directionsCopy = [...directions];
+      directionsCopy[selectedDirectionNumber].ingredients = newSelectedIngredients;
+      setDirections(directionsCopy);
     }
   };
 
   const renderSelectedIngredients = () => {
     if (selectedDirectionNumber == -1) return;
 
-    return directionIngredients[selectedDirectionNumber].map((ingredientIndex) => (
+    return directions[selectedDirectionNumber].ingredients.map((ingredientIndex) => (
       <div
         key={`selected-ingredient-${ingredientIndex}`}
         className="IngredientSelecter-Ingredient IngredientSelecter-Ingredient-selected"
@@ -48,7 +45,7 @@ const IngredientSelecter = ({
     return allIngredients.map((ingredient, i) => {
       if (
         selectedDirectionNumber == -1 ||
-        !directionIngredients[selectedDirectionNumber].includes(i)
+        !directions[selectedDirectionNumber].ingredients.includes(i)
       ) {
         return (
           <div
