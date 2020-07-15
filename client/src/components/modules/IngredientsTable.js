@@ -39,7 +39,6 @@ const IngredientsTable = ({ rows, setRows }) => {
 
   useEffect(() => {
     let tableFilled = true;
-    console.log(rows);
     for (let i = 0; i < rows.length; i++) {
       if (!rows[i].filled) {
         tableFilled = false;

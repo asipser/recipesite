@@ -5,11 +5,13 @@ import "./DirectionAdder.css";
 import DirectionCard from "./DirectionCard";
 import IngredientSelecter from "./IngredientSelecter";
 
-const DirectionAdder = ({ allIngredients }) => {
-  const [directionIngredients, setDirectionIngredients] = useState([[]]);
-  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
-  const [directions, setDirections] = useState([{ title: "", time: 0, contents: "" }]);
-
+const DirectionAdder = ({
+  allIngredients,
+  selectedDirectionNumber,
+  setSelectedDirectionNumber,
+  directions,
+  setDirections,
+}) => {
   const setActiveDirection = (directionNumber) => {
     if (directionNumber == selectedDirectionNumber) {
       setSelectedDirectionNumber(-1);
@@ -25,17 +27,13 @@ const DirectionAdder = ({ allIngredients }) => {
   };
 
   const addDirection = () => {
-    setDirections([...directions, {}]);
-    setDirectionIngredients([...directionIngredients, []]);
+    setDirections([...directions, { title: "", time: 0, contents: "", ingredients: [] }]);
   };
 
   return (
     <div className="DirectionAdder-container">
       <IngredientSelecter
-        allIngredients={allIngredients}
-        directionIngredients={directionIngredients}
-        setDirectionIngredients={setDirectionIngredients}
-        selectedDirectionNumber={selectedDirectionNumber}
+        {...{ directions, setDirections, selectedDirectionNumber, allIngredients }}
       />
       <div className="DirectionAdder-directions-container">
         {directions.map((_, i) => (

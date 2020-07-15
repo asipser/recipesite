@@ -15,7 +15,14 @@ const AddRecipe = () => {
   const [titleText, setTitleText] = useState("");
   const [rows, setRows] = useState([{}]);
 
+  //adding ingredients ("ingredients") or adding directions ("directions")
   const [createMode, setCreateMode] = useState("ingredients");
+
+  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
+  const [directions, setDirections] = useState([
+    { title: "", time: 0, contents: "", ingredients: [] },
+  ]);
+
   const getFilledRows = () => {
     return rows.filter((row) => row.filled);
   };
@@ -40,7 +47,17 @@ const AddRecipe = () => {
       </div>
       <div className="AddRecipe-RecipeBody">
         {createMode == "ingredients" && <IngredientsTable setRows={setRows} rows={rows} />}
-        {createMode == "directions" && <DirectionAdder allIngredients={getFilledRows()} />}
+        {createMode == "directions" && (
+          <DirectionAdder
+            allIngredients={getFilledRows()}
+            {...{
+              selectedDirectionNumber,
+              setSelectedDirectionNumber,
+              directions,
+              setDirections,
+            }}
+          />
+        )}
       </div>
       <div className="AddRecipe-RecipeFooter">
         <RecipeProgression
