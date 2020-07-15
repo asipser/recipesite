@@ -37,6 +37,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
   }, []);
 
   useEffect(() => {
+    console.log("something changed in the row...");
     let rowFilled = true;
     for (let i = 0; i < rowCells.length; i++) {
       if (!rowCells[i].filled) {
@@ -87,6 +88,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
           <input
             style={{ width: "18px", height: "100%" }}
             type={"checkbox"}
+            checked={checkPantry}
             onClick={handleCheckbox}
           />
         </div>

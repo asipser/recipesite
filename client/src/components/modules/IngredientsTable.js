@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
-import { _ } from "core-js";
 
 const IngredientsTable = ({ rows, setRows }) => {
   const getRowCellsMetadata = () => [
