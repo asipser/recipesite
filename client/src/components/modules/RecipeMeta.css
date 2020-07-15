@@ -1,5 +1,4 @@
 .RecipeMeta-container {
-  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
@@ -16,4 +15,8 @@
   font-size: 1.5rem;
   display: inline-block;
   margin-right: 1rem;
+}
+
+.RecipeMeta-Input-Text {
+  font-size: 1.2rem;
 }

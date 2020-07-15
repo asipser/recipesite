@@ -5,12 +5,15 @@ import IngredientsTable from "../modules/IngredientsTable";
 import DirectionAdder from "../modules/DirectionAdder";
 import AutosizeInput from "react-input-autosize";
 import RecipeProgression from "./RecipeProgression";
+import RecipeMeta from "../modules/RecipeMeta";
 
 const AddRecipe = () => {
   const inputRef = useRef();
   const handleChange = (event) => {
     setTitleText(event.target.value);
   };
+
+  const [meta, setMeta] = useState({ link: "", servings: 0, time: 0 });
 
   const [titleText, setTitleText] = useState("");
   const [rows, setRows] = useState([]);
@@ -49,7 +52,12 @@ const AddRecipe = () => {
         </EditableText>
       </div>
       <div className="AddRecipe-RecipeBody">
-        {createMode == "ingredients" && <IngredientsTable setRows={setRows} rows={rows} />}
+        {createMode == "ingredients" && (
+          <>
+            <RecipeMeta {...{ meta, setMeta }} />
+            <IngredientsTable setRows={setRows} rows={rows} />
+          </>
+        )}
         {createMode == "directions" && (
           <DirectionAdder
             allIngredients={getFilledRows()}

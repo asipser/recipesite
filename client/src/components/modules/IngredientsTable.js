@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import IngredientRow from "./IngredientRow";
-import "./IngredientRow.css";
+import "./IngredientsTable.css";
 
 const IngredientsTable = ({ rows, setRows }) => {
   const getRowCellsMetadata = () => [
@@ -57,7 +57,7 @@ const IngredientsTable = ({ rows, setRows }) => {
 
   const ingredientsRow = rows.map((row, i) => {
     return (
-      <div key={`row-${i}`}>
+      <div className={"IngredientsTable-container"} key={`row-${i}`}>
         <IngredientRow
           cellsMetadata={getRowCellsMetadata()}
           rowNumber={i}
