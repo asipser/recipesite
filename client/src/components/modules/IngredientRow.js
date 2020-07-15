@@ -26,7 +26,9 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
   const stores = ["trader joe's", "whole's foods"];
   const types = ["produce", "meat", "fish", "baking", "spice", "bread", "dairy", "other"];
 
-  const ingredients = [{ store: "trader joe's", type: "produce", item: "z", checkPantry: true }];
+  const ingredients = [
+    { store: "trader joe's", type: "produce", item: "z", type: "dairy", checkPantry: true },
+  ];
 
   const [cellAmount, setCellAmount] = useState(
     generateRowCell(rowContent.amount, rowContent.filled)
@@ -75,7 +77,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
         <CellItem
           cell={cellItem}
           setCell={setCellItem}
-          {...{ rowNumber, ingredients, setCellStore, setCheckPantry }}
+          {...{ rowNumber, ingredients, setCellStore, setCheckPantry, setCellType }}
         />
         <CellStore cell={cellStore} setCell={setCellStore} rowNumber={rowNumber} stores={stores} />
         <CellType cell={cellType} setCell={setCellType} rowNumber={rowNumber} types={types} />
@@ -156,7 +158,15 @@ const CellUnit = ({ units, rowNumber, cell, setCell }) => {
   );
 };
 
-const CellItem = ({ cell, setCell, rowNumber, ingredients, setCellStore, setCheckPantry }) => {
+const CellItem = ({
+  cell,
+  setCell,
+  rowNumber,
+  ingredients,
+  setCellStore,
+  setCheckPantry,
+  setCellType,
+}) => {
   const placeholder = "Item";
   const inputRef = useRef();
 
@@ -165,6 +175,7 @@ const CellItem = ({ cell, setCell, rowNumber, ingredients, setCellStore, setChec
     console.log(cell, ingredients, filteredIngredients);
     if (filteredIngredients.length == 1) {
       setCellStore({ text: filteredIngredients[0].store, filled: true });
+      setCellType({ text: filteredIngredients[0].type, filled: true });
       setCheckPantry(filteredIngredients[0].checkPantry);
     }
   };
