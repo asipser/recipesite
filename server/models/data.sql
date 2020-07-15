@@ -21,33 +21,50 @@ CREATE TYPE store AS ENUM
 CREATE TYPE quantity_type AS ENUM 
 (
   'cup',
+  'bunch',
+  'can',
+  'teaspoon',
   'tablespoon',
   'gram',
   'pound',
+  'ounce',
+  'gallon',
+  'liter',
+  'quart',
+  'ml'
 );
 
-CREATE TABLE "ingredients" (
-  "name" VARCHAR,
-  "type" ingredient_type,
-  "common" boolean,
-  "preferred_store" store
+CREATE TABLE ingredients (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  type ingredient_type,
+  pantry boolean,
+  preferred_store store
 );
 
-CREATE TABLE "recipe" 
+CREATE TABLE recipes
 (
-  "name" VARCHAR,
-  "original_link" VARCHAR,
-  "servings" FLOAT,
-  "notes" VARCHAR,
-  "time" FLOAT
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  source VARCHAR,
+  servings FLOAT,
+  time FLOAT
 )
 
-
-CREATE TABLE "recipe_ingredient" 
+CREATE TABLE recipe_ingredients 
 (
-  recipe BIGINTEGER,
+  id SERIAL PRIMARY KEY,
+  ingredient INTEGER REFERENCES ingredients(id),
   quantity quantity_type,
   unit FLOAT,
-  ingredients BIGINTEGER
+  recipe INTEGER REFERENCES recipes(id),
+  direction INTEGER REFERENCES recipe_directions(id),
 )
 
+CREATE TABLE recipe_directions 
+(
+  id SERIAL PRIMARY KEY,
+  recipe INTEGER REFERENCES recipes(id),
+  contents VARCHAR,
+  time INTEGER
+)

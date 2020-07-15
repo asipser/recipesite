@@ -8,10 +8,10 @@ const EditableText = ({
   children,
   divClassName,
   onFinishedEditing,
-  startComplete,
+  startEditing, //prop changes if editable text begins in editing mode or not
 }) => {
   // let users specify if they want it to not be in editing mode
-  const [isEditing, setIsEditing] = useState(startComplete != undefined ? startComplete : true);
+  const [isEditing, setIsEditing] = useState(startEditing != undefined ? startEditing : true);
 
   const handleOnBlur = () => {
     if (text) {

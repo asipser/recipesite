@@ -12,13 +12,14 @@ const DirectionCard = ({
 }) => {
   const textareaRef = useRef();
   const titleRef = useRef();
+  const timeRef = useRef();
   const divClassName = "DirectionCard-Body-Text";
 
   return (
     <div className="DirectionCard-Container" onClick={() => setActiveDirection(directionNumber)}>
       <div className={`DirectionCard-Header ${isActive && "DirectionCard-Active"}`}>
         <EditableText
-          startComplete={false}
+          startEditing={false}
           text={direction.title}
           childRef={titleRef}
           placeholder={`Step ${directionNumber}`}
@@ -34,6 +35,27 @@ const DirectionCard = ({
             }
           />
         </EditableText>
+
+        <div>
+          <span>Time (in minutes): </span>
+          <EditableText
+            text={direction.time}
+            childRef={timeRef}
+            placeholder={`Step ${directionNumber}`}
+            divClassName="DirectionCard-Header-Time"
+          >
+            <AutosizeInput
+              ref={timeRef}
+              placeholder={`0`}
+              inputStyle={{ fontSize: "1.2rem" }}
+              value={direction.time}
+              onClick={(e) => e.stopPropagation()}
+              onChange={(e) =>
+                updateDirection(directionNumber, { ...direction, time: e.target.value })
+              }
+            />
+          </EditableText>
+        </div>
       </div>
       <div className="DirectionCard-Body">
         <div className="DirectionCard-Body-Text-Wrapper">
