@@ -2,14 +2,19 @@ import React, { useRef, useState, useEffect } from "react";
 import EditableText from "./EditableText";
 import "./IngredientRow.css";
 
-const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow }) => {
-  const defaultCell = () => ({
-    text: "",
-    filled: false,
-  });
+const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) => {
+  const generateRowCell = (textField, filled) => {
+    return { text: textField, filled: filled || textField };
+  };
 
-  const [rowCells, setRowCells] = useState(cellsMetadata.map((cellMetadata) => defaultCell()));
-  const [checkPantry, setCheckPantry] = useState(false);
+  const [rowCells, setRowCells] = useState([
+    generateRowCell(rowContent.amount, rowContent.filled),
+    generateRowCell(rowContent.unit, rowContent.filled),
+    generateRowCell(rowContent.item, rowContent.filled),
+    generateRowCell(rowContent.store, rowContent.filled),
+  ]);
+
+  const [checkPantry, setCheckPantry] = useState(rowContent.checkPantry);
 
   const handleChange = (colNumber, event) => {
     const rowCellsCopy = [...rowCells];

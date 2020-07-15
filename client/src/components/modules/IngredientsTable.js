@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientRow.css";
+import { _ } from "core-js";
 
 const IngredientsTable = ({ rows, setRows }) => {
   const getRowCellsMetadata = () => [
@@ -38,8 +39,13 @@ const IngredientsTable = ({ rows, setRows }) => {
   };
 
   useEffect(() => {
+    if (!rows) {
+      setRows([getInitialRowState()]);
+    }
+  });
+
+  useEffect(() => {
     let tableFilled = true;
-    console.log(rows);
     for (let i = 0; i < rows.length; i++) {
       if (!rows[i].filled) {
         tableFilled = false;
@@ -57,6 +63,7 @@ const IngredientsTable = ({ rows, setRows }) => {
           cellsMetadata={getRowCellsMetadata()}
           rowNumber={i}
           onFilledRow={(row) => handleFilledRow(row, i)}
+          rowContent={row}
         />
       </div>
     );

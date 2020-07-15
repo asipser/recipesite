@@ -13,7 +13,7 @@ const AddRecipe = () => {
   };
 
   const [titleText, setTitleText] = useState("");
-  const [rows, setRows] = useState([{}]);
+  const [rows, setRows] = useState([]);
 
   const [createMode, setCreateMode] = useState("ingredients");
   const getFilledRows = () => {
