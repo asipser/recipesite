@@ -21,6 +21,10 @@
   width: 9rem;
 }
 
+.IngredientRow-Cell-Type {
+  width: 9rem;
+}
+
 .IngredientRow-Container {
   margin-bottom: 1rem;
 }

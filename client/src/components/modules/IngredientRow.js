@@ -17,18 +17,6 @@ const getAutofill = (options, text) => {
   }
 };
 
-const getCellWithFilled = (cell, filled) => {
-  const newCell = { ...cell };
-  newCell.filled = filled;
-  return newCell;
-};
-
-const getCellWithText = (cell, text) => {
-  const newCell = { ...cell };
-  newCell.text = text;
-  return newCell;
-};
-
 const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) => {
   const generateRowCell = (textField, filled) => {
     return { text: textField, filled: filled || !!textField };
@@ -36,13 +24,19 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
 
   const units = ["cup", "ounce", "pound"];
   const stores = ["trader joe's", "whole's foods"];
+  const types = ["produce", "meat", "fish", "baking", "spice", "bread", "dairy", "other"];
+
+  const ingredients = [{ store: "trader joe's", type: "produce", item: "z", checkPantry: true }];
 
   const [cellAmount, setCellAmount] = useState(
     generateRowCell(rowContent.amount, rowContent.filled)
   );
+
   const [cellUnit, setCellUnit] = useState(generateRowCell(rowContent.unit, rowContent.filled));
   const [cellItem, setCellItem] = useState(generateRowCell(rowContent.item, rowContent.filled));
   const [cellStore, setCellStore] = useState(generateRowCell(rowContent.store, rowContent.filled));
+  const [cellType, setCellType] = useState(generateRowCell(rowContent.type, rowContent.filled));
+
   const [checkPantry, setCheckPantry] = useState(rowContent.checkPantry);
 
   const handleCheckbox = (e) => {
@@ -55,7 +49,7 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
 
   useEffect(() => {
     let rowFilled = true;
-    const rowCells = [cellAmount, cellUnit, cellItem, cellStore];
+    const rowCells = [cellAmount, cellUnit, cellItem, cellStore, cellType];
     for (let i = 0; i < rowCells.length; i++) {
       if (!rowCells[i].filled) {
         rowFilled = false;
@@ -67,18 +61,25 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
         unit: cellUnit.text,
         item: cellItem.text,
         store: cellStore.text,
+        type: cellType.text,
         checkPantry: checkPantry,
       });
     }
-  }, [cellAmount, cellUnit, cellItem, cellStore, checkPantry]);
+  }, [cellAmount, cellUnit, cellItem, cellStore, checkPantry, cellType]);
 
   return (
     <div className={"IngredientRow-Container"}>
       <form className={"IngredientRow-Form"}>
         <CellAmount cell={cellAmount} setCell={setCellAmount} rowNumber={rowNumber} />
         <CellUnit cell={cellUnit} setCell={setCellUnit} rowNumber={rowNumber} units={units} />
-        <CellItem cell={cellItem} setCell={setCellItem} rowNumber={rowNumber} />
+        <CellItem
+          cell={cellItem}
+          setCell={setCellItem}
+          {...{ rowNumber, ingredients, setCellStore, setCheckPantry }}
+        />
         <CellStore cell={cellStore} setCell={setCellStore} rowNumber={rowNumber} stores={stores} />
+        <CellType cell={cellType} setCell={setCellType} rowNumber={rowNumber} types={types} />
+
         <div style={{ marginRight: "8px" }}>Check Pantry:</div>
         <div>
           <input
@@ -96,28 +97,21 @@ const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) =>
 const CellAmount = ({ rowNumber, cell, setCell }) => {
   const placeholder = "Amount";
   const inputRef = useRef();
-  const text = cell.text;
-  const setText = (newText) => {
-    setCell(getCellWithText(cell, newText));
-  };
-  const setFilled = () => {
-    setCell(getCellWithFilled(cell, true));
-  };
   return (
     <EditableText
       divClassName={`IngredientRow-Cell-Amount IngredientRow-Cell`}
-      text={text}
+      text={cell.text}
       childRef={inputRef}
       placeholder={placeholder}
-      onFinishedEditing={setFilled}
+      onFinishedEditing={() => setCell({ ...cell, filled: true })}
     >
       <input
         className={"IngredientRow-Input"}
         type={"number"}
         ref={inputRef}
         id={`input-${rowNumber}-Amount$`}
-        value={text}
-        onChange={(event) => setText(event.target.value)}
+        value={cell.text}
+        onChange={(e) => setCell({ ...cell, text: e.target.value })}
         placeholder={placeholder}
       />
     </EditableText>
@@ -128,9 +122,6 @@ const CellUnit = ({ units, rowNumber, cell, setCell }) => {
   const placeholder = "Unit";
   const inputRef = useRef();
   const text = cell.text;
-  const setText = (newText) => {
-    setCell(getCellWithText(cell, newText));
-  };
   const handleFinishedEditing = () => {
     const newText = getAutofill(units, text);
     setCell({
@@ -142,7 +133,7 @@ const CellUnit = ({ units, rowNumber, cell, setCell }) => {
   return (
     <EditableText
       divClassName={`IngredientRow-Cell-Unit IngredientRow-Cell`}
-      text={text}
+      text={cell.text}
       childRef={inputRef}
       placeholder={placeholder}
       onFinishedEditing={handleFinishedEditing}
@@ -152,8 +143,8 @@ const CellUnit = ({ units, rowNumber, cell, setCell }) => {
         className={"IngredientRow-Input"}
         ref={inputRef}
         id={`input-${rowNumber}-Unit`}
-        value={text}
-        onChange={(event) => setText(event.target.value)}
+        value={cell.text}
+        onChange={(e) => setCell({ ...cell, text: e.target.value })}
         placeholder={placeholder}
       />
       <datalist id={`units-${rowNumber}`}>
@@ -165,30 +156,36 @@ const CellUnit = ({ units, rowNumber, cell, setCell }) => {
   );
 };
 
-const CellItem = ({ cell, setCell, rowNumber }) => {
+const CellItem = ({ cell, setCell, rowNumber, ingredients, setCellStore, setCheckPantry }) => {
   const placeholder = "Item";
   const inputRef = useRef();
-  const text = cell.text;
-  const setText = (newText) => {
-    setCell(getCellWithText(cell, newText));
+
+  const checkForExistingIngredient = () => {
+    const filteredIngredients = ingredients.filter((ingredient) => ingredient.item === cell.text);
+    console.log(cell, ingredients, filteredIngredients);
+    if (filteredIngredients.length == 1) {
+      setCellStore({ text: filteredIngredients[0].store, filled: true });
+      setCheckPantry(filteredIngredients[0].checkPantry);
+    }
   };
-  const setFilled = () => {
-    setCell(getCellWithFilled(cell, true));
-  };
+
   return (
     <EditableText
       divClassName={`IngredientRow-Cell-Item IngredientRow-Cell`}
-      text={text}
+      text={cell.text}
       childRef={inputRef}
       placeholder={placeholder}
-      onFinishedEditing={setFilled}
+      onFinishedEditing={() => {
+        setCell({ ...cell, filled: true });
+        checkForExistingIngredient();
+      }}
     >
       <input
         className={"IngredientRow-Input"}
         ref={inputRef}
         id={`input-${rowNumber}-Item`}
-        value={text}
-        onChange={(event) => setText(event.target.value)}
+        value={cell.text}
+        onChange={(e) => setCell({ ...cell, text: e.target.value })}
         placeholder={placeholder}
       />
     </EditableText>
@@ -199,9 +196,6 @@ const CellStore = ({ cell, setCell, rowNumber, stores }) => {
   const placeholder = "Store";
   const inputRef = useRef();
   const text = cell.text;
-  const setText = (newText) => {
-    setCell(getCellWithText(cell, newText));
-  };
   const handleFinishedEditing = () => {
     const newText = getAutofill(stores, text);
     setCell({
@@ -212,7 +206,7 @@ const CellStore = ({ cell, setCell, rowNumber, stores }) => {
   return (
     <EditableText
       divClassName={`IngredientRow-Cell-Store IngredientRow-Cell`}
-      text={text}
+      text={cell.text}
       childRef={inputRef}
       placeholder={placeholder}
       onFinishedEditing={handleFinishedEditing}
@@ -222,13 +216,51 @@ const CellStore = ({ cell, setCell, rowNumber, stores }) => {
         className={"IngredientRow-Input"}
         ref={inputRef}
         id={`input-${rowNumber}-Store`}
-        value={text}
-        onChange={(event) => setText(event.target.value)}
+        value={cell.text}
+        onChange={(e) => setCell({ ...cell, text: e.target.value })}
         placeholder={placeholder}
       />
       <datalist id={`stores-${rowNumber}`}>
         {stores.map((store) => (
           <option key={`store-${rowNumber}-${store}`} value={store} />
+        ))}
+      </datalist>
+    </EditableText>
+  );
+};
+
+const CellType = ({ cell, setCell, rowNumber, types }) => {
+  const placeholder = "Type";
+  const inputRef = useRef();
+  const text = cell.text;
+  const handleFinishedEditing = () => {
+    const newText = getAutofill(types, text);
+    setCell({
+      text: newText,
+      filled: true,
+    });
+  };
+
+  return (
+    <EditableText
+      divClassName={`IngredientRow-Cell-Type IngredientRow-Cell`}
+      text={cell.text}
+      childRef={inputRef}
+      placeholder={placeholder}
+      onFinishedEditing={handleFinishedEditing}
+    >
+      <input
+        list={`types-${rowNumber}`}
+        className={"IngredientRow-Input"}
+        ref={inputRef}
+        id={`input-${rowNumber}-Type`}
+        value={cell.text}
+        onChange={(e) => setCell({ ...cell, text: e.target.value })}
+        placeholder={placeholder}
+      />
+      <datalist id={`types-${rowNumber}`}>
+        {types.map((type) => (
+          <option key={`type-${rowNumber}-${type}`} value={type} />
         ))}
       </datalist>
     </EditableText>

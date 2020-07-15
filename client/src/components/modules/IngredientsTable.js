@@ -27,6 +27,7 @@ const IngredientsTable = ({ rows, setRows }) => {
     unit: "",
     item: "",
     store: "",
+    type: "",
     checkPantry: false,
     filled: false,
   });
