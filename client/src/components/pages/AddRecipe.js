@@ -18,7 +18,10 @@ const AddRecipe = () => {
   //adding ingredients ("ingredients") or adding directions ("directions")
   const [createMode, setCreateMode] = useState("ingredients");
 
+  // selected direction, so one can add ingredients to it, -1 for no direction selected
   const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
+
+  // list of all recipe directions
   const [directions, setDirections] = useState([
     { title: "", time: 0, contents: "", ingredients: [] },
   ]);
