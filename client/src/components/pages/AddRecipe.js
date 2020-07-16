@@ -8,57 +8,43 @@ import RecipeProgression from "./RecipeProgression";
 import RecipeMeta from "../modules/RecipeMeta";
 
 const AddRecipe = () => {
-  const inputRef = useRef();
-  const handleChange = (event) => {
-    setTitleText(event.target.value);
-  };
-
-  const [meta, setMeta] = useState({ link: "", servings: 0, time: 0 });
-
-  const [titleText, setTitleText] = useState("");
-  const [rows, setRows] = useState([]);
-
   //adding ingredients ("ingredients") or adding directions ("directions")
-  const [createMode, setCreateMode] = useState("ingredients");
+  const [viewMode, setViewMode] = useState("ingredients");
 
-  // selected direction, so one can add ingredients to it, -1 for no direction selected
-  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
+  //list of all meta information regarding the recipe
+  const [meta, setMeta] = useState({ title: "", link: "", servings: 0 });
+
+  //list of all recipe ingredients
+  const [ingredients, setIngredients] = useState([]);
 
   // list of all recipe directions
   const [directions, setDirections] = useState([
     { title: "", time: 0, contents: "", ingredients: [] },
   ]);
 
+  // selected direction, so one can add ingredients to it, -1 for no direction selected
+  const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
+
   const getFilledRows = () => {
-    return rows.filter((row) => row.filled);
+    return ingredients.filter((row) => row.filled);
   };
 
   return (
     <div className="AddRecipe-Container">
       <div className="AddRecipe-RecipeHeader">
-        <EditableText
-          divClassName={"AddRecipe-RecipeHeader-Title"}
-          text={titleText}
-          childRef={inputRef}
-          placeholder={"Recipe Name"}
-        >
-          <AutosizeInput
-            inputClassName={"AddRecipe-RecipeHeader-Title"}
-            ref={inputRef}
-            placeholder={"Recipe Name"}
-            value={titleText}
-            onChange={handleChange}
-          />
-        </EditableText>
+        <RecipeTitleText
+          text={meta.title}
+          setText={(newTitle) => setMeta({ ...meta, title: newTitle })}
+        />
       </div>
       <div className="AddRecipe-RecipeBody">
-        {createMode == "ingredients" && (
+        {viewMode == "ingredients" && (
           <>
             <RecipeMeta {...{ meta, setMeta }} />
-            <IngredientsTable setRows={setRows} rows={rows} />
+            <IngredientsTable setRows={setIngredients} rows={ingredients} />
           </>
         )}
-        {createMode == "directions" && (
+        {viewMode == "directions" && (
           <DirectionAdder
             allIngredients={getFilledRows()}
             {...{
@@ -72,8 +58,8 @@ const AddRecipe = () => {
       </div>
       <div className="AddRecipe-RecipeFooter">
         <RecipeProgression
-          setProgress={setCreateMode}
-          progress={createMode}
+          setProgress={setViewMode}
+          progress={viewMode}
           onCompletion={() => alert("hello")}
         />
       </div>
@@ -82,3 +68,24 @@ const AddRecipe = () => {
 };
 
 export default AddRecipe;
+
+const RecipeTitleText = ({ text, setText }) => {
+  const inputRef = useRef();
+
+  return (
+    <EditableText
+      divClassName={"AddRecipe-RecipeHeader-Title"}
+      text={text}
+      childRef={inputRef}
+      placeholder={"Recipe Name"}
+    >
+      <AutosizeInput
+        inputClassName={"AddRecipe-RecipeHeader-Title"}
+        ref={inputRef}
+        placeholder={"Recipe Name"}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+    </EditableText>
+  );
+};
