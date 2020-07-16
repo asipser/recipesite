@@ -27,7 +27,10 @@ const DirectionAdder = ({
   };
 
   const addDirection = () => {
-    setDirections([...directions, { title: "", time: 0, contents: "", ingredients: [] }]);
+    setDirections([
+      ...directions,
+      { title: `Step ${directions.length}`, time: 0, contents: "", ingredients: [] },
+    ]);
   };
 
   return (

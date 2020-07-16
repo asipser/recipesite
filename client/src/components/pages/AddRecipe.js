@@ -12,15 +12,13 @@ const AddRecipe = () => {
   const [viewMode, setViewMode] = useState("ingredients");
 
   //list of all meta information regarding the recipe
-  const [meta, setMeta] = useState({ title: "", link: "", servings: 0 });
+  const [meta, setMeta] = useState({ title: "", source: "", servings: 0 });
 
   //list of all recipe ingredients
   const [ingredients, setIngredients] = useState([]);
 
   // list of all recipe directions
-  const [directions, setDirections] = useState([
-    { title: "", time: 0, contents: "", ingredients: [] },
-  ]);
+  const [directions, setDirections] = useState([]);
 
   // selected direction, so one can add ingredients to it, -1 for no direction selected
   const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
@@ -60,7 +58,7 @@ const AddRecipe = () => {
         <RecipeProgression
           setProgress={setViewMode}
           progress={viewMode}
-          onCompletion={() => alert("hello")}
+          onCompletion={() => console.log(meta, getFilledRows(), directions)}
         />
       </div>
     </div>

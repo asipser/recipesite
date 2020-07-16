@@ -7,19 +7,11 @@ const RecipeMeta = ({ meta, setMeta }) => {
   return (
     <div className="RecipeMeta-container">
       <RecipeMetaLine
-        labelText={"Enter Source Link"}
-        placeholderText={"Link"}
-        text={meta.link}
+        labelText={"Enter Source"}
+        placeholderText={"Link / Book / Person"}
+        text={meta.source}
         setText={(newText) => {
-          setMeta({ ...meta, link: newText });
-        }}
-      />
-      <RecipeMetaLine
-        labelText={"Cooking time (in minutes)"}
-        placeholderText={"0"}
-        text={meta.time}
-        setText={(newText) => {
-          setMeta({ ...meta, time: newText });
+          setMeta({ ...meta, source: newText });
         }}
       />
       <RecipeMetaLine
