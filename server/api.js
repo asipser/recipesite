@@ -24,6 +24,11 @@ const router = decorateRouter(express.Router());
 // | write your API methods below!|
 // |------------------------------|
 
+router.getAsync("/testdb", async (req, res, next) => {
+  const { rows } = await db.query("select * from ingredients");
+  res.send(rows);
+});
+
 router.getAsync("/example", async (req, res, next) => {
   logger.info("Log Hello World");
   res.send({ hello: "world" });
