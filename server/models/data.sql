@@ -35,8 +35,7 @@ CREATE TYPE quantity_type AS ENUM
 );
 
 CREATE TABLE ingredients (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR,
+  name VARCHAR PRIMARY KEY,
   type ingredient_type,
   pantry boolean,
   preferred_store store
@@ -48,13 +47,12 @@ CREATE TABLE recipes
   name VARCHAR,
   source VARCHAR,
   servings FLOAT,
-  time FLOAT
 )
 
 CREATE TABLE recipe_ingredients 
 (
   id SERIAL PRIMARY KEY,
-  ingredient INTEGER REFERENCES ingredients(id),
+  ingredient VARCHAR REFERENCES ingredients(name),
   quantity quantity_type,
   unit FLOAT,
   recipe INTEGER REFERENCES recipes(id),
@@ -64,6 +62,7 @@ CREATE TABLE recipe_ingredients
 CREATE TABLE recipe_directions 
 (
   id SERIAL PRIMARY KEY,
+  step_number INTEGER,
   recipe INTEGER REFERENCES recipes(id),
   contents VARCHAR,
   time INTEGER
