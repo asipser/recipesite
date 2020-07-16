@@ -17,6 +17,14 @@
   width: 9rem;
 }
 
+.known-ingredient {
+  border: 1.5px #27ae60 solid;
+}
+
+.unknown-ingredient {
+  border: 1.5px #2980b9 solid;
+}
+
 .IngredientRow-Cell-Store {
   width: 9rem;
 }

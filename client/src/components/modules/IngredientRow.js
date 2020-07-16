@@ -169,6 +169,7 @@ const CellItem = ({
 }) => {
   const placeholder = "Item";
   const inputRef = useRef();
+  const [ingredientClassName, setIngredientClassName] = useState("");
 
   const checkForExistingIngredient = () => {
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.item === cell.text);
@@ -177,12 +178,19 @@ const CellItem = ({
       setCellStore({ text: filteredIngredients[0].store, filled: true });
       setCellType({ text: filteredIngredients[0].type, filled: true });
       setCheckPantry(filteredIngredients[0].checkPantry);
+      setIngredientClassName("known-ingredient");
+    } else {
+      if (cell.text == "") {
+        setIngredientClassName("");
+      } else {
+        setIngredientClassName("unknown-ingredient");
+      }
     }
   };
 
   return (
     <EditableText
-      divClassName={`IngredientRow-Cell-Item IngredientRow-Cell`}
+      divClassName={`IngredientRow-Cell-Item IngredientRow-Cell ${ingredientClassName}`}
       text={cell.text}
       childRef={inputRef}
       placeholder={placeholder}
