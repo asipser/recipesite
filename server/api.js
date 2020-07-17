@@ -24,8 +24,10 @@ const router = decorateRouter(express.Router());
 // | write your API methods below!|
 // |------------------------------|
 
-router.getAsync("/testdb", async (req, res, next) => {
+router.getAsync("/ingredients", async (req, res, next) => {
   const { rows } = await db.query("select * from ingredients");
+  // const { rows } = await db.query("select unnest(enum_range(null, null::store))");
+
   res.send(rows);
 });
 

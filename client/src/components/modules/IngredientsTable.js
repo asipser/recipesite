@@ -39,10 +39,18 @@ const IngredientsTable = ({ rows, setRows }) => {
   };
 
   useEffect(() => {
+    fetch("/api/testdb")
+      .then((response) => response.json())
+      .then((body) => {
+        console.log(body);
+      });
+  }, []);
+
+  useEffect(() => {
     if (!rows) {
       setRows([getInitialRowState()]);
     }
-  });
+  }, []);
 
   useEffect(() => {
     let tableFilled = true;
