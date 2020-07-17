@@ -8,6 +8,8 @@ import RecipeProgression from "./RecipeProgression";
 import RecipeMeta from "../modules/RecipeMeta";
 import { get } from "../../utilities";
 
+import { post } from "../../utilities";
+
 const AddRecipe = () => {
   //adding ingredients ("ingredients") or adding directions ("directions")
   const [viewMode, setViewMode] = useState("ingredients");
@@ -33,6 +35,10 @@ const AddRecipe = () => {
 
   const getFilledRows = () => {
     return ingredients.filter((row) => row.filled);
+  };
+
+  const getFilledDirections = () => {
+    return directions.filter((d) => d.contents && d.time && d.title);
   };
 
   useEffect(() => {
@@ -76,7 +82,13 @@ const AddRecipe = () => {
         <RecipeProgression
           setProgress={setViewMode}
           progress={viewMode}
-          onCompletion={() => console.log(meta, getFilledRows(), directions)}
+          onCompletion={() => {
+            post("/api/recipe", {
+              meta,
+              directions: getFilledDirections(),
+              ingredients: getFilledRows(),
+            });
+          }}
         />
       </div>
     </div>

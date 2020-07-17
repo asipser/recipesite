@@ -20,6 +20,8 @@ const { decorateRouter } = require("@awaitjs/express");
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = decorateRouter(express.Router());
 
+const parameterizer = require("pg-parameterize");
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
@@ -66,11 +68,13 @@ const flatten = (listOfLists) => {
   return [].concat.apply([], listOfLists);
 };
 
-router.postAsync("/recipe", async (req, res, next) => {
-  logger.info("Log Hello World");
+router.postAsync("/recipe", async (req, res) => {
   const ingredients = req.body.ingredients;
   const directions = req.body.directions;
   const recipeMeta = req.body.meta;
+  const recipeTitle = recipeMeta.title.toLowerCase();
+  const recipeServings = Number.parseInt(recipeMeta.servings);
+
   const ingredientsWithDirection = flatten(
     directions.map((direction, directionIndex) => {
       return direction.ingredients.map((ingredientIndex) => {
@@ -87,7 +91,66 @@ router.postAsync("/recipe", async (req, res, next) => {
       });
     })
   );
-  res.send({ hello: "world" });
+
+  const insertRecipeSql = `
+      INSERT INTO
+        recipes (name, source, servings) 
+      VALUES
+        ($1, $2, $3)
+    `;
+  const recipeQuery = await db.query(insertRecipeSql, [
+    recipeTitle,
+    recipeMeta.source,
+    recipeServings,
+  ]);
+
+  const ingredientSqlData = ingredients.map((i, num) => [
+    i.item.toLowerCase(), //name
+    i.type.toLowerCase(), //type
+    i.checkPantry, //pantry
+    i.store.toLowerCase(), //store
+  ]);
+
+  const ingredientTuples = parameterizer.toTuple(ingredientSqlData, true);
+  const insertIngredientSql =
+    "INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES" +
+    ingredientTuples +
+    " ON CONFLICT (name) DO NOTHING";
+  const ingredientValues = parameterizer.flatten(ingredientSqlData);
+
+  const ingredientQuery = await db.query(insertIngredientSql, ingredientValues);
+
+  const directionSqlData = directions.map((dir, num) => [
+    recipeTitle, //recipe
+    Number.parseInt(num), //step_number
+    dir.contents, //contents
+    Number.parseInt(dir.time), //time
+  ]);
+  const directionTuples = parameterizer.toTuple(directionSqlData, true);
+  const insertDirectionsSql =
+    "INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES" + directionTuples;
+  const directionValues = parameterizer.flatten(directionSqlData);
+  const directionsQuery = await db.query(insertDirectionsSql, directionValues);
+
+  const recipeIngredientsSqlData = ingredientsWithDirection.map((i) => [
+    Number.parseFloat(i.amount), //amount
+    i.unit.toLowerCase(), //unit
+    i.item.toLowerCase(), //item
+    Number.parseInt(i.directionIndex), //step_number
+    recipeTitle, //recipe
+  ]);
+
+  const recipeIngredientsTuples = parameterizer.toTuple(recipeIngredientsSqlData, true);
+  const insertRecipeIngredientsSql =
+    "INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES" +
+    recipeIngredientsTuples;
+  const recipeIngredientsValues = parameterizer.flatten(recipeIngredientsSqlData);
+  const recipeIngredientsQuery = await db.query(
+    insertRecipeIngredientsSql,
+    recipeIngredientsValues
+  );
+
+  res.send({});
 });
 
 // anything else falls to this "not found" case

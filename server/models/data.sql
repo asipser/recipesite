@@ -31,7 +31,8 @@ CREATE TYPE quantity_type AS ENUM
   'gallon',
   'liter',
   'quart',
-  'ml'
+  'ml', 
+  'unit'
 );
 
 CREATE TABLE ingredients (
@@ -43,27 +44,27 @@ CREATE TABLE ingredients (
 
 CREATE TABLE recipes
 (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR,
+  name VARCHAR PRIMARY KEY,
   source VARCHAR,
-  servings FLOAT,
-)
+  servings FLOAT
+);
 
 CREATE TABLE recipe_ingredients 
 (
   id SERIAL PRIMARY KEY,
   ingredient VARCHAR REFERENCES ingredients(name),
-  quantity quantity_type,
-  unit FLOAT,
-  recipe INTEGER REFERENCES recipes(id),
-  direction INTEGER REFERENCES recipe_directions(id),
-)
+  unit quantity_type,
+  amount FLOAT,
+  recipe VARCHAR REFERENCES recipes(name),
+  step_number INTEGER,
+   FOREIGN KEY (step_number, recipe) REFERENCES recipe_directions (step_number, recipe)
+);
 
 CREATE TABLE recipe_directions 
 (
-  id SERIAL PRIMARY KEY,
   step_number INTEGER,
-  recipe INTEGER REFERENCES recipes(id),
+  recipe VARCHAR REFERENCES recipes(name),
   contents VARCHAR,
-  time INTEGER
-)
+  time INTEGER,
+  PRIMARY KEY(recipe, step_number)
+);

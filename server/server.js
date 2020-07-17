@@ -14,7 +14,7 @@
 */
 
 //get environment variables configured
-require('dotenv').config()
+require("dotenv").config();
 
 //import libraries needed for the webserver to work!
 const http = require("http");
@@ -28,10 +28,8 @@ const session = require("express-session")({
 });
 
 const path = require("path"); // provide utilities for working with file and directory paths
-const { decorateApp } = require("@awaitjs/express");
 
 const api = require("./api");
-
 
 const logger = require("pino")(); // import pino logger
 
@@ -46,7 +44,6 @@ app.use(express.json());
 
 //register express session middleware
 app.use(session);
-
 
 // connect user-defined routes
 app.use("/api", api);
