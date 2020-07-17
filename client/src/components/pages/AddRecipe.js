@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./AddRecipe.css";
 import EditableText from "../modules/EditableText";
 import IngredientsTable from "../modules/IngredientsTable";
@@ -6,6 +6,7 @@ import DirectionAdder from "../modules/DirectionAdder";
 import AutosizeInput from "react-input-autosize";
 import RecipeProgression from "./RecipeProgression";
 import RecipeMeta from "../modules/RecipeMeta";
+import { get } from "../../utilities";
 
 const AddRecipe = () => {
   //adding ingredients ("ingredients") or adding directions ("directions")
@@ -23,9 +24,22 @@ const AddRecipe = () => {
   // selected direction, so one can add ingredients to it, -1 for no direction selected
   const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
 
+  const [ingredientsMeta, setIngredientsMeta] = useState({
+    units: [],
+    stores: [],
+    types: [],
+    ingredients: [],
+  });
+
   const getFilledRows = () => {
     return ingredients.filter((row) => row.filled);
   };
+
+  useEffect(() => {
+    get("/api/ingredients-meta").then(({ units, stores, types, ingredients }) => {
+      setIngredientsMeta({ units, stores, types, ingredients });
+    });
+  }, []);
 
   return (
     <div className="AddRecipe-Container">
@@ -39,7 +53,11 @@ const AddRecipe = () => {
         {viewMode == "ingredients" && (
           <>
             <RecipeMeta {...{ meta, setMeta }} />
-            <IngredientsTable setRows={setIngredients} rows={ingredients} />
+            <IngredientsTable
+              setRows={setIngredients}
+              rows={ingredients}
+              ingredientsMeta={ingredientsMeta}
+            />
           </>
         )}
         {viewMode == "directions" && (

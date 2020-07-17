@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientsTable.css";
 
-const IngredientsTable = ({ rows, setRows }) => {
+const IngredientsTable = ({ rows, setRows, ingredientsMeta }) => {
   const getInitialRowState = () => ({
     amount: "",
     unit: "",
@@ -13,25 +13,11 @@ const IngredientsTable = ({ rows, setRows }) => {
     filled: false,
   });
 
-  const [ingredientsMeta, setIngredientsMeta] = useState({
-    units: [],
-    stores: [],
-    ingredients: [],
-  });
-
   const handleFilledRow = (row, rowNumber) => {
     const rowsCopy = [...rows];
     rowsCopy[rowNumber] = { ...row, filled: true };
     setRows(rowsCopy);
   };
-
-  useEffect(() => {
-    fetch("/api/ingredients-meta")
-      .then((response) => response.json())
-      .then(({ units, stores, ingredients }) => {
-        setIngredientsMeta({ units, stores, ingredients });
-      });
-  }, []);
 
   useEffect(() => {
     if (!rows) {

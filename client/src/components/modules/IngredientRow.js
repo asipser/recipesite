@@ -17,18 +17,12 @@ const getAutofill = (options, text) => {
   }
 };
 
-const IngredientRow = ({ rowNumber, onFilledRow, rowContent }) => {
+const IngredientRow = ({ rowNumber, onFilledRow, rowContent, ingredientsMeta }) => {
   const generateRowCell = (textField, filled) => {
     return { text: textField, filled: filled || !!textField };
   };
 
-  const units = ["cup", "ounce", "pound"];
-  const stores = ["trader joe's", "whole's foods"];
-  const types = ["produce", "meat", "fish", "baking", "spice", "bread", "dairy", "other"];
-
-  const ingredients = [
-    { store: "trader joe's", type: "produce", item: "z", type: "dairy", checkPantry: true },
-  ];
+  const { units, stores, types, ingredients } = ingredientsMeta;
 
   const [cellAmount, setCellAmount] = useState(
     generateRowCell(rowContent.amount, rowContent.filled)
@@ -201,12 +195,20 @@ const CellItem = ({
     >
       <input
         className={"IngredientRow-Input"}
+        list={`item-${rowNumber}`}
         ref={inputRef}
         id={`input-${rowNumber}-Item`}
         value={cell.text}
         onChange={(e) => setCell({ ...cell, text: e.target.value })}
         placeholder={placeholder}
       />
+      {cell.text.length > 0 && (
+        <datalist id={`item-${rowNumber}`}>
+          {ingredients.map((ingredient) => (
+            <option key={`store-${rowNumber}-${ingredient.item}`} value={ingredient.item} />
+          ))}
+        </datalist>
+      )}
     </EditableText>
   );
 };
@@ -253,9 +255,8 @@ const CellType = ({ cell, setCell, rowNumber, types }) => {
   const inputRef = useRef();
   const text = cell.text;
   const handleFinishedEditing = () => {
-    const newText = getAutofill(types, text);
     setCell({
-      text: newText,
+      text: getAutofill(types, text),
       filled: true,
     });
   };

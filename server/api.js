@@ -24,11 +24,37 @@ const router = decorateRouter(express.Router());
 // | write your API methods below!|
 // |------------------------------|
 
-router.getAsync("/ingredients-meta", async (req, res, next) => {
-  const { rows } = await db.query("select * from ingredients");
-  // const { rows } = await db.query("select unnest(enum_range(null, null::store))");
+const unnestTypes = (objs) => {
+  return objs.map((obj) => obj.unnest);
+};
 
-  res.send(rows);
+const transformIngredientModel = (ingredient) => {
+  return {
+    item: ingredient.name,
+    store: ingredient.preferred_store,
+    type: ingredient.type,
+    checkPantry: ingredient.pantry,
+  };
+};
+
+router.getAsync("/ingredients-meta", async (req, res, next) => {
+  const unitsPromise = db.query("select unnest(enum_range(null, null::quantity_type))");
+  const storesPromise = db.query("select unnest(enum_range(null, null::store))");
+  const typesPromise = db.query("select unnest(enum_range(null, null::ingredient_type))");
+  const ingredientsPromise = db.query("select * from ingredients");
+
+  const [
+    { rows: units },
+    { rows: stores },
+    { rows: types },
+    { rows: ingredients },
+  ] = await Promise.all([unitsPromise, storesPromise, typesPromise, ingredientsPromise]);
+  res.send({
+    units: unnestTypes(units),
+    stores: unnestTypes(stores),
+    types: unnestTypes(types),
+    ingredients: ingredients.map(transformIngredientModel),
+  });
 });
 
 router.getAsync("/example", async (req, res, next) => {
