@@ -24,12 +24,7 @@ const router = decorateRouter(express.Router());
 // | write your API methods below!|
 // |------------------------------|
 
-<<<<<<< HEAD
-router.getAsync("/testdb", async (req, res, next) => {
-  logger.info("Bitch");
-=======
-router.getAsync("/ingredients", async (req, res, next) => {
->>>>>>> 9eaacc42fb9db467b5caac71eeb927c3800b1a79
+router.getAsync("/ingredients-meta", async (req, res, next) => {
   const { rows } = await db.query("select * from ingredients");
   // const { rows } = await db.query("select unnest(enum_range(null, null::store))");
 
@@ -50,17 +45,22 @@ router.postAsync("/recipe", async (req, res, next) => {
   const ingredients = req.body.ingredients;
   const directions = req.body.directions;
   const recipeMeta = req.body.meta;
-  const newModelIngredients = flatten(
+  const ingredientsWithDirection = flatten(
     directions.map((direction, directionIndex) => {
       return direction.ingredients.map((ingredientIndex) => {
         const oldIngredient = ingredients[ingredientIndex];
         return {
-          //TODO: fill here
+          amount: oldIngredient.amount,
+          unit: oldIngredient.unit,
+          item: oldIngredient.item,
+          store: oldIngredient.store,
+          type: oldIngredient.type,
+          checkPantry: oldIngredient.checkPantry,
+          directionIndex: directionIndex,
         };
       });
     })
   );
-  const newModelDirections = {}; // TODO: fill here
   res.send({ hello: "world" });
 });
 

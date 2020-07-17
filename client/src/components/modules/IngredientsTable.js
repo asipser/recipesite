@@ -1,27 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import IngredientRow from "./IngredientRow";
 import "./IngredientsTable.css";
 
 const IngredientsTable = ({ rows, setRows }) => {
-  const getRowCellsMetadata = () => [
-    {
-      placeholder: "Amount",
-      divClassName: "IngredientRow-Cell-Amount",
-    },
-    {
-      placeholder: "Unit",
-      divClassName: "IngredientRow-Cell-Unit",
-    },
-    {
-      placeholder: "Item",
-      divClassName: "IngredientRow-Cell-Item",
-    },
-    {
-      placeholder: "Store",
-      divClassName: "IngredientRow-Cell-Store",
-    },
-  ];
-
   const getInitialRowState = () => ({
     amount: "",
     unit: "",
@@ -32,6 +13,12 @@ const IngredientsTable = ({ rows, setRows }) => {
     filled: false,
   });
 
+  const [ingredientsMeta, setIngredientsMeta] = useState({
+    units: [],
+    stores: [],
+    ingredients: [],
+  });
+
   const handleFilledRow = (row, rowNumber) => {
     const rowsCopy = [...rows];
     rowsCopy[rowNumber] = { ...row, filled: true };
@@ -39,10 +26,10 @@ const IngredientsTable = ({ rows, setRows }) => {
   };
 
   useEffect(() => {
-    fetch("/api/testdb")
+    fetch("/api/ingredients-meta")
       .then((response) => response.json())
-      .then((body) => {
-        console.log(body);
+      .then(({ units, stores, ingredients }) => {
+        setIngredientsMeta({ units, stores, ingredients });
       });
   }, []);
 
@@ -68,10 +55,10 @@ const IngredientsTable = ({ rows, setRows }) => {
     return (
       <div className={"IngredientsTable-container"} key={`row-${i}`}>
         <IngredientRow
-          cellsMetadata={getRowCellsMetadata()}
           rowNumber={i}
           onFilledRow={(row) => handleFilledRow(row, i)}
           rowContent={row}
+          ingredientsMeta={ingredientsMeta}
         />
       </div>
     );

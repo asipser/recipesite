@@ -17,7 +17,7 @@ const getAutofill = (options, text) => {
   }
 };
 
-const IngredientRow = ({ rowNumber, cellsMetadata, onFilledRow, rowContent }) => {
+const IngredientRow = ({ rowNumber, onFilledRow, rowContent }) => {
   const generateRowCell = (textField, filled) => {
     return { text: textField, filled: filled || !!textField };
   };
