@@ -7,13 +7,13 @@ module.exports = {
   pool,
   init: () => {
     const connectionString = process.env.POSTGRES_CONNECTION_URI;
-    pool = new Pool({connectionString});
+    pool = new Pool({ connectionString });
     pool.connect((err, client, done) => {
       if (err) logger.error("Error connecting to Postgres", err);
       else logger.info("Server connected to Postgres");
       done(err);
     });
-    pool.on("error", function(err) {
+    pool.on("error", function (err) {
       logger.error("Postgres err: ", err);
     });
   },
@@ -21,4 +21,3 @@ module.exports = {
     return pool.query(text, params);
   },
 };
-

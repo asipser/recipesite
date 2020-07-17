@@ -25,12 +25,36 @@ const router = decorateRouter(express.Router());
 // |------------------------------|
 
 router.getAsync("/testdb", async (req, res, next) => {
+  logger.info("Bitch");
   const { rows } = await db.query("select * from ingredients");
   res.send(rows);
 });
 
 router.getAsync("/example", async (req, res, next) => {
   logger.info("Log Hello World");
+  res.send({ hello: "world" });
+});
+
+const flatten = (listOfLists) => {
+  return [].concat.apply([], listOfLists);
+};
+
+router.postAsync("/recipe", async (req, res, next) => {
+  logger.info("Log Hello World");
+  const ingredients = req.body.ingredients;
+  const directions = req.body.directions;
+  const recipeMeta = req.body.meta;
+  const newModelIngredients = flatten(
+    directions.map((direction, directionIndex) => {
+      return direction.ingredients.map((ingredientIndex) => {
+        const oldIngredient = ingredients[ingredientIndex];
+        return {
+          //TODO: fill here
+        };
+      });
+    })
+  );
+  const newModelDirections = {}; // TODO: fill here
   res.send({ hello: "world" });
 });
 
