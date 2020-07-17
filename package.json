@@ -35,7 +35,7 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
-    "pg": "^7.17.1",
+    "pg": "^8.3.0",
     "pino": "^5.16.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
