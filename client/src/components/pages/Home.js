@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import FilterRecipes from "../modules/FilterRecipes";
 import RecipeList from "../modules/RecipeList";
+import { get } from "../../utilities";
 
 const copyAndRemove = (array, elt) => {
   const arrayCopy = [...array];
@@ -17,7 +18,8 @@ const copyAndRemove = (array, elt) => {
 const Home = () => {
   const [fillerText, setFillerText] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
-  const [recipes, setRecipes] = useState([]);
+  const [allRecipes, setAllRecipes] = useState([]);
+  const [recipeList, setRecipeList] = useState([]);
 
   const toggleTags = (newTag) => {
     const isTagSelected = selectedTags.includes(newTag);
@@ -28,42 +30,22 @@ const Home = () => {
     }
   };
 
-  const filterRecipes = () => {
-    const ans = recipes.filter((recipe) => {
-      const commonTags = recipe.tags.filter((tag) => {
-        selectedTags.includes(tag);
-      });
-      //TODO: this is broken, FIIIXXXXXX
-      const matchTags = selectedTags.length == 0 || commonTags.length > 0;
-      return matchTags && recipe.title.toLowerCase().includes(fillerText.toLowerCase());
+  useEffect(() => {
+    get("/api/recipes").then((recipes) => {
+      setAllRecipes(recipes);
     });
-    console.log(ans);
-    return ans;
-  };
+  }, []);
 
   useEffect(() => {
-    setRecipes([
-      {
-        title: "Chicken Milanesas",
-        ingredients: [],
-        directions: [],
-        tags: ["chicken"],
-      },
-      {
-        title: "HMart meat",
-        ingredients: [],
-        directions: [],
-        tags: ["meat", "pork"],
-      },
-      {
-        title: "Chocolate cake",
-        ingredients: [],
-        directions: [],
-        tags: ["cake"],
-      },
-    ]);
-    //TODO: fill with API request for recipes
-  }, []);
+    const newRecipeList = allRecipes.filter((recipe) => {
+      const commonTags = recipe.tags.filter((tag) => {
+        return selectedTags.includes(tag);
+      });
+      const matchTags = selectedTags.length == 0 || commonTags.length > 0;
+      return matchTags && recipe.name.toLowerCase().includes(fillerText.toLowerCase());
+    });
+    setRecipeList(newRecipeList);
+  }, [allRecipes, fillerText, selectedTags]);
 
   return (
     <div className="Home-Container">
@@ -76,7 +58,7 @@ const Home = () => {
         />
       </div>
       <div className="Home-RecipeList">
-        <RecipeList recipes={filterRecipes()} />
+        <RecipeList recipes={recipeList} />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const RecipeList = ({ recipes }) => {
   return (
     <div>
       {recipes.map((recipe, recIndex) => {
-        <div key={`RecipeList-Recipe-${recIndex}`}>{recipe.title}</div>;
+        return <div key={`RecipeList-Recipe-${recIndex}`}>{recipe.name}</div>;
       })}
     </div>
   );
