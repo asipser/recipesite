@@ -15,7 +15,13 @@ const AddRecipe = () => {
   const [viewMode, setViewMode] = useState("ingredients");
 
   //list of all meta information regarding the recipe
-  const [meta, setMeta] = useState({ title: "", source: "", servings: 0 });
+  const [allTags, setAllTags] = useState([]);
+  const [meta, setMeta] = useState({
+    title: "",
+    source: "",
+    servings: 0,
+    tags: [],
+  });
 
   //list of all recipe ingredients
   const [ingredients, setIngredients] = useState([]);
@@ -45,6 +51,9 @@ const AddRecipe = () => {
     get("/api/ingredients-meta").then(({ units, stores, types, ingredients }) => {
       setIngredientsMeta({ units, stores, types, ingredients });
     });
+    get("/api/tags").then((allTags) => {
+      setAllTags(allTags);
+    });
   }, []);
 
   return (
@@ -58,7 +67,7 @@ const AddRecipe = () => {
       <div className="AddRecipe-RecipeBody">
         {viewMode == "ingredients" && (
           <>
-            <RecipeMeta {...{ meta, setMeta }} />
+            <RecipeMeta {...{ meta, setMeta, allTags }} />
             <IngredientsTable
               setRows={setIngredients}
               rows={ingredients}

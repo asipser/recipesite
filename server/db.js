@@ -4,7 +4,7 @@ const logger = require("pino")(); // import pino logger
 let pool;
 
 module.exports = {
-  pool,
+  getPool: () => pool,
   init: () => {
     const connectionString = process.env.POSTGRES_CONNECTION_URI;
     pool = new Pool({ connectionString });
