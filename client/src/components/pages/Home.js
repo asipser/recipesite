@@ -1,78 +1,85 @@
-import React, { Component, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import "../../utilities.css";
 import "./Home.css";
-import logo from "../public/home.png";
-import DirectionStep from "../modules/DirectionStep";
-import IngredientsBox from "../modules/IngredientsBox";
+import FilterRecipes from "../modules/FilterRecipes";
+import RecipeList from "../modules/RecipeList";
 
+const copyAndRemove = (array, elt) => {
+  const arrayCopy = [...array];
+  const index = arrayCopy.indexOf(elt);
+  if (index > -1) {
+    return [...arrayCopy.splice(0, index), ...arrayCopy.splice(index + 1, arrayCopy.length)];
+  } else {
+    return arrayCopy;
+  }
+};
 
 const Home = () => {
-  const [activeSteps, setActiveSteps] = useState([]);
+  const [fillerText, setFillerText] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
-  const toggleActiveStep = (stepNumber) => {
-    if (activeSteps.includes(stepNumber)) {
-      setActiveSteps(activeSteps.filter(stepNo => stepNo != stepNumber));
+  const toggleTags = (newTag) => {
+    const isTagSelected = selectedTags.includes(newTag);
+    if (!isTagSelected) {
+      setSelectedTags([...selectedTags, newTag]);
     } else {
-      setActiveSteps([...activeSteps, stepNumber]);
+      setSelectedTags(copyAndRemove(selectedTags, newTag));
     }
-  }
+  };
 
-  const data = {
-    steps: [
+  const filterRecipes = () => {
+    const ans = recipes.filter((recipe) => {
+      const commonTags = recipe.tags.filter((tag) => {
+        selectedTags.includes(tag);
+      });
+      //TODO: this is broken, FIIIXXXXXX
+      const matchTags = selectedTags.length == 0 || commonTags.length > 0;
+      return matchTags && recipe.title.toLowerCase().includes(fillerText.toLowerCase());
+    });
+    console.log(ans);
+    return ans;
+  };
+
+  useEffect(() => {
+    setRecipes([
       {
-        title: "Simmer Meat",
-        time: "5",
-        content: `Heat 2 tablespoons of oil in a large nonstick skillet over medium heat, and stir in the rice.'
-        Toss the rice with the hot
-         oil until heated through and beginning to brown, about 2 minutes. Add the garlic powder, toss the rice
-         for 1 more minute to develop the garlic taste, and stir in the luncheon meat, sausage, scrambled eggs,
-         pineapple, and oyster sauce. Cook and stir until the oyster sauce coats the rice and other ingredients,
-         2 to 3 minutes, stir in the green onions, and serve.`,
-        ingredients: [
-          "1 tsp salt",
-          "2 tsp baking soda",
-          "1 pound beef"]
-
+        title: "Chicken Milanesas",
+        ingredients: [],
+        directions: [],
+        tags: ["chicken"],
       },
       {
-        title: "Prepare Sauce",
-        time: "1",
-        content: `Serve with cold water.`,
-        ingredients: [
-          "1 quart chicken stock",
-          "1 chicken sandwich",
-          "10 carrots"]
+        title: "HMart meat",
+        ingredients: [],
+        directions: [],
+        tags: ["meat", "pork"],
       },
-    ]
-  }
+      {
+        title: "Chocolate cake",
+        ingredients: [],
+        directions: [],
+        tags: ["cake"],
+      },
+    ]);
+    //TODO: fill with API request for recipes
+  }, []);
 
   return (
-    <>
-
-
-      <div className="banner">
-        <img width="128" height="128" src={logo} />
-        <div className="recipe-title-container">
-          <div className="recipe-title-text">Chicken Paprikash</div>
-          <div className="recipe-title-time">Total Time: 2 hours</div>
-        </div>
+    <div className="Home-Container">
+      <div className="Home-FilterRecipes">
+        <FilterRecipes
+          fillerText={fillerText}
+          setFillerText={setFillerText}
+          toggleTags={toggleTags}
+          selectedTags={selectedTags}
+        />
       </div>
-      <div className="recipe-container">
-        <div className="ingredients-container">
-          <IngredientsBox activeSteps={activeSteps} steps={data.steps} />
-        </div>
-        <div className="directions-container">
-          {data.steps.map(
-            (step, number) =>
-              (
-                <DirectionStep toggleStep={toggleActiveStep} key={`step-${number}`} {...step} number={number} />
-              )
-          )}
-        </div>
+      <div className="Home-RecipeList">
+        <RecipeList recipes={filterRecipes()} />
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Home;

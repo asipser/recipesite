@@ -1,49 +1,14 @@
-.app-container {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Questrial', sans-serif;
-}
-.banner{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height:128px;
-    border-bottom: 1px black solid;
+.Home-Container {
+  display: flex;
+  flex-direction: row;
+  margin: 100px 0px 100px 0px;
+  width: 100wh;
 }
 
-.recipe-title-container {
-    display: flex;
-    flex-direction: column;
-    width:100%;
-    justify-content: center;
-    align-items: center;
+.Home-FilterRecipes {
+  width: 35%;
 }
 
-.recipe-title-text {
-    font-size: 3.5em;
+.Home-RecipeList {
+  width: 65%;
 }
-
-.recipe-title-time {
-    font-size: 2em;
-}
-
-.recipe-container {
-    width:100%;
-    height: 100%;
-}
-
-.ingredients-container {
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.directions-container {
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-}
-
