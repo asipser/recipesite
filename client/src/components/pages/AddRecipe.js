@@ -15,7 +15,12 @@ const AddRecipe = () => {
   const [viewMode, setViewMode] = useState("ingredients");
 
   //list of all meta information regarding the recipe
-  const [meta, setMeta] = useState({ title: "", source: "", servings: 0 });
+  const [meta, setMeta] = useState({
+    title: "",
+    source: "",
+    servings: 0,
+    tags: [],
+  });
 
   //list of all recipe ingredients
   const [ingredients, setIngredients] = useState([]);
