@@ -162,10 +162,12 @@ function insertRecipeDirectionSql(transactionClient, recipeTitle, directions) {
     Number.parseInt(num), //step_number
     dir.contents, //contents
     Number.parseInt(dir.time), //time
+    dir.title,
   ]);
   const directionTuples = parameterizer.toTuple(directionSqlData, true);
   const insertDirectionsSql =
-    "INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES" + directionTuples;
+    "INSERT INTO recipe_directions(recipe, step_number, contents, time, title) VALUES" +
+    directionTuples;
   const directionValues = parameterizer.flatten(directionSqlData);
 
   return queryRecipeCreation(
@@ -223,6 +225,63 @@ router.postAsync("/recipe", async (req, res) => {
     await client.query("ROLLBACK");
     throw new Error("couldn't insert recipe, check logs");
   }
+});
+
+router.getAsync("/recipes", async (req, res, next) => {
+  const getRecipeInfoSql = `
+  SELECT
+    recipe_name as name, tags, servings, source, ingredients, amounts, units, ingredient_step_no, 
+    ARRAY_AGG(step_number) as direction_steps, ARRAY_AGG(title) as direction_titles,
+    ARRAY_AGG(contents) as direction_contents, ARRAY_AGG(time) as direction_times 
+  FROM 
+    (SELECT
+        X.name as recipe_name, X.tags, servings, source, ARRAY_AGG(ingredient) as ingredients,
+        ARRAY_AGG(amount) as amounts, ARRAY_AGG(unit::varchar) as units,
+        ARRAY_AGG(recipe_ingredients.step_number) as ingredient_step_no
+      FROM 
+        (SELECT recipes.name, servings, source, ARRAY_AGG(recipe_tags.name) as tags
+        from recipes 
+        JOIN recipe_tags on recipe_tags.recipe=recipes.name GROUP BY recipes.name, servings, source) as X
+      JOIN recipe_ingredients on recipe_ingredients.recipe=X.name GROUP BY name,servings, source, tags) as Y
+  JOIN recipe_directions ON recipe=recipe_name GROUP BY recipe_name,tags,ingredients,amounts,units,ingredient_step_no,servings,source`;
+
+  const { rows: results } = await db.query(getRecipeInfoSql);
+
+  const transformedResults = results.map((recipe) => {
+    {
+      const transformedRecipe = {
+        name: recipe.name,
+        tags: recipe.tags,
+        servings: recipe.servings,
+        source: recipe.source,
+      };
+
+      const transformedDirections = recipe.direction_contents.map((dirContents, num) => {
+        return {
+          time: recipe.direction_times[num],
+          title: recipe.direction_titles[num],
+          contents: dirContents,
+          ingredients: [],
+        };
+      });
+
+      const transformedIngredients = recipe.ingredients.map((ingredient, num) => {
+        transformedDirections[recipe.ingredient_step_no[num]].ingredients.push(num);
+        console.log(recipe);
+        return {
+          amount: recipe.amounts[num],
+          item: ingredient,
+          unit: recipe.units[num],
+        };
+      });
+      return {
+        ...transformedRecipe,
+        ingredients: transformedIngredients,
+        directions: transformedDirections,
+      };
+    }
+  });
+  res.send(transformedResults);
 });
 
 // anything else falls to this "not found" case

@@ -76,6 +76,7 @@ CREATE TABLE recipe_ingredients
 CREATE TABLE recipe_directions 
 (
   step_number INTEGER,
+  title VARCHAR,
   recipe VARCHAR REFERENCES recipes(name),
   contents VARCHAR,
   time INTEGER,
