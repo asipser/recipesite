@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { get } from "../../utilities";
 import "./FilterRecipes.css";
 
 const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) => {
   const [groupTags, setGroupTags] = useState([]);
 
   useEffect(() => {
-    setGroupTags([
-      {
-        name: "main",
-        tags: ["fish", "pork", "meat"],
-      },
-      {
-        name: "desserts",
-        tags: ["cake", "cookie", "ice cream"],
-      },
-    ]);
+    get("/api/tags").then((allTags) => {
+      setGroupTags(allTags);
+    });
   }, []);
 
   const filterGroups = groupTags.map((group) => {
