@@ -228,6 +228,7 @@ router.postAsync("/recipe", async (req, res) => {
 });
 
 router.getAsync("/recipes", async (req, res, next) => {
+  let sqlRecipeFilter = req.query.recipe ? `WHERE recipes.name='${req.query.recipe}' ` : "";
   const getRecipeInfoSql = `
   SELECT
     recipe_name as name, tags, servings, source, ingredients, amounts, units, ingredient_step_no, 
@@ -241,7 +242,7 @@ router.getAsync("/recipes", async (req, res, next) => {
       FROM 
         (SELECT recipes.name, servings, source, ARRAY_AGG(recipe_tags.name) as tags
         from recipes 
-        JOIN recipe_tags on recipe_tags.recipe=recipes.name GROUP BY recipes.name, servings, source) as X
+        JOIN recipe_tags on recipe_tags.recipe=recipes.name ${sqlRecipeFilter}GROUP BY recipes.name, servings, source) as X
       JOIN recipe_ingredients on recipe_ingredients.recipe=X.name GROUP BY name,servings, source, tags) as Y
   JOIN recipe_directions ON recipe=recipe_name GROUP BY recipe_name,tags,ingredients,amounts,units,ingredient_step_no,servings,source`;
 
@@ -267,7 +268,6 @@ router.getAsync("/recipes", async (req, res, next) => {
 
       const transformedIngredients = recipe.ingredients.map((ingredient, num) => {
         transformedDirections[recipe.ingredient_step_no[num]].ingredients.push(num);
-        console.log(recipe);
         return {
           amount: recipe.amounts[num],
           item: ingredient,

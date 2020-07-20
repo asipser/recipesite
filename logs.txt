@@ -1,1 +1,1216 @@
-{"level":30,"time":1594944491941,"pid":538,"hostname":"MacBook-Pro-de-Daniel-2.local","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595205800810,"pid":16376,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595205800876,"pid":16376,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215764843,"pid":4820,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215764909,"pid":4820,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215782038,"pid":15552,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215782099,"pid":15552,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215796725,"pid":15240,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215796786,"pid":15240,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215814709,"pid":1480,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215814773,"pid":1480,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215831918,"pid":4688,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215831968,"pid":4688,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215833618,"pid":6420,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215833676,"pid":6420,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595215867413,"pid":15200,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595215867478,"pid":15200,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216331493,"pid":16092,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216331552,"pid":16092,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216378816,"pid":6824,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216378867,"pid":6824,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216389860,"pid":16780,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216389919,"pid":16780,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216390877,"pid":15632,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216390992,"pid":15632,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216400086,"pid":4528,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216400153,"pid":4528,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216407193,"pid":8476,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216407259,"pid":8476,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595216689468,"pid":15616,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595216689527,"pid":15616,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217210350,"pid":9044,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217210417,"pid":9044,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595217386074,"pid":9044,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595217386074,"pid":9044,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":50,"time":1595217470157,"pid":9044,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595217470157,"pid":9044,"hostname":"aaron-beast","length":192,"name":"error","severity":"ERROR","code":"23505","detail":"Key (name)=(test0) already exists.","schema":"public","table":"recipes","constraint":"recipes_pkey","file":"nbtinsert.c","line":"434","routine":"_bt_check_unique","msg":"duplicate key value violates unique constraint \"recipes_pkey\"","stack":"error: duplicate key value violates unique constraint \"recipes_pkey\"\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":30,"time":1595217852817,"pid":3316,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217852876,"pid":3316,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217887897,"pid":12764,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217887994,"pid":12764,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217932645,"pid":732,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217932703,"pid":732,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217941223,"pid":16160,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217941282,"pid":16160,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217952381,"pid":4048,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217952476,"pid":4048,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217956411,"pid":16116,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217956472,"pid":16116,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595217958128,"pid":3264,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595217958195,"pid":3264,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595218047489,"pid":3264,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595218047489,"pid":3264,"hostname":"aaron-beast","msg":"pool is not defined","stack":"ReferenceError: pool is not defined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:79:18\n    at wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:13)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:174:3)","type":"Error","v":1}
+{"level":30,"time":1595218067218,"pid":2372,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218067277,"pid":2372,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595218075816,"pid":2372,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595218075817,"pid":2372,"hostname":"aaron-beast","msg":"Cannot read property 'connect' of undefined","stack":"TypeError: Cannot read property 'connect' of undefined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:79:32\n    at wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:13)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:174:3)","type":"Error","v":1}
+{"level":30,"time":1595218133394,"pid":2292,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218133449,"pid":2292,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218141815,"pid":3808,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218141870,"pid":3808,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218145056,"pid":11036,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218145115,"pid":11036,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218302466,"pid":7268,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218302579,"pid":7268,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218310694,"pid":7268,"hostname":"aaron-beast","msg":"rolling back...","v":1}
+{"level":30,"time":1595218326753,"pid":2580,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218326806,"pid":2580,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218333492,"pid":2580,"hostname":"aaron-beast","msg":"rolling back...","v":1}
+{"level":50,"time":1595218333492,"pid":2580,"hostname":"aaron-beast","length":192,"name":"error","severity":"ERROR","code":"23505","detail":"Key (name)=(test1) already exists.","schema":"public","table":"recipes","constraint":"recipes_pkey","file":"nbtinsert.c","line":"434","routine":"_bt_check_unique","msg":"duplicate key value violates unique constraint \"recipes_pkey\"","stack":"error: duplicate key value violates unique constraint \"recipes_pkey\"\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":30,"time":1595218345498,"pid":2580,"hostname":"aaron-beast","msg":"rolling back...","v":1}
+{"level":50,"time":1595218345498,"pid":2580,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":30,"time":1595218434702,"pid":904,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218434759,"pid":904,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218444106,"pid":904,"hostname":"aaron-beast","msg":"rolling back...","v":1}
+{"level":50,"time":1595218444106,"pid":904,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":30,"time":1595218497002,"pid":11936,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218497062,"pid":11936,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218655953,"pid":5792,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218656014,"pid":5792,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218712954,"pid":7540,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218713021,"pid":7540,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218730907,"pid":17176,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218730969,"pid":17176,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218777220,"pid":17176,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595218777220,"pid":17176,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595218777221,"pid":17176,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":30,"time":1595218855483,"pid":14116,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218855540,"pid":14116,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218866350,"pid":6100,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218866407,"pid":6100,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218880450,"pid":5824,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218880508,"pid":5824,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218889821,"pid":1040,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218889889,"pid":1040,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218909027,"pid":10924,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218909089,"pid":10924,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218920819,"pid":10928,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218920883,"pid":10928,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218924605,"pid":3088,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218924673,"pid":3088,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218933477,"pid":5184,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218933538,"pid":5184,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218953966,"pid":5184,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595218953966,"pid":5184,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595218953966,"pid":5184,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595218953966,"pid":5184,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":30,"time":1595218983562,"pid":12128,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595218983625,"pid":12128,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595218987688,"pid":12128,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595218987688,"pid":12128,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595218987689,"pid":12128,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595218987689,"pid":12128,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":30,"time":1595219067245,"pid":11844,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219067305,"pid":11844,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219108828,"pid":7892,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219108894,"pid":7892,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219139572,"pid":7888,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219139655,"pid":7888,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219208282,"pid":15108,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219208340,"pid":15108,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219214653,"pid":9768,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219214713,"pid":9768,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595219219598,"pid":9768,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES","values":[],"v":1}
+{"level":30,"time":1595219275271,"pid":11124,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219275324,"pid":11124,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219292320,"pid":1088,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219292381,"pid":1088,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219351494,"pid":1088,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595219351494,"pid":1088,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","msg":"\ninsert recipe SQL \n","v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL \n","v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","msg":"\ninsert directions SQL \n","v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595219351495,"pid":1088,"hostname":"aaron-beast","msg":"\ninsert recipes SQL \n","v":1}
+{"level":40,"time":1595219351496,"pid":1088,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES","values":[],"v":1}
+{"level":30,"time":1595219394127,"pid":9800,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219394183,"pid":9800,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219398539,"pid":9800,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595219398539,"pid":9800,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595219398540,"pid":9800,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES","values":[],"v":1}
+{"level":30,"time":1595219506406,"pid":8332,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219506465,"pid":8332,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595219515425,"pid":8332,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595219515543,"pid":8332,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595219515543,"pid":8332,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595219515544,"pid":8332,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES","values":[],"v":1}
+{"level":30,"time":1595219856970,"pid":14788,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595219857035,"pid":14788,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220383184,"pid":13512,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220383299,"pid":13512,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220665217,"pid":7252,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220665277,"pid":7252,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220701718,"pid":7172,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220701781,"pid":7172,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220746395,"pid":15028,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220746455,"pid":15028,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220822192,"pid":14952,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220822254,"pid":14952,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220855934,"pid":3544,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220855997,"pid":3544,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220910575,"pid":9804,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220910634,"pid":9804,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595220920934,"pid":9804,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595220920934,"pid":9804,"hostname":"aaron-beast","msg":"Cannot read property 'toLowerCase' of undefined","stack":"TypeError: Cannot read property 'toLowerCase' of undefined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:139:14\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:136:90\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595220950157,"pid":2368,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220950217,"pid":2368,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+[
+  {
+    amount: '1',
+    unit: 'cup',
+    item: 'pizza',
+    store: 'whole foods',
+    type: 'baking',
+    checkPantry: true,
+    filled: true
+  }
+]
+{"level":50,"time":1595220953318,"pid":2368,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595220953318,"pid":2368,"hostname":"aaron-beast","msg":"Cannot read property 'toLowerCase' of undefined","stack":"TypeError: Cannot read property 'toLowerCase' of undefined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:141:14\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:138:90\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595220978705,"pid":8808,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595220978762,"pid":8808,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595220981085,"pid":8808,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595220981211,"pid":8808,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595220981211,"pid":8808,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595220981212,"pid":8808,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595220981212,"pid":8808,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595220981213,"pid":8808,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":30,"time":1595221055702,"pid":8492,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221055763,"pid":8492,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221059891,"pid":3960,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221059960,"pid":3960,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221570515,"pid":3908,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221570576,"pid":3908,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595221584694,"pid":3908,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221584694,"pid":3908,"hostname":"aaron-beast","msg":"","stack":"Error\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:63:9\n    at wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:13)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\express\\lib\\router\\index.js:174:3)","type":"Error","v":1}
+{"level":30,"time":1595221591341,"pid":12780,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221591395,"pid":12780,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221609571,"pid":13104,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221609632,"pid":13104,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221616949,"pid":14480,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221617002,"pid":14480,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221623439,"pid":14480,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221623552,"pid":14480,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":30,"time":1595221737392,"pid":8808,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221737459,"pid":8808,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221740629,"pid":7960,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221740688,"pid":7960,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221747138,"pid":7960,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221747265,"pid":7960,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221747266,"pid":7960,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221747267,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221747288,"pid":7960,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221747288,"pid":7960,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:179:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221762658,"pid":7960,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221762763,"pid":7960,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221762763,"pid":7960,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221762764,"pid":7960,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221762778,"pid":7960,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221762778,"pid":7960,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:179:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221786433,"pid":14636,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221786498,"pid":14636,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221788486,"pid":1708,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221788541,"pid":1708,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221797407,"pid":1708,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221797530,"pid":1708,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221797530,"pid":1708,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221797531,"pid":1708,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":30,"time":1595221817326,"pid":15920,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221817385,"pid":15920,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221821133,"pid":15920,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221821256,"pid":15920,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221821278,"pid":15920,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221821278,"pid":15920,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:179:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221861682,"pid":13888,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221861738,"pid":13888,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221868190,"pid":13888,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221868306,"pid":13888,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221868306,"pid":13888,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221868307,"pid":13888,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221868323,"pid":13888,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221868323,"pid":13888,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:181:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221923191,"pid":15432,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221923261,"pid":15432,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221931260,"pid":15432,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221931364,"pid":15432,"hostname":"aaron-beast","msg":"attempting to insert directions","v":1}
+{"level":30,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221931382,"pid":15432,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221931401,"pid":15432,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221931401,"pid":15432,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:182:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221950105,"pid":5500,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221950164,"pid":5500,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595221957185,"pid":5500,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221957277,"pid":5500,"hostname":"aaron-beast","msg":"attempting to insert directions","v":1}
+{"level":30,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221957294,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221957316,"pid":5500,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221957316,"pid":5500,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:182:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221971839,"pid":5500,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595221971939,"pid":5500,"hostname":"aaron-beast","msg":"attempting to insert directions","v":1}
+{"level":30,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595221971959,"pid":5500,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595221971985,"pid":5500,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595221971985,"pid":5500,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:182:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595221992616,"pid":4264,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595221992684,"pid":4264,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222011582,"pid":4264,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222011687,"pid":4264,"hostname":"aaron-beast","msg":"attempting to insert directions","v":1}
+{"level":30,"time":1595222011687,"pid":4264,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222011708,"pid":4264,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222011708,"pid":4264,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222011709,"pid":4264,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222011728,"pid":4264,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222011729,"pid":4264,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:183:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222030654,"pid":2344,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222030712,"pid":2344,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222041984,"pid":2344,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222042088,"pid":2344,"hostname":"aaron-beast","msg":"attempting to insert directions","v":1}
+{"level":30,"time":1595222042088,"pid":2344,"hostname":"aaron-beast","msg":false,"v":1}
+{"level":30,"time":1595222042108,"pid":2344,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222042108,"pid":2344,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222042109,"pid":2344,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222042109,"pid":2344,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222042110,"pid":2344,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222042127,"pid":2344,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222042127,"pid":2344,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:183:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222091574,"pid":16508,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222091634,"pid":16508,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222102984,"pid":16508,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222103107,"pid":16508,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222103107,"pid":16508,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222103108,"pid":16508,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222103109,"pid":16508,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222103128,"pid":16508,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222103128,"pid":16508,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:181:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222124962,"pid":4736,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222125027,"pid":4736,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222131128,"pid":4736,"hostname":"aaron-beast","v":1}
+FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK
+{"level":30,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222131252,"pid":4736,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222131271,"pid":4736,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222131271,"pid":4736,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:184:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222146434,"pid":11440,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222146507,"pid":11440,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222152586,"pid":11440,"hostname":"aaron-beast","v":1}
+[]
+{"level":30,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222152694,"pid":11440,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222152710,"pid":11440,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222152710,"pid":11440,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:182:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222161558,"pid":14164,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222161626,"pid":14164,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222176855,"pid":3060,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222176908,"pid":3060,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222182613,"pid":3060,"hostname":"aaron-beast","v":1}
+length: 0
+{"level":30,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","length":91,"name":"error","severity":"ERROR","code":"42601","position":"74","file":"scan.l","line":"1119","routine":"scanner_yyerror","msg":"syntax error at end of input","stack":"error: syntax error at end of input\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222182727,"pid":3060,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222182728,"pid":3060,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222182749,"pid":3060,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222182749,"pid":3060,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:182:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222198875,"pid":15148,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222198933,"pid":15148,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222216375,"pid":4844,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595222216430,"pid":4844,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595222226958,"pid":4844,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222233024,"pid":4844,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","length":193,"name":"error","severity":"ERROR","code":"23505","detail":"Key (name)=(asdasd) already exists.","schema":"public","table":"recipes","constraint":"recipes_pkey","file":"nbtinsert.c","line":"434","routine":"_bt_check_unique","msg":"duplicate key value violates unique constraint \"recipes_pkey\"","stack":"error: duplicate key value violates unique constraint \"recipes_pkey\"\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","msg":"\ninsert recipe SQL","v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","sql":"\n  INSERT INTO\n    recipes (name, source, servings) \n  VALUES\n    ($1, $2, $3)\n","values":["asdasd","asdasd",0],"v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","msg":"\ninsert ingredients SQL","v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","sql":"INSERT INTO ingredients(name, type, pantry, preferred_store) VALUES($1,$2,$3,$4) ON CONFLICT (name) DO NOTHING","values":["pizza","baking",true,"whole foods"],"v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","msg":"\ninsert directions SQL","v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","sql":"INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES","values":[],"v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","msg":"\ninsert recipes SQL","v":1}
+{"level":40,"time":1595222233063,"pid":4844,"hostname":"aaron-beast","sql":"INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES($1,$2,$3,$4,$5)","values":[1,"cup","pizza",null,"asdasd"],"v":1}
+{"level":50,"time":1595222233099,"pid":4844,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595222233099,"pid":4844,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:181:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595222289205,"pid":4844,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595222322755,"pid":4844,"hostname":"aaron-beast","v":1}
+{"level":30,"time":1595259077499,"pid":5148,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595259077576,"pid":5148,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595259082692,"pid":15156,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595259082763,"pid":15156,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595259931057,"pid":16176,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595259931119,"pid":16176,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595259967449,"pid":12372,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595259967505,"pid":12372,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260046971,"pid":8356,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260047033,"pid":8356,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260072160,"pid":16352,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260072228,"pid":16352,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260080149,"pid":7892,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260080211,"pid":7892,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260132211,"pid":15712,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260132265,"pid":15712,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260142024,"pid":16980,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260142089,"pid":16980,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260151155,"pid":7344,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260151219,"pid":7344,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595260174463,"pid":4964,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595260174522,"pid":4964,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261603531,"pid":13844,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261603593,"pid":13844,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261687558,"pid":15692,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261687620,"pid":15692,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261729531,"pid":12380,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261729594,"pid":12380,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261735043,"pid":7520,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261735108,"pid":7520,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261844755,"pid":5452,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261844817,"pid":5452,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261862378,"pid":1980,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261862439,"pid":1980,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261864704,"pid":7460,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261864768,"pid":7460,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261874084,"pid":10584,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261874189,"pid":10584,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261876713,"pid":14224,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261876775,"pid":14224,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261943102,"pid":1768,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261943167,"pid":1768,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261960318,"pid":15840,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261960392,"pid":15840,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261978687,"pid":14896,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261978742,"pid":14896,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261984367,"pid":16148,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261984432,"pid":16148,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595261987855,"pid":13196,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595261987913,"pid":13196,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262003186,"pid":12876,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262003247,"pid":12876,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262025020,"pid":12876,"hostname":"aaron-beast","msg":"Insert Recipe","v":1}
+{"level":30,"time":1595262025064,"pid":12876,"hostname":"aaron-beast","msg":"Insert Tags","v":1}
+{"level":30,"time":1595262025114,"pid":12876,"hostname":"aaron-beast","msg":"Insert Ingredients","v":1}
+{"level":30,"time":1595262025158,"pid":12876,"hostname":"aaron-beast","msg":"Insert Directions","v":1}
+{"level":30,"time":1595262025201,"pid":12876,"hostname":"aaron-beast","msg":"Insert Recipe Ingredients","v":1}
+{"level":30,"time":1595262757369,"pid":15500,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262757434,"pid":15500,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262784451,"pid":6476,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262784509,"pid":6476,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262822746,"pid":10772,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262822847,"pid":10772,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262834241,"pid":13024,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262834452,"pid":13024,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262961677,"pid":9820,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262961755,"pid":9820,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262985256,"pid":16252,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262985316,"pid":16252,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595262999198,"pid":15292,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595262999268,"pid":15292,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263074617,"pid":16116,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263074682,"pid":16116,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263077422,"pid":9828,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263077490,"pid":9828,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263078264,"pid":4268,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263078336,"pid":4268,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263120218,"pid":13432,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263120313,"pid":13432,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263206073,"pid":11836,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263206131,"pid":11836,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263227140,"pid":15712,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263227194,"pid":15712,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263248299,"pid":12336,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263248365,"pid":12336,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263259747,"pid":7960,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263259810,"pid":7960,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263292713,"pid":9680,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263292779,"pid":9680,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263294462,"pid":5768,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263294514,"pid":5768,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263407630,"pid":2796,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263407697,"pid":2796,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263469535,"pid":372,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263469588,"pid":372,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263518308,"pid":4564,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263518367,"pid":4564,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263524362,"pid":12428,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263524427,"pid":12428,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263540433,"pid":15492,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263540494,"pid":15492,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263549465,"pid":5576,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263549518,"pid":5576,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263573301,"pid":15292,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263573371,"pid":15292,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263576875,"pid":7520,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263576962,"pid":7520,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263578998,"pid":8876,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263579077,"pid":8876,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263725768,"pid":12380,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263725829,"pid":12380,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263791554,"pid":8024,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263791611,"pid":8024,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263804019,"pid":10988,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263804080,"pid":10988,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263869014,"pid":8056,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263869076,"pid":8056,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263894989,"pid":11896,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263895049,"pid":11896,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263910313,"pid":16752,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263910369,"pid":16752,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263930229,"pid":1288,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263930289,"pid":1288,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263932039,"pid":15856,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263932101,"pid":15856,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263932832,"pid":10468,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263932893,"pid":10468,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263963080,"pid":12156,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263963153,"pid":12156,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263986575,"pid":5208,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263986631,"pid":5208,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595263991119,"pid":5708,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595263991177,"pid":5708,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264001222,"pid":8740,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264001281,"pid":8740,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264074859,"pid":6068,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264074915,"pid":6068,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264088768,"pid":2112,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264088832,"pid":2112,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264096975,"pid":12120,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264097035,"pid":12120,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264107657,"pid":6620,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264107722,"pid":6620,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264127360,"pid":6620,"hostname":"aaron-beast","msg":"rolling back recipe transaction","v":1}
+{"level":50,"time":1595264127360,"pid":6620,"hostname":"aaron-beast","msg":"client is not defined","stack":"ReferenceError: client is not defined\n    at insertRecipeSql (C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:120:30)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:198:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":50,"time":1595264127379,"pid":6620,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595264127380,"pid":6620,"hostname":"aaron-beast","msg":"couldn't insert recipe, check logs","stack":"Error: couldn't insert recipe, check logs\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:210:11\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595264157923,"pid":13724,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264157982,"pid":13724,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264179952,"pid":13724,"hostname":"aaron-beast","msg":"Insert Recipe","v":1}
+{"level":30,"time":1595264179994,"pid":13724,"hostname":"aaron-beast","msg":"Insert Tags","v":1}
+{"level":30,"time":1595264180028,"pid":13724,"hostname":"aaron-beast","msg":"Insert Ingredients","v":1}
+{"level":30,"time":1595264180067,"pid":13724,"hostname":"aaron-beast","msg":"Insert Directions","v":1}
+{"level":30,"time":1595264180107,"pid":13724,"hostname":"aaron-beast","msg":"Insert Recipe Ingredients","v":1}
+{"level":30,"time":1595264237464,"pid":17136,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264237522,"pid":17136,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595264303498,"pid":10788,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595264303556,"pid":10788,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595267871965,"pid":13076,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595267872023,"pid":13076,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595267910332,"pid":1984,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595267910397,"pid":1984,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595267924625,"pid":15872,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595267924688,"pid":15872,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268012426,"pid":1224,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268012482,"pid":1224,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268022893,"pid":17208,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268022946,"pid":17208,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268036799,"pid":5516,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268036862,"pid":5516,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595268042863,"pid":5516,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595268042863,"pid":5516,"hostname":"aaron-beast","length":139,"name":"error","severity":"ERROR","code":"42601","hint":"For example, FROM (SELECT ...) [AS] foo.","position":"243","file":"gram.y","line":"11507","routine":"base_yyparse","msg":"subquery in FROM must have an alias","stack":"error: subquery in FROM must have an alias\n    at Parser.parseErrorMessage (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n    at Parser.handlePacket (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n    at Parser.parse (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n    at Socket.<anonymous> (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\pg-protocol\\dist\\index.js:8:42)\n    at Socket.emit (events.js:223:5)\n    at addChunk (_stream_readable.js:309:12)\n    at readableAddChunk (_stream_readable.js:290:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:181:23)","type":"Error","v":1}
+{"level":30,"time":1595268051491,"pid":6528,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268051550,"pid":6528,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268307481,"pid":9672,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268307535,"pid":9672,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268436830,"pid":14500,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268436903,"pid":14500,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268510199,"pid":2656,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268510266,"pid":2656,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268545517,"pid":13104,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268545593,"pid":13104,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268604493,"pid":2596,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268604554,"pid":2596,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595268684469,"pid":15172,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595268684544,"pid":15172,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595269847127,"pid":2456,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595269847194,"pid":2456,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595269860439,"pid":1564,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595269860502,"pid":1564,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595269969432,"pid":1564,"hostname":"aaron-beast","msg":"Insert Recipe","v":1}
+{"level":30,"time":1595269969474,"pid":1564,"hostname":"aaron-beast","msg":"Insert Tags","v":1}
+{"level":30,"time":1595269969520,"pid":1564,"hostname":"aaron-beast","msg":"Insert Ingredients","v":1}
+{"level":30,"time":1595269969558,"pid":1564,"hostname":"aaron-beast","msg":"Insert Directions","v":1}
+{"level":30,"time":1595269969597,"pid":1564,"hostname":"aaron-beast","msg":"Insert Recipe Ingredients","v":1}
+{"level":30,"time":1595270050621,"pid":14912,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270050677,"pid":14912,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595270114577,"pid":1976,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270114637,"pid":1976,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595270129276,"pid":14504,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270129337,"pid":14504,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595270136736,"pid":14504,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595270136736,"pid":14504,"hostname":"aaron-beast","msg":"transformedDirections[recipe.ingredient_step_no[num]].push is not a function","stack":"TypeError: transformedDirections[recipe.ingredient_step_no[num]].push is not a function\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:269:63\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:268:57\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:250:38\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595270276154,"pid":11984,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270276211,"pid":11984,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595270278214,"pid":11984,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595270278214,"pid":11984,"hostname":"aaron-beast","msg":"transformedRecipe is not defined","stack":"ReferenceError: transformedRecipe is not defined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:277:5\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:250:38\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595270290033,"pid":3308,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270290106,"pid":3308,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":50,"time":1595270295117,"pid":3308,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595270295117,"pid":3308,"hostname":"aaron-beast","msg":"transformedRecipe is not defined","stack":"ReferenceError: transformedRecipe is not defined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:277:5\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:250:38\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":50,"time":1595270296097,"pid":3308,"hostname":"aaron-beast","msg":"The server errored when processing a request!","v":1}
+{"level":50,"time":1595270296097,"pid":3308,"hostname":"aaron-beast","msg":"transformedRecipe is not defined","stack":"ReferenceError: transformedRecipe is not defined\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:277:5\n    at Array.map (<anonymous>)\n    at C:\\Users\\Aaron Sipser\\recipesite\\server\\api.js:250:38\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async wrappedMiddleware (C:\\Users\\Aaron Sipser\\recipesite\\node_modules\\@awaitjs\\express\\index.js:112:7)","type":"Error","v":1}
+{"level":30,"time":1595270319811,"pid":12900,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270319866,"pid":12900,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595270395331,"pid":3796,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270395391,"pid":3796,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: '{cup,teaspoon,cup}',
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: '{cup,teaspoon,cup}',
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: '{cup,teaspoon,cup}',
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: '{cup,unit,pound}',
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: '{cup,unit,pound}',
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: '{cup,unit,pound}',
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: '{teaspoon,cup,cup}',
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: '{teaspoon,cup,cup}',
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: '{teaspoon,cup,cup}',
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: '{cup,cup,teaspoon}',
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: '{cup,cup,teaspoon}',
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: '{cup,cup,teaspoon}',
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{"level":30,"time":1595270537585,"pid":3252,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595270537643,"pid":3252,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{"level":30,"time":1595279257311,"pid":8728,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595279257366,"pid":8728,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595279261232,"pid":4108,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595279261288,"pid":4108,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "aaron's boy",
+  tags: [ 'beef', 'pork' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'white sugar', 'cheese', 'pizza' ],
+  amounts: [ 2, 3, 5 ],
+  units: [ 'cup', 'teaspoon', 'cup' ],
+  ingredient_step_no: [ 0, 1, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: 'haha',
+  tags: [ 'chicken' ],
+  servings: 10,
+  source: 'dad',
+  ingredients: [ 'pizza', 'chicken thigh, boneless', 'white sugar' ],
+  amounts: [ 5, 1, 2 ],
+  units: [ 'cup', 'unit', 'pound' ],
+  ingredient_step_no: [ 1, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ 'cook food', 'cut up chicken' ],
+  direction_contents: [ 'cook me hehe', 'test' ],
+  direction_times: [ 10, 10 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'cheese', 'white sugar', 'pizza' ],
+  amounts: [ 3, 2, 5 ],
+  units: [ 'teaspoon', 'cup', 'cup' ],
+  ingredient_step_no: [ 1, 0, 0 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{
+  name: "zach's feet3",
+  tags: [ 'pork', 'beef' ],
+  servings: 5,
+  source: 'jenny',
+  ingredients: [ 'pizza', 'white sugar', 'cheese' ],
+  amounts: [ 5, 2, 3 ],
+  units: [ 'cup', 'cup', 'teaspoon' ],
+  ingredient_step_no: [ 0, 0, 1 ],
+  direction_steps: [ 1, 0 ],
+  direction_titles: [ null, null ],
+  direction_contents: [ 'test2', 'test' ],
+  direction_times: [ 10, 50 ]
+}
+{"level":30,"time":1595279306194,"pid":1448,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595279306253,"pid":1448,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+{"level":30,"time":1595279321893,"pid":11040,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595279321954,"pid":11040,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
+WHERE recipes.name='haha '
+{"level":30,"time":1595279339686,"pid":1156,"hostname":"aaron-beast","msg":"Server running on port: 3000","v":1}
+{"level":30,"time":1595279339749,"pid":1156,"hostname":"aaron-beast","msg":"Server connected to Postgres","v":1}
