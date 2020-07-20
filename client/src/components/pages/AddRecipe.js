@@ -44,7 +44,7 @@ const AddRecipe = () => {
   };
 
   const getFilledDirections = () => {
-    return directions.filter((d) => d.contents && d.time && d.title);
+    return directions.filter((d) => d.contents && d.title);
   };
 
   useEffect(() => {

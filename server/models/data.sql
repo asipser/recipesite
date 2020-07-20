@@ -55,6 +55,13 @@ CREATE TABLE recipes
   servings FLOAT
 );
 
+CREATE TABLE tags
+(
+  name VARCHAR,
+  type tag_type,
+  PRIMARY KEY(name, type)
+)
+
 CREATE TABLE recipe_ingredients 
 (
   id SERIAL PRIMARY KEY,
@@ -75,8 +82,8 @@ CREATE TABLE recipe_directions
   PRIMARY KEY(recipe, step_number)
 );
 
-CREATE TABLE recipe_tag
+CREATE TABLE recipe_tags
 (
-  name VARCHAR,
-  type tag_type
+  name VARCHAR REFERENCES tags(name),
+  recipe VARCHAR REFERENCES recipes(name)
 )
