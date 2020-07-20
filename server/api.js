@@ -284,6 +284,34 @@ router.getAsync("/recipes", async (req, res, next) => {
   res.send(transformedResults);
 });
 
+router.getAsync("/shopping", async (req, res, next) => {
+  if (!req.query.recipes || req.query.recipes.length == 0) {
+    res.send([]);
+  }
+
+  const recipes = req.query.recipes.split(",");
+  const recipesSql = recipes.map((ele) => `'${ele}'`).join(",");
+
+  const getShoppingSql = `
+  SELECT recipes.name AS recipe_name,
+    ARRAY_AGG(ingredient) AS ingredients,
+    ARRAY_AGG(amount) AS amounts,
+    ARRAY_AGG(unit::varchar) AS units,
+    ARRAY_AGG(pantry) AS check_pantry,
+    ARRAY_AGG(preferred_store::varchar) AS pref_store,
+    ARRAY_AGG(X.type::varchar) AS food_type
+  FROM recipes
+  JOIN
+    (SELECT *
+    FROM recipe_ingredients
+    JOIN ingredients ON recipe_ingredients.ingredient=ingredients.name) AS X ON X.recipe=recipes.name
+  WHERE recipes.name IN (${recipesSql})
+  GROUP BY recipes.name`;
+
+  const { rows: results } = await db.query(getShoppingSql);
+  res.send(results);
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   logger.warn(`API route not found: ${req.method} ${req.url}`);
