@@ -3,9 +3,7 @@ import EditableText from "../modules/EditableText";
 import AutosizeInput from "react-input-autosize";
 import "./RecipeMeta.css";
 
-const RecipeMeta = ({ meta, setMeta }) => {
-  const fakeTags = ["beef", "chicken", "cake", "bars", "fish", "soup"];
-
+const RecipeMeta = ({ meta, setMeta, allTags }) => {
   return (
     <div className="RecipeMeta-container">
       <RecipeMetaLine
@@ -25,7 +23,7 @@ const RecipeMeta = ({ meta, setMeta }) => {
         }}
       />
       <RecipeMetaSelect
-        allTags={fakeTags}
+        allTags={allTags}
         selectedTags={meta.tags}
         selectTags={(newTags) => {
           setMeta({ ...meta, tags: newTags });
@@ -68,17 +66,26 @@ const RecipeMetaSelect = ({ allTags, selectedTags, selectTags }) => {
     <div className="RecipeMeta-Block">
       <span className="RecipeMeta-Text">Select all relevant tags</span>
       <select
+        className="RecipeMeta-Select"
         name="meta-select"
         id="meta-select"
         multiple
         value={selectedTags}
         onChange={handleChange}
       >
-        {allTags.map((tag, i) => (
-          <option key={`${tag}-{i}`} value={tag.toLowerCase()}>
-            {tag}
-          </option>
-        ))}
+        {allTags.map((group, i) => {
+          return (
+            <optgroup key={`group-${i}`} label={group.name}>
+              {group.tags.map((tag, j) => {
+                return (
+                  <option key={`${tag}-{i}`} value={tag.toLowerCase()}>
+                    {tag}
+                  </option>
+                );
+              })}
+            </optgroup>
+          );
+        })}
       </select>
     </div>
   );

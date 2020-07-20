@@ -59,9 +59,11 @@ router.getAsync("/ingredients-meta", async (req, res, next) => {
   });
 });
 
-router.getAsync("/example", async (req, res, next) => {
-  logger.info("Log Hello World");
-  res.send({ hello: "world" });
+router.getAsync("/tags", async (req, res, next) => {
+  const { rows: results } = await db.query(
+    "select ARRAY_AGG(name) as tags,type as name from recipe_tag GROUP BY recipe_tag.type ORDER BY type ASC"
+  );
+  res.send(results);
 });
 
 const flatten = (listOfLists) => {
@@ -74,6 +76,7 @@ router.postAsync("/recipe", async (req, res) => {
   const recipeMeta = req.body.meta;
   const recipeTitle = recipeMeta.title.toLowerCase();
   const recipeServings = Number.parseInt(recipeMeta.servings);
+  const client = await db.getPool().connect();
 
   const ingredientsWithDirection = flatten(
     directions.map((direction, directionIndex) => {
@@ -92,17 +95,18 @@ router.postAsync("/recipe", async (req, res) => {
     })
   );
 
+  const ingredientWithNoDirection = ingredients.filter(
+    (ingredient, ingredientIndex) =>
+      directions.filter((dir) => dir.ingredients.includes(ingredientIndex)).length == 0
+  );
+
   const insertRecipeSql = `
-      INSERT INTO
-        recipes (name, source, servings) 
-      VALUES
-        ($1, $2, $3)
-    `;
-  const recipeQuery = await db.query(insertRecipeSql, [
-    recipeTitle,
-    recipeMeta.source,
-    recipeServings,
-  ]);
+  INSERT INTO
+    recipes (name, source, servings) 
+  VALUES
+    ($1, $2, $3)
+`;
+  const insertRecipeValues = [recipeTitle, recipeMeta.source, recipeServings];
 
   const ingredientSqlData = ingredients.map((i, num) => [
     i.item.toLowerCase(), //name
@@ -118,8 +122,6 @@ router.postAsync("/recipe", async (req, res) => {
     " ON CONFLICT (name) DO NOTHING";
   const ingredientValues = parameterizer.flatten(ingredientSqlData);
 
-  const ingredientQuery = await db.query(insertIngredientSql, ingredientValues);
-
   const directionSqlData = directions.map((dir, num) => [
     recipeTitle, //recipe
     Number.parseInt(num), //step_number
@@ -130,27 +132,54 @@ router.postAsync("/recipe", async (req, res) => {
   const insertDirectionsSql =
     "INSERT INTO recipe_directions(recipe, step_number, contents, time) VALUES" + directionTuples;
   const directionValues = parameterizer.flatten(directionSqlData);
-  const directionsQuery = await db.query(insertDirectionsSql, directionValues);
 
-  const recipeIngredientsSqlData = ingredientsWithDirection.map((i) => [
-    Number.parseFloat(i.amount), //amount
-    i.unit.toLowerCase(), //unit
-    i.item.toLowerCase(), //item
-    Number.parseInt(i.directionIndex), //step_number
-    recipeTitle, //recipe
-  ]);
+  const recipeIngredientsSqlData = [...ingredientsWithDirection, ...ingredientWithNoDirection].map(
+    (i) => [
+      Number.parseFloat(i.amount), //amount
+      i.unit.toLowerCase(), //unit
+      i.item.toLowerCase(), //item
+      i.directionIndex != undefined ? Number.parseInt(i.directionIndex) : null, //step_number
+      recipeTitle, //recipe
+    ]
+  );
+
+  logger.info(ingredientsWithDirection);
 
   const recipeIngredientsTuples = parameterizer.toTuple(recipeIngredientsSqlData, true);
   const insertRecipeIngredientsSql =
     "INSERT INTO recipe_ingredients(amount, unit, ingredient, step_number, recipe) VALUES" +
     recipeIngredientsTuples;
   const recipeIngredientsValues = parameterizer.flatten(recipeIngredientsSqlData);
-  const recipeIngredientsQuery = await db.query(
-    insertRecipeIngredientsSql,
-    recipeIngredientsValues
-  );
 
-  res.send({});
+  try {
+    await client.query("BEGIN");
+
+    const recipeQuery = await client.query(insertRecipeSql, insertRecipeValues);
+    const ingredientQuery = await client.query(insertIngredientSql, ingredientValues);
+    if (ingredientsWithDirection.length != 0) {
+      const directionsQuery = await client.query(insertDirectionsSql, directionValues);
+    }
+    const recipeIngredientsQuery = await client.query(
+      insertRecipeIngredientsSql,
+      recipeIngredientsValues
+    );
+    await client.query("COMMIT");
+    client.release();
+    res.send({});
+  } catch (e) {
+    logger.info("rolling back recipe transaction");
+    logger.error(e);
+    logger.warn("\ninsert recipe SQL");
+    logger.warn({ sql: insertRecipeSql, values: insertRecipeValues });
+    logger.warn("\ninsert ingredients SQL");
+    logger.warn({ sql: insertIngredientSql, values: ingredientValues });
+    logger.warn("\ninsert directions SQL");
+    logger.warn({ sql: insertDirectionsSql, values: directionValues });
+    logger.warn("\ninsert recipes SQL");
+    logger.warn({ sql: insertRecipeIngredientsSql, values: recipeIngredientsValues });
+    await client.query("ROLLBACK");
+    throw new Error("couldn't insert recipe, check logs");
+  }
 });
 
 // anything else falls to this "not found" case

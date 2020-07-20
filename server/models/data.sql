@@ -1,3 +1,9 @@
+CREATE TYPE tag_type AS ENUM 
+(
+  'main',
+  'dessert'
+);
+
 CREATE TYPE ingredient_type AS ENUM 
 (
   'produce',
@@ -68,3 +74,9 @@ CREATE TABLE recipe_directions
   time INTEGER,
   PRIMARY KEY(recipe, step_number)
 );
+
+CREATE TABLE recipe_tag
+(
+  name VARCHAR,
+  type tag_type
+)
