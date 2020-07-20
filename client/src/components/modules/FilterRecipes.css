@@ -1,0 +1,30 @@
+.FilterRecipes-Input {
+}
+
+.FilterRecipes-FilterGroups {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.FilterGroup-Title {
+  margin-bottom: 0.5rem;
+  font-size: 1.3em;
+}
+
+.FilterGroup-TagList {
+}
+
+.FilterGroup-Container {
+  margin-bottom: 1rem;
+}
+
+.FilterGroup-Tag {
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+}
+
+.FilterGroup-Tag-selected {
+  margin-bottom: 0.3rem;
+  color: #0984e3;
+  cursor: pointer;
+}
