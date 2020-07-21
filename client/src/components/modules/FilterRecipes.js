@@ -24,7 +24,7 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
   });
 
   return (
-    <div>
+    <>
       <div className="FilterRecipes-Input">
         <input
           value={fillerText}
@@ -33,7 +33,7 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
         />
       </div>
       <div className="FilterRecipes-FilterGroups">{filterGroups}</div>
-    </div>
+    </>
   );
 };
 

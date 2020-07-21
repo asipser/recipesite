@@ -233,7 +233,7 @@ router.getAsync("/recipes", async (req, res, next) => {
   SELECT
     recipe_name as name, tags, servings, source, ingredients, amounts, units, ingredient_step_no, 
     ARRAY_AGG(step_number) as direction_steps, ARRAY_AGG(title) as direction_titles,
-    ARRAY_AGG(contents) as direction_contents, ARRAY_AGG(time) as direction_times 
+    ARRAY_AGG(contents) as direction_contents, ARRAY_AGG(time) as direction_times, SUM(time) as total_time
   FROM 
     (SELECT
         X.name as recipe_name, X.tags, servings, source, ARRAY_AGG(ingredient) as ingredients,
@@ -255,6 +255,7 @@ router.getAsync("/recipes", async (req, res, next) => {
         tags: recipe.tags,
         servings: recipe.servings,
         source: recipe.source,
+        time: recipe.total_time,
       };
 
       const transformedDirections = recipe.direction_contents.map((dirContents, num) => {

@@ -84,6 +84,7 @@ const Home = () => {
           setShoppingList={setShoppingList}
         />
       </div>
+      <div className="Home-ViewRecipe"></div>
     </div>
   );
 };
