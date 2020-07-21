@@ -6,6 +6,7 @@ import "../utilities.css";
 import AddRecipe from "./pages/AddRecipe.js";
 import Navbar from "./modules/Navbar.js";
 import ViewRecipe from "./pages/ViewRecipe.js";
+import ShoppingList from "./pages/ShoppingList.js";
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
         <Router>
           <AddRecipe path="/add-recipe" />
           <ViewRecipe path="/view-recipe" />
+          <ShoppingList path="/shopping-list" />
           <Home path="/" />
           <NotFound default />
         </Router>
