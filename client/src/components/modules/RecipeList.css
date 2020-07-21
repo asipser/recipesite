@@ -5,7 +5,7 @@
   margin-bottom: 1rem;
 }
 
-.RecipeListItem-RecipeHeader-Container {
+.RecipeRow-RecipeHeader-Container {
   display: flex;
   flex-direction: row;
   border: 2px solid gray;
@@ -15,24 +15,24 @@
   align-items: center;
 }
 
-.RecipeListItem-Recipe {
+.RecipeRow-Recipe {
   margin-bottom: 1rem;
 }
 
-.RecipeListItem-RecipeHeader-Title {
+.RecipeRow-RecipeHeader-Title {
   font-size: 1.7rem;
   padding: 0.1rem;
   text-align: center;
 }
 
-.RecipeListItem-RecipeHeader-Actions {
+.RecipeRow-RecipeHeader-Actions {
   display: flex;
   flex-direction: row;
   padding: 0.1rem;
   margin-bottom: 1rem;
 }
 
-.RecipeListItem-Action {
+.RecipeRow-Action {
   margin-right: 0.5rem;
   text-align: center;
   border-radius: 5px;
@@ -40,49 +40,49 @@
   height: 1.2rem;
 }
 
-.RecipeListItem-Action-Edit {
+.RecipeRow-Action-Edit {
   border: 2px solid blue;
   color: blue;
 }
 
-.RecipeListItem-Action-Edit:hover {
+.RecipeRow-Action-Edit:hover {
   color: white;
   background-color: blue;
 }
 
-.RecipeListItem-Action-View {
+.RecipeRow-Action-View {
   border: 2px solid blue;
   color: blue;
 }
 
-.RecipeListItem-Action-View:hover {
+.RecipeRow-Action-View:hover {
   color: white;
   background-color: blue;
 }
 
-.RecipeListItem-Action-Add {
+.RecipeRow-Action-Add {
   color: green;
   background-color: white;
   border: 2px solid green;
 }
 
-.RecipeListItem-Action-Add:hover {
+.RecipeRow-Action-Add:hover {
   color: white;
   background-color: green;
 }
 
-.RecipeListItem-Action-Remove {
+.RecipeRow-Action-Remove {
   color: red;
   background-color: white;
   border: 2px solid red;
 }
 
-.RecipeListItem-Action-Remove:hover {
+.RecipeRow-Action-Remove:hover {
   color: white;
   background-color: red;
 }
 
-.RecipeListItem-RecipeBody-Container {
+.RecipeRow-RecipeBody-Container {
   padding: 0.3rem;
   border: 2px solid gray;
   border-radius: 5px;

@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./RecipeList.css";
 
-const RecipeList = ({ recipes, getInShoppingList, setInShoppingList }) => {
+const RecipeList = ({ recipes, getShoppingList, setShoppingList }) => {
   return (
     <div className="RecipeList-Container">
-      {recipes.map((recipe, recIndex) => {
+      {recipes.map((recipe) => {
         return (
           <div key={`RecipeList-Recipe-${recipe.name}`}>
-            <RecipeListItem
+            <RecipeRow
               recipe={recipe}
-              initialInShoppingList={getInShoppingList(recipe.name)}
-              storeInShoppingList={(inShoppingList) =>
-                setInShoppingList(recipe.name, inShoppingList)
-              }
+              getShoppingList={getShoppingList}
+              setShoppingList={setShoppingList}
             />
           </div>
         );
@@ -21,13 +19,13 @@ const RecipeList = ({ recipes, getInShoppingList, setInShoppingList }) => {
   );
 };
 
-const RecipeListItem = ({ recipe, initialInShoppingList, storeInShoppingList }) => {
+const RecipeRow = ({ recipe, getShoppingList, setShoppingList }) => {
   const [displayRecipe, setDisplayRecipe] = useState(false);
-  const [inShoppingList, setInShoppingList] = useState(initialInShoppingList);
+  const [selected, setSelected] = useState(getShoppingList(recipe.name));
 
-  const toggleShoppingList = () => {
-    setInShoppingList(!inShoppingList);
-    storeInShoppingList(!inShoppingList);
+  const toggleSelected = () => {
+    setSelected(!selected);
+    setShoppingList(recipe.name, !selected);
   };
 
   const ingredientToText = (ingredient) => {
@@ -36,28 +34,28 @@ const RecipeListItem = ({ recipe, initialInShoppingList, storeInShoppingList }) 
   };
 
   return (
-    <div className="RecipeListItem-Recipe">
-      <div className="RecipeListItem-RecipeHeader-Container">
-        <div className="RecipeListItem-RecipeHeader-Title">{recipe.name}</div>
-        <div className="RecipeListItem-RecipeHeader-Actions">
-          <div className="RecipeListItem-Action RecipeListItem-Action-Edit">Edit</div>
+    <div className="RecipeRow-Recipe">
+      <div className="RecipeRow-RecipeHeader-Container">
+        <div className="RecipeRow-RecipeHeader-Title">{recipe.name}</div>
+        <div className="RecipeRow-RecipeHeader-Actions">
+          <div className="RecipeRow-Action RecipeRow-Action-Edit">Edit</div>
           <div
-            className="RecipeListItem-Action RecipeListItem-Action-View"
+            className="RecipeRow-Action RecipeRow-Action-View"
             onClick={(e) => setDisplayRecipe(!displayRecipe)}
           >
             View
           </div>
-          {inShoppingList ? (
+          {selected ? (
             <div
-              className="RecipeListItem-Action RecipeListItem-Action-Remove"
-              onClick={(e) => toggleShoppingList()}
+              className="RecipeRow-Action RecipeRow-Action-Remove"
+              onClick={(e) => toggleSelected()}
             >
               ✖
             </div>
           ) : (
             <div
-              className="RecipeListItem-Action RecipeListItem-Action-Add"
-              onClick={(e) => toggleShoppingList()}
+              className="RecipeRow-Action RecipeRow-Action-Add"
+              onClick={(e) => toggleSelected()}
             >
               ✓
             </div>
@@ -65,9 +63,9 @@ const RecipeListItem = ({ recipe, initialInShoppingList, storeInShoppingList }) 
         </div>
       </div>
       {displayRecipe ? (
-        <div className="RecipeListItem-RecipeBody-Container">
+        <div className="RecipeRow-RecipeBody-Container">
           {recipe.ingredients.map((ingredient, i) => (
-            <div key={`RecipeListItem-Ingredient-${i}`}>{ingredientToText(ingredient)}</div>
+            <div key={`RecipeRow-Ingredient-${i}`}>{ingredientToText(ingredient)}</div>
           ))}
         </div>
       ) : (

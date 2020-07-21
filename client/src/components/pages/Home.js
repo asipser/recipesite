@@ -31,7 +31,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setInShoppingList(getRawShoppingList());
+    setShoppingList(getRawShoppingList());
     get("/api/recipes").then((recipes) => {
       setAllRecipes(recipes);
     });
@@ -55,12 +55,12 @@ const Home = () => {
     return rawShoppingList === null ? {} : JSON.parse(rawShoppingList);
   };
 
-  const getInShoppingList = (recipeName) => {
+  const getShoppingList = (recipeName) => {
     const shoppingList = getRawShoppingList();
     return shoppingList[recipeName] === undefined ? false : shoppingList[recipeName];
   };
 
-  const setInShoppingList = (recipeName, value) => {
+  const setShoppingList = (recipeName, value) => {
     const shoppingList = getRawShoppingList();
     const newShoppingList = { ...shoppingList };
     newShoppingList[recipeName] = value;
@@ -80,8 +80,8 @@ const Home = () => {
       <div className="Home-RecipeList">
         <RecipeList
           recipes={recipeList}
-          getInShoppingList={getInShoppingList}
-          setInShoppingList={setInShoppingList}
+          getShoppingList={getShoppingList}
+          setShoppingList={setShoppingList}
         />
       </div>
     </div>
