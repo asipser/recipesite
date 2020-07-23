@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./RecipeList.css";
+import { getShoppingList, setShoppingList } from "../../utilities";
 
 const RecipeList = ({ recipes, getShoppingList, setShoppingList, setSelectedRecipe }) => {
   return (

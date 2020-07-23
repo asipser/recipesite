@@ -67,3 +67,22 @@ export function post(endpoint, params = {}) {
       throw error;
     });
 }
+
+const SHOPPING_LIST_KEY = "shoppingList";
+
+export function getRawShoppingList() {
+  const rawShoppingList = window.localStorage.getItem(SHOPPING_LIST_KEY);
+  return rawShoppingList === null ? {} : JSON.parse(rawShoppingList);
+}
+
+export function getShoppingList(recipeName) {
+  const shoppingList = getRawShoppingList();
+  return shoppingList[recipeName] === undefined ? false : shoppingList[recipeName];
+}
+
+export function setShoppingList(recipeName, value) {
+  const shoppingList = getRawShoppingList();
+  const newShoppingList = { ...shoppingList };
+  newShoppingList[recipeName] = value;
+  window.localStorage.setItem(SHOPPING_LIST_KEY, JSON.stringify(newShoppingList));
+}
