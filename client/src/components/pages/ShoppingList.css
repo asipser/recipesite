@@ -1,0 +1,16 @@
+.ShoppingList-Container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 100px 0px 100px;
+  height: 100vh;
+}
+
+.ShoppingList-SelectedRecipes {
+}
+
+.ShoppingList-SelectedRecipe {
+  margin-bottom: 1.5rem;
+}
+
+.ShoppingList-SelectedRecipe-Remove {
+}

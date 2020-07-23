@@ -31,7 +31,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setShoppingList(getRawShoppingList());
     get("/api/recipes").then((recipes) => {
       setAllRecipes(recipes);
     });
@@ -48,25 +47,6 @@ const Home = () => {
     setRecipeList(newRecipeList);
   }, [allRecipes, fillerText, selectedTags]);
 
-  const SHOPPING_LIST_KEY = "shoppingList";
-
-  const getRawShoppingList = () => {
-    const rawShoppingList = window.localStorage.getItem(SHOPPING_LIST_KEY);
-    return rawShoppingList === null ? {} : JSON.parse(rawShoppingList);
-  };
-
-  const getShoppingList = (recipeName) => {
-    const shoppingList = getRawShoppingList();
-    return shoppingList[recipeName] === undefined ? false : shoppingList[recipeName];
-  };
-
-  const setShoppingList = (recipeName, value) => {
-    const shoppingList = getRawShoppingList();
-    const newShoppingList = { ...shoppingList };
-    newShoppingList[recipeName] = value;
-    window.localStorage.setItem(SHOPPING_LIST_KEY, JSON.stringify(newShoppingList));
-  };
-
   return (
     <div className="Home-Container">
       <div className="Home-FilterRecipes">
@@ -78,11 +58,7 @@ const Home = () => {
         />
       </div>
       <div className="Home-RecipeList">
-        <RecipeList
-          recipes={recipeList}
-          getShoppingList={getShoppingList}
-          setShoppingList={setShoppingList}
-        />
+        <RecipeList recipes={recipeList} />
       </div>
     </div>
   );

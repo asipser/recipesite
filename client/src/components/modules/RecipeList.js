@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./RecipeList.css";
+import { getShoppingList, setShoppingList } from "../../utilities";
 
-const RecipeList = ({ recipes, getShoppingList, setShoppingList }) => {
+const RecipeList = ({ recipes }) => {
   return (
     <div className="RecipeList-Container">
       {recipes.map((recipe) => {
         return (
           <div key={`RecipeList-Recipe-${recipe.name}`}>
-            <RecipeRow
-              recipe={recipe}
-              getShoppingList={getShoppingList}
-              setShoppingList={setShoppingList}
-            />
+            <RecipeRow recipe={recipe} />
           </div>
         );
       })}
@@ -19,7 +16,7 @@ const RecipeList = ({ recipes, getShoppingList, setShoppingList }) => {
   );
 };
 
-const RecipeRow = ({ recipe, getShoppingList, setShoppingList }) => {
+const RecipeRow = ({ recipe }) => {
   const [displayRecipe, setDisplayRecipe] = useState(false);
   const [selected, setSelected] = useState(getShoppingList(recipe.name));
 
