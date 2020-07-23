@@ -29,7 +29,8 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
         <input
           value={fillerText}
           onChange={(e) => setFillerText(e.target.value)}
-          placeholder="Search"
+          placeholder="Search Name"
+          className="FilterRecipes-Input"
         />
       </div>
       <div className="FilterRecipes-FilterGroups">{filterGroups}</div>

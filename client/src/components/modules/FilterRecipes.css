@@ -1,8 +1,5 @@
-.FilterRecipes-Input {
-}
-
 .FilterRecipes-FilterGroups {
-  padding: 1rem;
+  padding: 1rem 1rem 0rem 0rem;
   margin-bottom: 0.5rem;
 }
 
@@ -12,6 +9,7 @@
 }
 
 .FilterGroup-TagList {
+  padding-left: 1rem;
 }
 
 .FilterGroup-Container {
@@ -27,4 +25,11 @@
   margin-bottom: 0.3rem;
   color: #0984e3;
   cursor: pointer;
+}
+
+.FilterRecipes-Input {
+  box-sizing: border-box;
+  height: calc(1.5rem + 13px);
+  width: 95%;
+  font-size: 1.75rem;
 }

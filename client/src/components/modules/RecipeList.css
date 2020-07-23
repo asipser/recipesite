@@ -1,5 +1,6 @@
 .RecipeList-Container {
   align-items: center;
+  font-size: 1.3rem;
 }
 
 .RecipeList-Header {
@@ -7,6 +8,7 @@
   background-color: #59595966;
   border-top: 1px solid gray;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .RecipeRow-Container {
@@ -15,15 +17,13 @@
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
-  align-items: center;
-  font-size: 1.7rem;
 }
 
 .RecipeRow-Title {
   padding: 6px 20px;
   border-right: 1px solid black;
-  flex-basis: 60%;
-  flex-grow: 0;
+  flex-basis: 30%;
+  flex-grow: 1;
 }
 
 .RecipeRow-Time {
@@ -37,8 +37,10 @@
 .RecipeRow-Actions-Container {
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
+  flex-grow: 0;
+  flex-basis: 200px;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .RecipeRow-Action {

@@ -1,8 +1,9 @@
 .Home-Container {
   display: flex;
   flex-direction: row;
-  margin: 100px 0px 100px 0px;
   width: 100wh;
+  margin-top: 5rem;
+  justify-content: center;
 }
 
 .Home-FilterRecipes {
@@ -12,9 +13,87 @@
 }
 
 .Home-RecipeList {
-  flex-grow: 1;
+  flex: 1;
+  max-width: 600px;
 }
 
 .Home-ViewRecipe {
-  flex-grow: 2;
+  flex: 1;
+  border-left: 1px solid gray;
+  margin-left: 1rem;
+  max-width: 500px;
+}
+
+.Home-IngredientsList {
+  margin: 0rem 2rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 10rem;
+  min-height: 4rem;
+}
+
+.Home-IngredientsList-Ingredient {
+  padding-left: 0.8rem;
+  text-indent: -0.8rem;
+  width: 50%;
+}
+
+.Home-IngredientsList-Ingredient {
+  display: flex;
+  flex-direction: column;
+}
+
+.Home-DirectionList-DirectionContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem 1rem 2rem;
+}
+
+.Home-Direction-HeaderContainer {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  height: 2rem;
+}
+
+.Home-Direction-HeaderStep {
+  flex-basis: 2rem;
+  flex-grow: 0;
+  line-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fdcb6e;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Home-Direction-HeaderContent {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 2rem;
+
+  align-items: center;
+}
+
+.Home-Direction-BodyContent {
+  flex-basis: 3rem;
+  padding-left: 4.1rem;
+  padding-right: 1.5rem;
+}
+
+.Home-ViewRecipe-TextHeader {
+  font-size: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+.Home-ViewRecipe-StepHeader {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid gray;
 }

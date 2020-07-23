@@ -20,6 +20,9 @@ const Home = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipeList, setRecipeList] = useState([]);
+  const test = [];
+
+  const [selectedRecipe, setSelectedRecipe] = useState({ ingredients: [], directions: [] });
 
   const toggleTags = (newTag) => {
     const isTagSelected = selectedTags.includes(newTag);
@@ -82,9 +85,40 @@ const Home = () => {
           recipes={recipeList}
           getShoppingList={getShoppingList}
           setShoppingList={setShoppingList}
+          setSelectedRecipe={setSelectedRecipe}
         />
       </div>
-      <div className="Home-ViewRecipe"></div>
+      <div className="Home-ViewRecipe">
+        <div className="Home-ViewRecipe-TextHeader">Ingredients</div>
+
+        <div className="Home-IngredientsList">
+          {selectedRecipe.ingredients.map((i) => (
+            <div className="Home-IngredientsList-Ingredient">{`${i.amount} ${i.unit} ${i.item}`}</div>
+          ))}
+        </div>
+        <div className="Home-ViewRecipe-TextHeader Home-ViewRecipe-StepHeader ">Steps</div>
+
+        <div className="Home-DirectionList">
+          {selectedRecipe.directions.map((d, i) => (
+            <Direction direction={d} directionNumber={i} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Direction = ({ direction, directionNumber }) => {
+  return (
+    <div className="Home-DirectionList-DirectionContainer">
+      <div className="Home-Direction-HeaderContainer">
+        <div className="Home-Direction-HeaderStep">{directionNumber}</div>
+        <div className="Home-Direction-HeaderContent">
+          <span>{direction.title}</span>
+          <span>{direction.time} min</span>
+        </div>
+      </div>
+      <div className="Home-Direction-BodyContent">{direction.contents}</div>
     </div>
   );
 };
