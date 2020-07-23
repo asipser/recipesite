@@ -60,6 +60,7 @@ const Home = () => {
       <div className="Home-RecipeList">
         <RecipeList recipes={recipeList} />
       </div>
+      <div className="Home-ViewRecipe"></div>
     </div>
   );
 };

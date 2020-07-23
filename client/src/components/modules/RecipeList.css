@@ -1,85 +1,48 @@
 .RecipeList-Container {
-  padding: 3rem;
-  align-items: center;
-  width: 70%;
-  margin-bottom: 1rem;
-}
-
-.RecipeRow-RecipeHeader-Container {
-  display: flex;
-  flex-direction: row;
-  border: 2px solid gray;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-  justify-content: space-between;
   align-items: center;
 }
 
-.RecipeRow-Recipe {
-  margin-bottom: 1rem;
-}
-
-.RecipeRow-RecipeHeader-Title {
-  font-size: 1.7rem;
-  padding: 0.1rem;
+.RecipeList-Header {
+  border-bottom: 1px solid gray;
+  background-color: #59595966;
+  border-top: 1px solid gray;
   text-align: center;
 }
 
-.RecipeRow-RecipeHeader-Actions {
+.RecipeRow-Container {
   display: flex;
   flex-direction: row;
-  padding: 0.1rem;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+.RecipeRow-Title {
+  padding: 6px 20px;
+  border-right: 1px solid black;
+  flex-basis: 60%;
+  flex-grow: 0;
+}
+
+.RecipeRow-Time {
+  border-right: 1px solid black;
+  flex-basis: 5rem;
+  flex-grow: 0;
+  padding: 6px 0px;
+  text-align: center;
+}
+
+.RecipeRow-Actions-Container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-evenly;
 }
 
 .RecipeRow-Action {
-  margin-right: 0.5rem;
-  text-align: center;
-  border-radius: 5px;
-  width: 2.5rem;
-  height: 1.2rem;
-}
-
-.RecipeRow-Action-Edit {
-  border: 2px solid blue;
-  color: blue;
-}
-
-.RecipeRow-Action-Edit:hover {
-  color: white;
-  background-color: blue;
-}
-
-.RecipeRow-Action-View {
-  border: 2px solid blue;
-  color: blue;
-}
-
-.RecipeRow-Action-View:hover {
-  color: white;
-  background-color: blue;
-}
-
-.RecipeRow-Action-Add {
-  color: green;
-  background-color: white;
-  border: 2px solid green;
-}
-
-.RecipeRow-Action-Add:hover {
-  color: white;
-  background-color: green;
-}
-
-.RecipeRow-Action-Remove {
-  color: red;
-  background-color: white;
-  border: 2px solid red;
-}
-
-.RecipeRow-Action-Remove:hover {
-  color: white;
-  background-color: red;
+  cursor: pointer;
 }
 
 .RecipeRow-RecipeBody-Container {

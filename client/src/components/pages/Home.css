@@ -6,9 +6,15 @@
 }
 
 .Home-FilterRecipes {
-  width: 35%;
+  flex-basis: 13rem;
+  flex-grow: 0;
+  padding-left: 2rem;
 }
 
 .Home-RecipeList {
-  width: 65%;
+  flex-grow: 1;
+}
+
+.Home-ViewRecipe {
+  flex-grow: 2;
 }

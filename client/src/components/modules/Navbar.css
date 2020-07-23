@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   background-color: #0985e387;
+  flex-basis: 64px;
 }
 
 .Navbar-TitleText {
