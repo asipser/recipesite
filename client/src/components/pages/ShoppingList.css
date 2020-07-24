@@ -1,16 +1,42 @@
 .ShoppingList-Container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0px 100px 0px 100px;
   height: 100vh;
+  margin-top: 3rem;
 }
 
-.ShoppingList-SelectedRecipes {
+.ShoppingList-SelectedRecipes-Recipe {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
-.ShoppingList-SelectedRecipe {
-  margin-bottom: 1.5rem;
+.ShoppingList-SelectedRecipes-Recipe-Remove {
+  border: 1px solid gray;
+  padding: 3px 12px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.ShoppingList-SelectedRecipe-Remove {
+.ShoppingList-SelectedRecipes-Header {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.ShoppingList-SelectedRecipes-Recipes {
+  margin-left: 1.3rem;
+}
+
+.ShoppingList-SelectedRecipes-Container {
+  flex-grow: 1;
+  margin-right: 5rem;
+  padding-left: 15px;
+}
+
+.ShoppingList-Pantry {
+  flex-grow: 3;
 }
