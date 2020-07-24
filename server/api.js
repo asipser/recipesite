@@ -268,7 +268,9 @@ router.getAsync("/recipes", async (req, res, next) => {
       });
 
       const transformedIngredients = recipe.ingredients.map((ingredient, num) => {
-        transformedDirections[recipe.ingredient_step_no[num]].ingredients.push(num);
+        if (recipe.ingredient_step_no[num]) {
+          transformedDirections[recipe.ingredient_step_no[num]].ingredients.push(num);
+        }
         return {
           amount: recipe.amounts[num],
           item: ingredient,
