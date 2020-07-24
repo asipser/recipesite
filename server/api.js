@@ -258,14 +258,17 @@ router.getAsync("/recipes", async (req, res, next) => {
         time: recipe.total_time,
       };
 
-      const transformedDirections = recipe.direction_contents.map((dirContents, num) => {
-        return {
+      const transformedDirections = recipe.direction_contents.map(() => {});
+      recipe.direction_contents.forEach((dirContents, num) => {
+        transformedDirections[recipe.direction_steps[num]] = {
           time: recipe.direction_times[num],
           title: recipe.direction_titles[num],
           contents: dirContents,
           ingredients: [],
         };
       });
+
+      transformedDirections.sort();
 
       const transformedIngredients = recipe.ingredients.map((ingredient, num) => {
         if (recipe.ingredient_step_no[num]) {
@@ -308,10 +311,10 @@ router.getAsync("/shopping", async (req, res, next) => {
     (SELECT *
     FROM recipe_ingredients
     JOIN ingredients ON recipe_ingredients.ingredient=ingredients.name) AS X ON X.recipe=recipes.name
-  WHERE recipes.name IN (${recipesSql})
+  WHERE recipes.name IN ${parameterizer.toTuple([[...recipes]], true)}
   GROUP BY recipes.name`;
 
-  const { rows: results } = await db.query(getShoppingSql);
+  const { rows: results } = await db.query(getShoppingSql, recipes);
   res.send(results);
 });
 
