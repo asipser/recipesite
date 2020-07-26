@@ -22,6 +22,11 @@
   cursor: pointer;
 }
 
+.ShoppingList-SelectedRecipes-Recipe-Remove:hover {
+  background-color: gray;
+  color: white;
+}
+
 .ShoppingList-SelectedRecipes-Header {
   margin-bottom: 1rem;
   font-size: 2rem;
@@ -37,6 +42,25 @@
   padding-left: 15px;
 }
 
-.ShoppingList-Pantry {
+.ShoppingList-Pantry-Container {
   flex-grow: 3;
+}
+
+.ShoppingList-Pantry-Header {
+  font-size: 2rem;
+}
+
+.ShoppingList-Pantry-Table-Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ShoppingList-Pantry-Table-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.ShoppingList-Pantry-Table-Header {
+  background-color: gray;
 }

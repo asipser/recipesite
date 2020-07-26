@@ -60,9 +60,9 @@ const ShoppingList = () => {
       <div className="ShoppingList-Pantry-Container">
         <div className="ShoppingList-Pantry-Header">Pantry</div>
         <div className="ShoppingList-Pantry-Table">
-          <div className="ShoppingList-Pantry-Table-Header">
-            <div className="ShoppingList-Pantry-Table-Item"></div>
-            <div className="ShoppingList-Pantry-Table-AddToList"></div>
+          <div className="ShoppingList-Pantry-Table-Row ShoppingList-Pantry-Table-Header">
+            <div className="ShoppingList-Pantry-Table-Item">Item</div>
+            <div className="ShoppingList-Pantry-Table-AddToList">Add to List</div>
           </div>
           {Object.keys(pantryIngredientsMap)
             .sort()
