@@ -11,36 +11,30 @@ const flatten = (listOfLists) => {
 };
 
 const ShoppingList = () => {
-  const getPantryIngredients = (recipes) => {
-    return flatten(recipes.map(({ ingredients }) => ingredients));
-  };
-
   const [selectedRecipes, setSelectedRecipes] = useState([]);
   const [pantryIngredientsMap, setPantryIngredientsMap] = useState({});
 
-  useEffect(() => {
-    const selectedRecipesName = getSelectedRecipes();
-    get("/api/shopping", { recipes: selectedRecipesName }).then((newSelectedRecipes) => {
+  const updatePantryIngredients = (newSelectedRecipes) => {
+    get("/api/shopping", { recipes: newSelectedRecipes }).then(({ pantryIngredients }) => {
       const newPantryIngredientsMap = {};
-      getPantryIngredients(newSelectedRecipes).forEach((ingredient) => {
+      pantryIngredients.forEach((ingredient) => {
         newPantryIngredientsMap[ingredient] = false;
       });
-      setSelectedRecipes(newSelectedRecipes);
       setPantryIngredientsMap(newPantryIngredientsMap);
     });
+  };
+
+  useEffect(() => {
+    const newSelectedRecipes = getSelectedRecipes();
+    setSelectedRecipes(newSelectedRecipes);
+    updatePantryIngredients(newSelectedRecipes);
   }, []);
 
   const removeRecipe = (recipeName) => {
     setShoppingList(recipeName, false);
-    const newSelectedRecipes = selectedRecipes.filter(
-      (otherRecipe) => otherRecipe.recipe_name !== recipeName
-    );
-    const newPantryIngredientsMap = {};
-    getPantryIngredients(newSelectedRecipes).forEach((ingredient) => {
-      newPantryIngredientsMap[ingredient] = pantryIngredientsMap[ingredient];
-    });
+    const newSelectedRecipes = selectedRecipes.filter((otherRecipe) => otherRecipe !== recipeName);
     setSelectedRecipes(newSelectedRecipes);
-    setPantryIngredientsMap(newPantryIngredientsMap);
+    updatePantryIngredients(newSelectedRecipes);
   };
 
   const handleOnToggle = (ingredient, addToList) => {
@@ -54,9 +48,9 @@ const ShoppingList = () => {
         <div className="ShoppingList-SelectedRecipes-Recipes">
           {selectedRecipes.map((recipe) => (
             <SelectedRecipe
-              key={`ShoppingList-${recipe.recipe_name}`}
-              recipe={recipe.recipe_name}
-              OnRemove={() => removeRecipe(recipe.recipe_name)}
+              key={`ShoppingList-${recipe}`}
+              recipe={recipe}
+              OnRemove={() => removeRecipe(recipe)}
             />
           ))}
         </div>
