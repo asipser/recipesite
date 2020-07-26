@@ -43,6 +43,10 @@ const ShoppingList = () => {
     setPantryIngredientsMap(newPantryIngredientsMap);
   };
 
+  const handleOnToggle = (ingredient, addToList) => {
+    setPantryIngredientsMap({ ...pantryIngredientsMap, [ingredient]: addToList });
+  };
+
   return (
     <div className="ShoppingList-Container">
       <div className="ShoppingList-SelectedRecipes-Container">
@@ -60,20 +64,20 @@ const ShoppingList = () => {
       <div className="ShoppingList-Pantry-Container">
         <div className="ShoppingList-Pantry-Header">Pantry</div>
         <div className="ShoppingList-Pantry-Table">
-          <div className="ShoppingList-Pantry-Table-Header">
-            <div className="ShoppingList-Pantry-Table-Item"></div>
-            <div className="ShoppingList-Pantry-Table-AddToList"></div>
+          <div className="ShoppingList-Pantry-Table-Row ShoppingList-Pantry-Table-Header">
+            <div className="ShoppingList-Pantry-Table-Item">Item</div>
+            <div className="ShoppingList-Pantry-Table-AddToList">Add to List</div>
           </div>
           {Object.keys(pantryIngredientsMap)
             .sort()
-            .map((ingredient) => {
-              return (
-                <div key={`pantry-ingredient-${ingredient}`}>
-                  <div>{ingredient}</div>
-                  <div>{pantryIngredientsMap[ingredient] ? "True" : "False"}</div>
-                </div>
-              );
-            })}
+            .map((ingredient) => (
+              <PantryRow
+                key={`PantryRow-${ingredient}`}
+                ingredient={ingredient}
+                onToggle={(addToList) => handleOnToggle(ingredient, addToList)}
+                initialAddToList={pantryIngredientsMap[ingredient]}
+              />
+            ))}
         </div>
       </div>
     </div>
@@ -87,6 +91,27 @@ const SelectedRecipe = ({ recipe, OnRemove }) => {
       <div className="ShoppingList-SelectedRecipes-Recipe-Remove" onClick={(e) => OnRemove()}>
         remove
       </div>
+    </div>
+  );
+};
+
+const PantryRow = ({ ingredient, onToggle, initialAddToList }) => {
+  const [addToList, setAddToList] = useState(initialAddToList);
+
+  const handleChange = (e) => {
+    setAddToList(!addToList);
+    onToggle(!addToList);
+  };
+
+  return (
+    <div className="ShoppingList-Pantry-Table-Row">
+      <div>{ingredient}</div>
+      <form onChange={(e) => handleChange()}>
+        <input id="addToList-true" type="radio" checked={addToList} />
+        <label for="addToList-true">True</label>
+        <input id="addToList-false" type="radio" checked={!addToList} />
+        <label for="addToList-true">False</label>
+      </form>
     </div>
   );
 };
