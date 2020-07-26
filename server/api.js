@@ -295,30 +295,53 @@ router.getAsync("/shopping", async (req, res, next) => {
     res.send([]);
   }
 
-  const recipes = req.query.recipes.split(",");
-  const recipesSql = recipes.map((ele) => `'${ele}'`).join(",");
+  const recipeNames = req.query.recipes.split(",");
+  const recipesSql = recipeNames.map((ele) => `'${ele}'`).join(",");
 
   const getShoppingSql = `
   SELECT 
     (ingredient) AS ingredient, (unit::varchar) AS unit, pantry AS check_pantry, preferred_store::varchar,
-    recipes.name AS recipe_name, recipes.servings AS recipe_servings, (amount) AS amounts, (preferred_store::varchar) AS pref_store, (X.type::varchar) AS food_type
+    recipes.name AS recipe_name, recipes.servings AS recipe_servings, (amount) AS amount, (preferred_store::varchar) AS pref_store, (X.type::varchar) AS food_type
   FROM recipes
   JOIN
     (SELECT *
     FROM recipe_ingredients
     JOIN ingredients ON recipe_ingredients.ingredient=ingredients.name) AS X ON X.recipe=recipes.name
-  WHERE recipes.name IN ${parameterizer.toTuple([[...recipes]], true)}
+  WHERE recipes.name IN ${parameterizer.toTuple([[...recipeNames]], true)}
   ORDER BY ingredient, unit
   `;
 
-  const { rows: results } = await db.query(getShoppingSql, recipes);
+  const { rows: results } = await db.query(getShoppingSql, recipeNames);
+
+  const recipeMap = {};
+
+  recipeNames.forEach((recipeName) => {
+    recipeMap[recipeName] = { ingredients: [], servings: 1 };
+  });
+
+  results.forEach((row) => {
+    const ingredient = {
+      amount: row.amount,
+      unit: row.unit,
+      item: row.ingredient,
+      type: row.food_type,
+      store: row.preferred_store,
+      checkPantry: row.check_pantry,
+    };
+    recipeMap[row.recipe_name].ingredients.push(ingredient);
+    recipeMap[row.recipe_name].servings = row.recipe_servings;
+  });
+
+  const finalRecipes = recipeNames.map((recipeName) => {
+    return { ...recipeMap[recipeName], name: recipeName };
+  });
 
   const pantryIngredients = results
     .filter((row) => row.check_pantry)
     .filter((row, i, self) => self.findIndex((r) => r.ingredient === row.ingredient) === i)
     .map((row) => row.ingredient);
 
-  res.send({ pantryIngredients: pantryIngredients });
+  res.send({ pantryIngredients: pantryIngredients, recipes: finalRecipes });
 });
 
 // anything else falls to this "not found" case

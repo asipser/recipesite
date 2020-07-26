@@ -6,9 +6,6 @@ const getSelectedRecipes = () => {
   const recipeMap = getRawShoppingList();
   return Object.keys(recipeMap).filter((recipe) => recipeMap[recipe]);
 };
-const flatten = (listOfLists) => {
-  return [].concat.apply([], listOfLists);
-};
 
 const ShoppingList = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
