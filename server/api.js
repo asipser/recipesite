@@ -299,22 +299,26 @@ router.getAsync("/shopping", async (req, res, next) => {
   const recipesSql = recipes.map((ele) => `'${ele}'`).join(",");
 
   const getShoppingSql = `
-  SELECT recipes.name AS recipe_name,
-    ARRAY_AGG(ingredient) AS ingredients,
-    ARRAY_AGG(amount) AS amounts,
-    ARRAY_AGG(unit::varchar) AS units,
-    ARRAY_AGG(pantry) AS check_pantry,
-    ARRAY_AGG(preferred_store::varchar) AS pref_store,
-    ARRAY_AGG(X.type::varchar) AS food_type
+  SELECT 
+    (ingredient) AS ingredients, (unit::varchar) AS units, pantry AS check_pantry, preferred_store::varchar,
+    recipes.name AS recipe_name, (amount) AS amounts, (preferred_store::varchar) AS pref_store, (X.type::varchar) AS food_type
   FROM recipes
   JOIN
     (SELECT *
     FROM recipe_ingredients
     JOIN ingredients ON recipe_ingredients.ingredient=ingredients.name) AS X ON X.recipe=recipes.name
   WHERE recipes.name IN ${parameterizer.toTuple([[...recipes]], true)}
-  GROUP BY recipes.name`;
+  ORDER BY ingredients, units
+  `;
 
   const { rows: results } = await db.query(getShoppingSql, recipes);
+
+  const pantryIngredients = results
+    .filter((row) => row.check_pantry)
+    .filter((row, i, self) => self.indexOf(row) === i);
+
+  console.log(pantryIngredients);
+
   res.send(results);
 });
 
