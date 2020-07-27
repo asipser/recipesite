@@ -331,16 +331,12 @@ router.getAsync("/shopping", async (req, res, next) => {
     recipeMap[row.recipe_name].servings = row.recipe_servings;
   });
 
-  const finalRecipes = recipeNames.map((recipeName) => {
-    return { ...recipeMap[recipeName], name: recipeName };
-  });
-
   const pantryIngredients = results
     .filter((row) => row.check_pantry)
     .filter((row, i, self) => self.findIndex((r) => r.ingredient === row.ingredient) === i)
     .map((row) => row.ingredient);
 
-  res.send({ pantryIngredients: pantryIngredients, recipes: finalRecipes });
+  res.send({ pantryIngredients, recipeMap });
 });
 
 // anything else falls to this "not found" case

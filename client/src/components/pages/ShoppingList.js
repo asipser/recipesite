@@ -3,9 +3,10 @@ import PantrySelecter from "../modules/PantrySelecter";
 import ScalingSelecter from "../modules/ScalingSelecter";
 import { get, getRawShoppingList, setShoppingList } from "../../utilities";
 import "./ShoppingList.css";
+import P from "pino";
 
 const ShoppingList = () => {
-  const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const [recipeMap, setRecipeMap] = useState([]);
   const [pantryIngredientsMap, setPantryIngredientsMap] = useState({});
   const [viewPantry, setViewPantry] = useState(true);
 
@@ -14,33 +15,31 @@ const ShoppingList = () => {
     return Object.keys(recipeMap).filter((recipe) => recipeMap[recipe]);
   };
 
-  const fetchData = async (selectedRecipeNames) => {
-    return get("/api/shopping", { recipes: selectedRecipeNames }).then(
-      ({ pantryIngredients, recipes }) => {
-        const newPantryIngredientsMap = {};
-        pantryIngredients.forEach((ingredient) => {
-          newPantryIngredientsMap[ingredient] =
-            pantryIngredientsMap[ingredient] !== undefined
-              ? pantryIngredientsMap[ingredient]
-              : false;
-        });
-        return {
-          pantryIngredientsMap: newPantryIngredientsMap,
-          recipes: recipes,
+  const updateRecipesAndIngredients = (selectedRecipeNames) => {
+    get("/api/shopping", { recipes: selectedRecipeNames }).then((data) => {
+      const newPantryIngredientsMap = {};
+      data.pantryIngredients.forEach((ingredient) => {
+        newPantryIngredientsMap[ingredient] =
+          pantryIngredientsMap[ingredient] !== undefined ? pantryIngredientsMap[ingredient] : false;
+      });
+      const newRecipeMap = {};
+      selectedRecipeNames.forEach((recipeName) => {
+        newRecipeMap[recipeName] = {
+          userServings: data.recipeMap[recipeName].servings,
+          ...data.recipeMap[recipeName],
+          ...recipeMap[recipeName],
         };
-      }
-    );
+      });
+
+      setRecipeMap(newRecipeMap);
+      setPantryIngredientsMap(newPantryIngredientsMap);
+    });
   };
 
   const handleRemoveRecipe = (recipeName) => {
     setShoppingList(recipeName, false);
-    const newSelectedRecipes = selectedRecipes.filter(
-      (otherRecipe) => otherRecipe.name !== recipeName
-    );
-    fetchData(newSelectedRecipes.map((recipe) => recipe.name)).then((data) => {
-      setPantryIngredientsMap(data.pantryIngredientsMap);
-      setSelectedRecipes(newSelectedRecipes);
-    });
+    const newSelectedRecipeNames = Object.keys(recipeMap).filter((other) => other != recipeName);
+    updateRecipesAndIngredients(newSelectedRecipeNames);
   };
 
   const handleOnToggle = (ingredient, addToList) => {
@@ -49,12 +48,7 @@ const ShoppingList = () => {
 
   useEffect(() => {
     const newSelectedRecipeNames = getSelectedRecipeNames();
-    fetchData(newSelectedRecipeNames).then((data) => {
-      setPantryIngredientsMap(data.pantryIngredientsMap);
-      setSelectedRecipes(
-        data.recipes.map((recipe) => ({ ...recipe, userServings: recipe.servings }))
-      );
-    });
+    updateRecipesAndIngredients(newSelectedRecipeNames);
   }, []);
 
   return (
@@ -62,7 +56,7 @@ const ShoppingList = () => {
       <div className="ShoopingList-Body">
         {viewPantry ? (
           <PantrySelecter
-            selectedRecipes={selectedRecipes.map((recipe) => recipe.name)}
+            selectedRecipes={Object.keys(recipeMap).sort()}
             pantryIngredientsMap={pantryIngredientsMap}
             onRemoveRecipe={handleRemoveRecipe}
             onToggleIngredient={handleOnToggle}
