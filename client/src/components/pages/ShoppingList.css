@@ -1,1 +1,15 @@
+.ShoppingList-Container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px 100px 0px 100px;
+  margin-top: 3rem;
+}
 
+.ShoppingList-Body {
+  flex-grow: 1;
+}
+
+.ShoppingList-Footer {
+  flex-grow: 0;
+}

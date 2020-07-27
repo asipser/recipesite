@@ -1,9 +1,6 @@
 .PantrySelecter-Container {
   display: flex;
   flex-direction: row;
-  margin: 0px 100px 0px 100px;
-  height: 100vh;
-  margin-top: 3rem;
 }
 
 .PantrySelecter-SelectedRecipes-Recipe {
