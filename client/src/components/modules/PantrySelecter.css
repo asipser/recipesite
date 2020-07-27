@@ -1,0 +1,66 @@
+.PantrySelecter-Container {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 100px 0px 100px;
+  height: 100vh;
+  margin-top: 3rem;
+}
+
+.PantrySelecter-SelectedRecipes-Recipe {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.PantrySelecter-SelectedRecipes-Recipe-Remove {
+  border: 1px solid gray;
+  padding: 3px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.PantrySelecter-SelectedRecipes-Recipe-Remove:hover {
+  background-color: gray;
+  color: white;
+}
+
+.PantrySelecter-SelectedRecipes-Header {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.PantrySelecter-SelectedRecipes-Recipes {
+  margin-left: 1.3rem;
+}
+
+.PantrySelecter-SelectedRecipes-Container {
+  flex-grow: 1;
+  margin-right: 5rem;
+  padding-left: 15px;
+}
+
+.PantrySelecter-Pantry-Container {
+  flex-grow: 3;
+}
+
+.PantrySelecter-Pantry-Header {
+  font-size: 2rem;
+}
+
+.PantrySelecter-Pantry-Table-Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.PantrySelecter-Pantry-Table-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.PantrySelecter-Pantry-Table-Header {
+  background-color: gray;
+}

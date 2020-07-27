@@ -292,11 +292,10 @@ router.getAsync("/recipes", async (req, res, next) => {
 
 router.getAsync("/shopping", async (req, res, next) => {
   if (!req.query.recipes || req.query.recipes.length == 0) {
-    res.send([]);
+    res.send({ pantryIngredients: [], recipes: [] });
   }
 
   const recipeNames = req.query.recipes.split(",");
-  const recipesSql = recipeNames.map((ele) => `'${ele}'`).join(",");
 
   const getShoppingSql = `
   SELECT 
