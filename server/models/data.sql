@@ -65,19 +65,19 @@ CREATE TABLE tags
 CREATE TABLE recipe_ingredients 
 (
   id SERIAL PRIMARY KEY,
-  ingredient VARCHAR REFERENCES ingredients(name),
+  ingredient VARCHAR REFERENCES ingredients(name) ON DELETE CASCADE,
   unit quantity_type,
   amount FLOAT,
-  recipe VARCHAR REFERENCES recipes(name),
+  recipe VARCHAR REFERENCES recipes(name) ON DELETE CASCADE,
   step_number INTEGER,
-   FOREIGN KEY (step_number, recipe) REFERENCES recipe_directions (step_number, recipe)
+  FOREIGN KEY (step_number, recipe) REFERENCES recipe_directions (step_number, recipe) ON DELETE CASCADE
 );
 
 CREATE TABLE recipe_directions 
 (
   step_number INTEGER,
   title VARCHAR,
-  recipe VARCHAR REFERENCES recipes(name),
+  recipe VARCHAR REFERENCES recipes(name) ON DELETE CASCADE,
   contents VARCHAR,
   time INTEGER,
   PRIMARY KEY(recipe, step_number)
@@ -85,6 +85,6 @@ CREATE TABLE recipe_directions
 
 CREATE TABLE recipe_tags
 (
-  name VARCHAR REFERENCES tags(name),
-  recipe VARCHAR REFERENCES recipes(name)
+  name VARCHAR REFERENCES tags(name) ON DELETE CASCADE,
+  recipe VARCHAR REFERENCES recipes(name) ON DELETE CASCADE
 )

@@ -105,6 +105,11 @@ function transformIngredients(ingredients, directions) {
   return [...ingredientsWithDirection, ...ingredientWithNoDirection];
 }
 
+function dropRecipeIfExists(transactionClient, recipeTitle) {
+  const sql = "DELETE FROM recipes WHERE name=$1";
+  return transactionClient.query(sql, [recipeTitle]);
+}
+
 function insertRecipeSql(transactionClient, recipeMeta) {
   const recipeTitle = recipeMeta.title.toLowerCase();
   const recipeServings = Number.parseInt(recipeMeta.servings);
@@ -211,6 +216,7 @@ router.postAsync("/recipe", async (req, res) => {
 
   try {
     await client.query("BEGIN");
+    await dropRecipeIfExists(client, recipeTitle);
     await insertRecipeSql(client, recipeMeta);
     await insertRecipeTagsSql(client, recipeMeta);
     await insertIngredientsSql(client, ingredients);
@@ -228,23 +234,33 @@ router.postAsync("/recipe", async (req, res) => {
 });
 
 router.getAsync("/recipes", async (req, res, next) => {
-  let sqlRecipeFilter = req.query.recipe ? `WHERE recipes.name='${req.query.recipe}' ` : "";
   const getRecipeInfoSql = `
   SELECT
-    recipe_name as name, tags, servings, source, ingredients, amounts, units, ingredient_step_no, 
-    ARRAY_AGG(step_number) as direction_steps, ARRAY_AGG(title) as direction_titles,
-    ARRAY_AGG(contents) as direction_contents, ARRAY_AGG(time) as direction_times, SUM(time) as total_time
+  recipe_name as name, tags, servings, source, SUM(time) as total_time,
+  ingredients, amounts, units, check_pantry_list,preferred_store_list,ingredient_type_list, ingredient_step_no,
+  ARRAY_AGG(step_number) as direction_steps, ARRAY_AGG(title) as direction_titles,
+    ARRAY_AGG(contents) as direction_contents, ARRAY_AGG(time) as direction_times
   FROM 
     (SELECT
         X.name as recipe_name, X.tags, servings, source, ARRAY_AGG(ingredient) as ingredients,
         ARRAY_AGG(amount) as amounts, ARRAY_AGG(unit::varchar) as units,
-        ARRAY_AGG(recipe_ingredients.step_number) as ingredient_step_no
+        ARRAY_AGG(recipe_ingredients.step_number) as ingredient_step_no,
+    ARRAY_AGG(ingredients.pantry) as check_pantry_list,
+    ARRAY_AGG(ingredients.preferred_store::varchar) as preferred_store_list,
+    ARRAY_AGG(ingredients.type::varchar) as ingredient_type_list
       FROM 
         (SELECT recipes.name, servings, source, ARRAY_AGG(recipe_tags.name) as tags
         from recipes 
-        LEFT JOIN recipe_tags on recipe_tags.recipe=recipes.name ${sqlRecipeFilter}GROUP BY recipes.name, servings, source) as X
-      LEFT JOIN recipe_ingredients on recipe_ingredients.recipe=X.name GROUP BY name,servings, source, tags) as Y
-  LEFT JOIN recipe_directions ON recipe=recipe_name GROUP BY recipe_name,tags,ingredients,amounts,units,ingredient_step_no,servings,source`;
+        JOIN recipe_tags on recipe_tags.recipe=recipes.name GROUP BY recipes.name, servings, source) as X
+      LEFT JOIN recipe_ingredients on recipe_ingredients.recipe=X.name
+      JOIN ingredients on ingredients.name=recipe_ingredients.ingredient
+      GROUP BY X.name,servings, source, tags) as Y
+  LEFT JOIN recipe_directions ON recipe=recipe_name
+  GROUP BY 
+    recipe_name,tags,ingredients,amounts,units,
+    ingredient_step_no,servings,source,
+    check_pantry_list,preferred_store_list,ingredient_type_list
+  `;
 
   const { rows: results } = await db.query(getRecipeInfoSql);
 
@@ -278,12 +294,16 @@ router.getAsync("/recipes", async (req, res, next) => {
           amount: recipe.amounts[num],
           item: ingredient,
           unit: recipe.units[num],
+          store: recipe.preferred_store_list[num],
+          type: recipe.ingredient_type_list[num],
+          checkPantry: recipe.check_pantry_list[num],
+          filled: true,
         };
       });
       return {
         ...transformedRecipe,
         ingredients: transformedIngredients,
-        directions: transformedDirections,
+        directions: recipe.total_time != null ? transformedDirections : [],
       };
     }
   });

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./RecipeList.css";
 import { getShoppingList, setShoppingList } from "../../utilities";
+import { navigate } from "@reach/router";
 
 const RecipeList = ({ recipes, getShoppingList, setShoppingList, setSelectedRecipe }) => {
   return (
@@ -42,10 +43,15 @@ const RecipeRow = ({ recipe, getShoppingList, setShoppingList, setSelectedRecipe
   return (
     <div className="RecipeRow-Container">
       <div className="RecipeRow-Title ">{recipe.name}</div>
-      <div className="RecipeRow-Time">{recipe.time}m</div>
+      <div className="RecipeRow-Time">{recipe.time ? recipe.time + "m" : "---"}</div>
 
       <div className="RecipeRow-Actions-Container">
-        <div className="RecipeRow-Action RecipeRow-Action-Edit">Edit</div>
+        <div
+          className="RecipeRow-Action RecipeRow-Action-Edit"
+          onClick={(e) => navigate("/add-recipe", { state: { ...recipe } })}
+        >
+          Edit
+        </div>
         <div
           className="RecipeRow-Action RecipeRow-Action-View"
           onClick={(e) => setSelectedRecipe(recipe)}

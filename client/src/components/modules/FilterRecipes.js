@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { BrowserView } from "react-device-detect";
+
 import { get } from "../../utilities";
 import "./FilterRecipes.css";
 
@@ -25,15 +27,15 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
 
   return (
     <>
-      <div className="FilterRecipes-Input">
-        <input
-          value={fillerText}
-          onChange={(e) => setFillerText(e.target.value)}
-          placeholder="Search Name"
-          className="FilterRecipes-Input"
-        />
-      </div>
-      <div className="FilterRecipes-FilterGroups">{filterGroups}</div>
+      <input
+        value={fillerText}
+        onChange={(e) => setFillerText(e.target.value)}
+        placeholder="Search Name"
+        className="FilterRecipes-Input"
+      />
+      <BrowserView>
+        <div className="FilterRecipes-FilterGroups">{filterGroups}</div>
+      </BrowserView>
     </>
   );
 };

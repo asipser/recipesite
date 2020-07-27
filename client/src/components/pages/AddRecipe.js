@@ -10,28 +10,49 @@ import { get } from "../../utilities";
 
 import { post } from "../../utilities";
 
-const AddRecipe = () => {
+const AddRecipe = (props) => {
   //adding ingredients ("ingredients") or adding directions ("directions")
   const [viewMode, setViewMode] = useState("ingredients");
 
-  //list of all meta information regarding the recipe
-  const [allTags, setAllTags] = useState([]);
   const [meta, setMeta] = useState({
-    title: "",
-    source: "",
-    servings: 0,
-    tags: [],
+    title:
+      props.location.state && props.location.state.name != undefined
+        ? props.location.state.name
+        : "",
+    source:
+      props.location.state && props.location.state.source != undefined
+        ? props.location.state.source
+        : "",
+    servings:
+      props.location.state && props.location.state.servings != undefined
+        ? props.location.state.servings
+        : 0,
+    tags:
+      props.location.state && props.location.state.tags != undefined
+        ? props.location.state.tags
+        : [],
   });
 
   //list of all recipe ingredients
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState(
+    props.location.state && props.location.state.ingredients != undefined
+      ? props.location.state.ingredients
+      : []
+  );
 
   // list of all recipe directions
-  const [directions, setDirections] = useState([]);
+  const [directions, setDirections] = useState(
+    props.location.state && props.location.state.directions != undefined
+      ? props.location.state.directions
+      : []
+  );
 
   // selected direction, so one can add ingredients to it, -1 for no direction selected
   const [selectedDirectionNumber, setSelectedDirectionNumber] = useState(-1);
 
+  //list of all meta information regarding the recipe
+  const [loading, setLoading] = useState(true);
+  const [allTags, setAllTags] = useState([]);
   const [ingredientsMeta, setIngredientsMeta] = useState({
     units: [],
     stores: [],
@@ -48,6 +69,12 @@ const AddRecipe = () => {
   };
 
   useEffect(() => {
+    if (allTags.length > 0 && ingredientsMeta.units.length > 0) {
+      setLoading(false);
+    }
+  }, [allTags, ingredientsMeta]);
+
+  useEffect(() => {
     get("/api/ingredients-meta").then(({ units, stores, types, ingredients }) => {
       setIngredientsMeta({ units, stores, types, ingredients });
     });
@@ -55,6 +82,10 @@ const AddRecipe = () => {
       setAllTags(allTags);
     });
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="AddRecipe-Container">
@@ -91,6 +122,7 @@ const AddRecipe = () => {
         <RecipeProgression
           setProgress={setViewMode}
           progress={viewMode}
+          editingRecipe={props.location.state != undefined && props.location.state != {}}
           onCompletion={() => {
             post("/api/recipe", {
               meta,

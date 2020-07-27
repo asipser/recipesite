@@ -1,7 +1,7 @@
 import React from "react";
 import "./RecipeProgression.css";
 
-const RecipeProgression = ({ progress, setProgress, onCompletion }) => {
+const RecipeProgression = ({ progress, setProgress, onCompletion, editingRecipe }) => {
   const renderProgressionButtons = () => {
     if (progress == "ingredients") {
       return <div onClick={() => setProgress("directions")}>Directions</div>;
@@ -16,7 +16,7 @@ const RecipeProgression = ({ progress, setProgress, onCompletion }) => {
               }
             }}
           >
-            Finish
+            {editingRecipe ? "Update Recipe" : "Submit Recipe"}
           </div>
         </>
       );

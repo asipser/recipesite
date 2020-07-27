@@ -3,6 +3,7 @@ import IngredientRow from "./IngredientRow";
 import "./IngredientsTable.css";
 
 const IngredientsTable = ({ rows, setRows, ingredientsMeta }) => {
+  console.log(rows);
   const getInitialRowState = () => ({
     amount: "",
     unit: "",
@@ -38,6 +39,7 @@ const IngredientsTable = ({ rows, setRows, ingredientsMeta }) => {
   }, [rows]);
 
   const ingredientsRow = rows.map((row, i) => {
+    console.log(row);
     return (
       <div className={"IngredientsTable-container"} key={`row-${i}`}>
         <IngredientRow

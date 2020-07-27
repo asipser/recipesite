@@ -18,6 +18,7 @@ const getAutofill = (options, text) => {
 };
 
 const IngredientRow = ({ rowNumber, onFilledRow, rowContent, ingredientsMeta }) => {
+  console.log(ingredientsMeta);
   const generateRowCell = (textField, filled) => {
     return { text: textField, filled: filled || !!textField };
   };
@@ -46,6 +47,7 @@ const IngredientRow = ({ rowNumber, onFilledRow, rowContent, ingredientsMeta }) 
   useEffect(() => {
     let rowFilled = true;
     const rowCells = [cellAmount, cellUnit, cellItem, cellStore, cellType];
+    console.log(rowCells);
     for (let i = 0; i < rowCells.length; i++) {
       if (!rowCells[i].filled) {
         rowFilled = false;
@@ -115,9 +117,11 @@ const CellAmount = ({ rowNumber, cell, setCell }) => {
 };
 
 const CellUnit = ({ units, rowNumber, cell, setCell }) => {
+  console.log(units, rowNumber, cell);
   const placeholder = "Unit";
   const inputRef = useRef();
   const text = cell.text;
+
   const handleFinishedEditing = () => {
     const newText = getAutofill(units, text);
     setCell({
