@@ -9,6 +9,7 @@ const ShoppingList = () => {
   const [recipeMap, setRecipeMap] = useState([]);
   const [pantryIngredientsMap, setPantryIngredientsMap] = useState({});
   const [viewPantry, setViewPantry] = useState(true);
+  const [shoppingListIngredients, setShoppingListIngredients] = useState({});
 
   const getSelectedRecipeNames = () => {
     const recipeMap = getRawShoppingList();
@@ -20,19 +21,21 @@ const ShoppingList = () => {
       const newPantryIngredientsMap = {};
       data.pantryIngredients.forEach((ingredient) => {
         newPantryIngredientsMap[ingredient] =
-          pantryIngredientsMap[ingredient] !== undefined ? pantryIngredientsMap[ingredient] : false;
+          pantryIngredientsMap[ingredient] !== undefined ? pantryIngredientsMap[ingredient] : false; //preserve old value if exists
       });
       const newRecipeMap = {};
       selectedRecipeNames.forEach((recipeName) => {
+        console.log(data, recipeMap[recipeName]);
         newRecipeMap[recipeName] = {
           userServings: data.recipeMap[recipeName].servings,
-          ...data.recipeMap[recipeName],
           ...recipeMap[recipeName],
+          ...data.recipeMap[recipeName],
         };
       });
 
       setRecipeMap(newRecipeMap);
       setPantryIngredientsMap(newPantryIngredientsMap);
+      setShoppingListIngredients(data.shoppingListIngredients);
     });
   };
 

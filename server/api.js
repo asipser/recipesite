@@ -310,6 +310,26 @@ router.getAsync("/recipes", async (req, res, next) => {
   res.send(transformedResults);
 });
 
+function getRecipeScalingMap(recipeNames, ingredientRows) {
+  const recipeMap = {};
+  recipeNames.forEach((recipeName) => {
+    recipeMap[recipeName] = { proteins: [], servings: 1 };
+  });
+
+  ingredientRows
+    .filter((row) => row.food_type == "meat" || row.food_type == "fish")
+    .forEach((row) => {
+      recipeMap[row.recipe_name].proteins.push({
+        amount: row.amount,
+        unit: row.unit,
+        item: row.ingredient,
+      });
+      recipeMap[row.recipe_name].servings = row.recipe_servings;
+    });
+
+  return recipeMap;
+}
+
 router.getAsync("/shopping", async (req, res, next) => {
   if (!req.query.recipes || req.query.recipes.length == 0) {
     res.send({ pantryIngredients: [], recipes: [] });
@@ -332,31 +352,26 @@ router.getAsync("/shopping", async (req, res, next) => {
 
   const { rows: results } = await db.query(getShoppingSql, recipeNames);
 
-  const recipeMap = {};
-
-  recipeNames.forEach((recipeName) => {
-    recipeMap[recipeName] = { ingredients: [], servings: 1 };
-  });
-
-  results.forEach((row) => {
-    const ingredient = {
-      amount: row.amount,
-      unit: row.unit,
-      item: row.ingredient,
-      type: row.food_type,
-      store: row.preferred_store,
-      checkPantry: row.check_pantry,
-    };
-    recipeMap[row.recipe_name].ingredients.push(ingredient);
-    recipeMap[row.recipe_name].servings = row.recipe_servings;
-  });
-
   const pantryIngredients = results
     .filter((row) => row.check_pantry)
     .filter((row, i, self) => self.findIndex((r) => r.ingredient === row.ingredient) === i)
     .map((row) => row.ingredient);
 
-  res.send({ pantryIngredients, recipeMap });
+  const recipeMap = getRecipeScalingMap(recipeNames, results);
+
+  const shoppingListIngredients = {};
+
+  results.forEach((row) => {
+    shoppingListIngredients[row.ingredient] = shoppingListIngredients[row.ingredient] || {};
+    shoppingListIngredients[row.ingredient][row.unit] =
+      shoppingListIngredients[row.ingredient][row.unit] || [];
+    shoppingListIngredients[row.ingredient][row.unit].push({
+      recipe: row.recipe_name,
+      amount: row.amount,
+    });
+  });
+
+  res.send({ pantryIngredients, recipeMap, shoppingListIngredients });
 });
 
 // anything else falls to this "not found" case
