@@ -1,0 +1,37 @@
+.ScaleRecipeCard-Container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 1px solid black;
+  min-height: 200px;
+}
+
+.ScaleRecipeCard-Proteins-Header {
+  font-size: 1.1rem;
+}
+.ScaleRecipeCard-Proteins-Text {
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+.ScaleRecipeCard-Name {
+  font-size: 1.5rem;
+}
+
+.ScaleRecipeCard-ServingsContainer {
+  display: flex;
+}
+.ScaleRecipeCard-Servings {
+  flex-basis: 8rem;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+.ScaleRecipeCard-ServingsInput {
+  display: inline-block;
+  width: 15rem;
+}
+
+.ScaleRecipeCard-Container > div {
+  padding-bottom: 4px;
+  padding-left: 8px;
+}

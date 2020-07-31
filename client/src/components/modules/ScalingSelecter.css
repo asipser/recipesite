@@ -1,0 +1,12 @@
+.ScalingSelecter-Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.ScalingSelecter-ScaleContainer {
+  flex-basis: 45%;
+}
+
+.ScalingSelecter-PreviewContainer {
+  flex-basis: 45%;
+}

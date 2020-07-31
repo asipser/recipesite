@@ -313,19 +313,18 @@ router.getAsync("/recipes", async (req, res, next) => {
 function getRecipeScalingMap(recipeNames, ingredientRows) {
   const recipeMap = {};
   recipeNames.forEach((recipeName) => {
-    recipeMap[recipeName] = { proteins: [], servings: 1 };
+    recipeMap[recipeName] = { ingredients: [], servings: 1 };
   });
 
-  ingredientRows
-    .filter((row) => row.food_type == "meat" || row.food_type == "fish")
-    .forEach((row) => {
-      recipeMap[row.recipe_name].proteins.push({
-        amount: row.amount,
-        unit: row.unit,
-        item: row.ingredient,
-      });
-      recipeMap[row.recipe_name].servings = row.recipe_servings;
+  ingredientRows.forEach((row) => {
+    recipeMap[row.recipe_name].ingredients.push({
+      amount: row.amount,
+      unit: row.unit,
+      item: row.ingredient,
+      type: row.food_type,
     });
+    recipeMap[row.recipe_name].servings = row.recipe_servings;
+  });
 
   return recipeMap;
 }

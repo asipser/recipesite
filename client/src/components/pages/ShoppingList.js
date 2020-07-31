@@ -3,12 +3,14 @@ import PantrySelecter from "../modules/PantrySelecter";
 import ScalingSelecter from "../modules/ScalingSelecter";
 import { get, getRawShoppingList, setShoppingList } from "../../utilities";
 import "./ShoppingList.css";
-import P from "pino";
+import ShoppingListPreview from "../modules/ShoppingListPreview";
+import ShoppingListProgression from "../modules/ShoppingListProgression";
 
 const ShoppingList = () => {
+  const VIEW_OPTIONS = ["pantry", "scaling", "preview"];
   const [recipeMap, setRecipeMap] = useState([]);
   const [pantryIngredientsMap, setPantryIngredientsMap] = useState({});
-  const [viewPantry, setViewPantry] = useState(true);
+  const [viewMode, setViewMode] = useState(VIEW_OPTIONS[0]);
   const [shoppingListIngredients, setShoppingListIngredients] = useState({});
 
   const getSelectedRecipeNames = () => {
@@ -57,19 +59,25 @@ const ShoppingList = () => {
   return (
     <div className="ShoppingList-Container">
       <div className="ShoopingList-Body">
-        {viewPantry ? (
+        {viewMode == "pantry" && (
           <PantrySelecter
             selectedRecipes={Object.keys(recipeMap).sort()}
             pantryIngredientsMap={pantryIngredientsMap}
             onRemoveRecipe={handleRemoveRecipe}
             onToggleIngredient={handleOnToggle}
           />
-        ) : (
-          <ScalingSelecter />
+        )}
+        {viewMode == "scaling" && (
+          <ScalingSelecter
+            {...{ shoppingListIngredients, recipeMap, pantryIngredientsMap, setRecipeMap }}
+          />
+        )}
+        {viewMode == "preview" && (
+          <ShoppingListPreview {...{ shoppingListIngredients, recipeMap, pantryIngredientsMap }} />
         )}
       </div>
       <div className="ShoppingList-Footer">
-        <button onClick={(e) => setViewPantry(!viewPantry)}>Change</button>
+        <ShoppingListProgression progress={viewMode} setProgress={setViewMode} />
       </div>
     </div>
   );
