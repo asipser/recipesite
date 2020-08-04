@@ -1,15 +1,24 @@
 .ShoppingList-Container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
   margin: 0px 100px 0px 100px;
   margin-top: 3rem;
+  justify-content: center;
 }
 
-.ShoppingList-Body {
-  flex-grow: 1;
+.ShoppingList-Control {
+  flex-basis: 400px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .ShoppingList-Footer {
   flex-grow: 0;
+}
+
+.ShoppingList-Preview {
+  flex-basis: 400px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }

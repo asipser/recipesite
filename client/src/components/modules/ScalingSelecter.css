@@ -1,12 +1,9 @@
 .ScalingSelecter-Container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.ScalingSelecter-ScaleContainer {
-  flex-basis: 45%;
-}
-
-.ScalingSelecter-PreviewContainer {
-  flex-basis: 45%;
+.ScalingSelecter-Header {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
 }

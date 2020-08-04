@@ -1,9 +1,10 @@
 .ScaleRecipeCard-Container {
   display: flex;
   flex-direction: column;
-  width: 500px;
   border: 1px solid black;
-  min-height: 200px;
+  border-radius: 5px;
+  min-height: 100px;
+  margin-bottom: 0.5rem;
 }
 
 .ScaleRecipeCard-Proteins-Header {

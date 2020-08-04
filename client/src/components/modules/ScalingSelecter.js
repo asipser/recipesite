@@ -23,8 +23,8 @@ const ScalingSelecter = ({
   };
   return (
     <div className="ScalingSelecter-Container">
+      <div className="ScalingSelecter-Header">Scale Recipe Amounts</div>
       <div className="ScalingSelecter-ScaleContainer">{renderScaleCards()}</div>
-      <div className="ScalingSelecter-PreviewContainer"></div>
     </div>
   );
 };

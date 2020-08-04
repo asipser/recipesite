@@ -329,6 +329,17 @@ function getRecipeScalingMap(recipeNames, ingredientRows) {
   return recipeMap;
 }
 
+const sortOrder = {
+  produce: 0,
+  meat: 3,
+  fish: 1,
+  baking: 4,
+  spice: 5,
+  bread: 6,
+  dairy: 2,
+  other: 7,
+};
+
 router.getAsync("/shopping", async (req, res, next) => {
   if (!req.query.recipes || req.query.recipes.length == 0) {
     res.send({ pantryIngredients: [], recipes: [] });
@@ -359,8 +370,14 @@ router.getAsync("/shopping", async (req, res, next) => {
   const recipeMap = getRecipeScalingMap(recipeNames, results);
 
   const shoppingListIngredients = {};
+  const ingredientStoreMap = {};
 
   results.forEach((row) => {
+    ingredientStoreMap[row.preferred_store] = ingredientStoreMap[row.preferred_store] || [];
+    ingredientStoreMap[row.preferred_store].push({
+      ingredient: row.ingredient,
+      order: sortOrder[row.food_type],
+    });
     shoppingListIngredients[row.ingredient] = shoppingListIngredients[row.ingredient] || {};
     shoppingListIngredients[row.ingredient][row.unit] =
       shoppingListIngredients[row.ingredient][row.unit] || [];
@@ -370,7 +387,16 @@ router.getAsync("/shopping", async (req, res, next) => {
     });
   });
 
-  res.send({ pantryIngredients, recipeMap, shoppingListIngredients });
+  Object.entries(ingredientStoreMap).forEach(([store, ingredients]) => {
+    ingredientStoreMap[store] = ingredients
+      .sort(function (a, b) {
+        return a.order - b.order;
+      })
+      .map((item) => item.ingredient)
+      .filter((ingredient, index, self) => self.indexOf(ingredient) === index);
+  });
+
+  res.send({ pantryIngredients, recipeMap, shoppingListIngredients, ingredientStoreMap });
 });
 
 // anything else falls to this "not found" case

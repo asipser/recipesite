@@ -12,6 +12,7 @@ const ShoppingList = () => {
   const [pantryIngredientsMap, setPantryIngredientsMap] = useState({});
   const [viewMode, setViewMode] = useState(VIEW_OPTIONS[0]);
   const [shoppingListIngredients, setShoppingListIngredients] = useState({});
+  const [ingredientStoreMap, setIngredientStoreMap] = useState({});
 
   const getSelectedRecipeNames = () => {
     const recipeMap = getRawShoppingList();
@@ -27,7 +28,6 @@ const ShoppingList = () => {
       });
       const newRecipeMap = {};
       selectedRecipeNames.forEach((recipeName) => {
-        console.log(data, recipeMap[recipeName]);
         newRecipeMap[recipeName] = {
           userServings: data.recipeMap[recipeName].servings,
           ...recipeMap[recipeName],
@@ -38,6 +38,7 @@ const ShoppingList = () => {
       setRecipeMap(newRecipeMap);
       setPantryIngredientsMap(newPantryIngredientsMap);
       setShoppingListIngredients(data.shoppingListIngredients);
+      setIngredientStoreMap(data.ingredientStoreMap);
     });
   };
 
@@ -58,26 +59,19 @@ const ShoppingList = () => {
 
   return (
     <div className="ShoppingList-Container">
-      <div className="ShoopingList-Body">
-        {viewMode == "pantry" && (
-          <PantrySelecter
-            selectedRecipes={Object.keys(recipeMap).sort()}
-            pantryIngredientsMap={pantryIngredientsMap}
-            onRemoveRecipe={handleRemoveRecipe}
-            onToggleIngredient={handleOnToggle}
-          />
-        )}
-        {viewMode == "scaling" && (
-          <ScalingSelecter
-            {...{ shoppingListIngredients, recipeMap, pantryIngredientsMap, setRecipeMap }}
-          />
-        )}
-        {viewMode == "preview" && (
-          <ShoppingListPreview {...{ shoppingListIngredients, recipeMap, pantryIngredientsMap }} />
-        )}
+      <div className="ShoppingList-Control">
+        <PantrySelecter
+          selectedRecipes={Object.keys(recipeMap).sort()}
+          pantryIngredientsMap={pantryIngredientsMap}
+          onRemoveRecipe={handleRemoveRecipe}
+          onToggleIngredient={handleOnToggle}
+        />
+        <ScalingSelecter {...{ recipeMap, pantryIngredientsMap, setRecipeMap }} />
       </div>
-      <div className="ShoppingList-Footer">
-        <ShoppingListProgression progress={viewMode} setProgress={setViewMode} />
+      <div className="ShoppingList-Preview">
+        <ShoppingListPreview
+          {...{ ingredientStoreMap, shoppingListIngredients, recipeMap, pantryIngredientsMap }}
+        />
       </div>
     </div>
   );

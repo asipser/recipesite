@@ -1,6 +1,6 @@
 .PantrySelecter-Container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .PantrySelecter-SelectedRecipes-Recipe {
@@ -25,7 +25,7 @@
 }
 
 .PantrySelecter-SelectedRecipes-Header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 2rem;
 }
 
@@ -36,7 +36,6 @@
 .PantrySelecter-SelectedRecipes-Container {
   flex-grow: 1;
   margin-right: 5rem;
-  padding-left: 15px;
 }
 
 .PantrySelecter-Pantry-Container {
