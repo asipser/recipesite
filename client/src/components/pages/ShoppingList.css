@@ -21,4 +21,5 @@
   flex-basis: 400px;
   flex-grow: 0;
   flex-shrink: 0;
+  white-space: pre-wrap;
 }

@@ -1,11 +1,15 @@
 .ShoppingListPreview-Ingredient-Explanation {
-  font-size: 0.8rem;
-  padding-left: 1rem;
+  font-size: 9pt;
+  /* padding-left: 1rem; */
 }
 .ShoppingListPreview-StoreName-Header {
-  font-size: 1.2rem;
+  font-size: 14pt;
   padding-top: 1rem;
 }
 .ShoppingListPreview-StoreName-Ingredients {
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
+}
+
+.ShoppingListPreview-ingredient-li {
+  font-size: 11pt;
 }

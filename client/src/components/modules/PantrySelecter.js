@@ -9,7 +9,7 @@ const PantrySelecter = ({
 }) => {
   return (
     <div className="PantrySelecter-Container">
-      <div className="PantrySelecter-SelectedRecipes-Container">
+      {/* <div className="PantrySelecter-SelectedRecipes-Container">
         <div className="PantrySelecter-SelectedRecipes-Header">Selected Recipes:</div>
         <div className="PantrySelecter-SelectedRecipes-Recipes">
           {selectedRecipes.map((recipe) => (
@@ -20,7 +20,7 @@ const PantrySelecter = ({
             />
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="PantrySelecter-Pantry-Container">
         <div className="PantrySelecter-Pantry-Header">Pantry</div>
         <div className="PantrySelecter-Pantry-Table">

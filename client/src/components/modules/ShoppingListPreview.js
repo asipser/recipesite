@@ -40,13 +40,13 @@ const ShoppingListPreview = ({
       });
       const recipeUnit = unit != "unit" ? unit : "";
       return (
-        <div>
+        <li className="ShoppingListPreview-ingredient-li">
           {`${sum} ${recipeUnit} ${ingredient}`}{" "}
           {explanations.length > 1 &&
             explanations.map((explanation) => (
-              <div className="ShoppingListPreview-Ingredient-Explanation">{`(${explanation})`}</div>
+              <div className="ShoppingListPreview-Ingredient-Explanation">{`\t(${explanation})`}</div>
             ))}
-        </div>
+        </li>
       );
     });
 
@@ -64,9 +64,11 @@ const ShoppingListPreview = ({
       <>
         <div className="ShoppingListPreview-StoreName-Header">{store}</div>
         <div className="ShoppingListPreview-StoreName-Ingredients">
-          {ingredientStoreMap[store].map((ingredient) => {
-            return getCombinedIngredientString(ingredient, shoppingListIngredients[ingredient]);
-          })}
+          <ul>
+            {ingredientStoreMap[store].map((ingredient) => {
+              return getCombinedIngredientString(ingredient, shoppingListIngredients[ingredient]);
+            })}
+          </ul>
         </div>
       </>
     );

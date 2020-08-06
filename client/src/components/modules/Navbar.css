@@ -19,6 +19,15 @@
 
 .Navbar-ActionsContainer {
   align-items: center;
+  font-size: 1.5rem;
+}
+
+.Navbar-ActionsContainer > span {
+  padding-right: 1rem;
+}
+
+.Navbar-Action-Add {
+  cursor: pointer;
 }
 
 .Navbar-Link {
