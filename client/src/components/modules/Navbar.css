@@ -1,9 +1,9 @@
 .Navbar-Container {
   justify-content: space-between;
-  width: 100%;
   height: 100%;
-  background-color: #0985e387;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   flex-basis: 64px;
+  padding: 0rem 10rem 0rem 20rem;
 }
 
 .Navbar-TitleText {
@@ -22,8 +22,8 @@
   font-size: 1.5rem;
 }
 
-.Navbar-ActionsContainer > span {
-  padding-right: 1rem;
+.Navbar-ActionsContainer > * {
+  margin-right: 10rem;
 }
 
 .Navbar-Action-Add {

@@ -1,7 +1,7 @@
 .AddRecipe-Container {
   display: flex;
   flex-direction: column;
-  margin: 0px 100px 0px 100px;
+  margin: 0px 20rem 0px 20rem;
   height: 100vh;
 }
 

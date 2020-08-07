@@ -3,13 +3,20 @@ import "./RecipeList.css";
 import { getShoppingList, setShoppingList } from "../../utilities";
 import { navigate } from "@reach/router";
 
-const RecipeList = ({ recipes, getShoppingList, setShoppingList, setSelectedRecipe }) => {
+const RecipeList = ({
+  recipes,
+  getShoppingList,
+  setShoppingList,
+  selectedShoppingRecipes,
+  toggleShoppingListRecipe,
+  setSelectedRecipe,
+  selectedRecipe,
+}) => {
   return (
     <div className="RecipeList-Container">
       <div className="RecipeRow-Container RecipeList-Header">
         <div className="RecipeRow-Title">Recipe Name</div>
         <div className="RecipeRow-Time">Time</div>
-        <div className="RecipeRow-Actions-Container">Actions</div>
       </div>
 
       {recipes.map((recipe) => {
@@ -19,7 +26,10 @@ const RecipeList = ({ recipes, getShoppingList, setShoppingList, setSelectedReci
             recipe={recipe}
             getShoppingList={getShoppingList}
             setShoppingList={setShoppingList}
+            selectedShoppingRecipes={selectedShoppingRecipes}
+            toggleShoppingListRecipe={toggleShoppingListRecipe}
             setSelectedRecipe={setSelectedRecipe}
+            selectedRecipe={selectedRecipe}
           />
         );
       })}
@@ -27,50 +37,44 @@ const RecipeList = ({ recipes, getShoppingList, setShoppingList, setSelectedReci
   );
 };
 
-const RecipeRow = ({ recipe, getShoppingList, setShoppingList, setSelectedRecipe }) => {
-  const [selected, setSelected] = useState(getShoppingList(recipe.name));
-
-  const toggleSelected = () => {
-    setSelected(!selected);
-    setShoppingList(recipe.name, !selected);
-  };
-
-  const ingredientToText = (ingredient) => {
-    const words = [ingredient.amount, ingredient.unit, ingredient.item];
-    return words.join(" ");
-  };
-
+const RecipeRow = ({
+  recipe,
+  selectedShoppingRecipes,
+  toggleShoppingListRecipe,
+  setSelectedRecipe,
+  selectedRecipe,
+}) => {
+  const isSelected = selectedShoppingRecipes.includes(recipe.name);
+  const cssClass = isSelected ? "RecipeRow-Selected" : "RecipeRow-Unselected";
   return (
-    <div className="RecipeRow-Container">
-      <div className="RecipeRow-Title ">{recipe.name}</div>
-      <div className="RecipeRow-Time">{recipe.time ? recipe.time + "m" : "---"}</div>
-
-      <div className="RecipeRow-Actions-Container">
-        <div
-          className="RecipeRow-Action RecipeRow-Action-Edit"
-          onClick={(e) => navigate("/add-recipe", { state: { ...recipe } })}
+    <div className={`RecipeRow-Container ${cssClass}`}>
+      <div className="RecipeRow-Title ">
+        <input
+          type="checkbox"
+          name={`checkbox-${recipe.name}`}
+          id={`checkbox-${recipe.name}`}
+          checked={isSelected}
+          onChange={() => {
+            toggleShoppingListRecipe(recipe.name);
+          }}
+        />
+        <label for={`checkbox-${recipe.name}`}>Test</label>
+        <span
+          onClick={() => {
+            setSelectedRecipe(recipe);
+          }}
+          className="RecipeRow-Title-Text"
+          style={{ color: selectedRecipe.name == recipe.name ? "var(--primary)" : undefined }}
         >
-          Edit
-        </div>
-        <div
-          className="RecipeRow-Action RecipeRow-Action-View"
-          onClick={(e) => setSelectedRecipe(recipe)}
-        >
-          View
-        </div>
-        {selected ? (
-          <div
-            className="RecipeRow-Action RecipeRow-Action-Remove"
-            onClick={(e) => toggleSelected()}
-          >
-            ✖
-          </div>
-        ) : (
-          <div className="RecipeRow-Action RecipeRow-Action-Add" onClick={(e) => toggleSelected()}>
-            ✓
-          </div>
+          {recipe.name}
+        </span>
+        {recipe.source.startsWith("http") && (
+          <a className="RecipeRow-link" href={recipe.source}>
+            (link)
+          </a>
         )}
       </div>
+      <div className="RecipeRow-Time">{recipe.time ? recipe.time + "m" : "---"}</div>
     </div>
   );
 };

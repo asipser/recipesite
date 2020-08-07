@@ -342,7 +342,12 @@ const sortOrder = {
 
 router.getAsync("/shopping", async (req, res, next) => {
   if (!req.query.recipes || req.query.recipes.length == 0) {
-    res.send({ pantryIngredients: [], recipes: [] });
+    res.send({
+      pantryIngredients: [],
+      recipeMap: {},
+      shoppingListIngredients: [],
+      ingredientStoreMap: {},
+    });
   }
 
   const recipeNames = req.query.recipes.split(",");

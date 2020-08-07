@@ -4,6 +4,7 @@ import "./Home.css";
 import FilterRecipes from "../modules/FilterRecipes";
 import RecipeList from "../modules/RecipeList";
 import { get, getShoppingList, setShoppingList } from "../../utilities";
+import { navigate } from "@reach/router";
 
 const copyAndRemove = (array, elt) => {
   const arrayCopy = [...array];
@@ -15,12 +16,11 @@ const copyAndRemove = (array, elt) => {
   }
 };
 
-const Home = () => {
+const Home = ({ selectedShoppingRecipes, toggleShoppingListRecipe }) => {
   const [fillerText, setFillerText] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipeList, setRecipeList] = useState([]);
-  const test = [];
 
   const [selectedRecipe, setSelectedRecipe] = useState({ ingredients: [], directions: [] });
 
@@ -63,26 +63,42 @@ const Home = () => {
       <div className="Home-RecipeList">
         <RecipeList
           recipes={recipeList}
+          selectedShoppingRecipes={selectedShoppingRecipes}
+          toggleShoppingListRecipe={toggleShoppingListRecipe}
           getShoppingList={getShoppingList}
           setShoppingList={setShoppingList}
           setSelectedRecipe={setSelectedRecipe}
+          selectedRecipe={selectedRecipe}
         />
       </div>
+
       <div className="Home-ViewRecipe">
-        <div className="Home-ViewRecipe-TextHeader">Ingredients</div>
+        {selectedRecipe.ingredients.length > 0 && (
+          <>
+            <div className="Home-ViewRecipe-TextHeader">
+              Ingredients
+              <span
+                onClick={(e) => navigate("/add-recipe", { state: { ...selectedRecipe } })}
+                className="Home-ViewRecipe-Edit"
+              >
+                &#x270E;
+              </span>
+            </div>
 
-        <div className="Home-IngredientsList">
-          {selectedRecipe.ingredients.map((i) => (
-            <div className="Home-IngredientsList-Ingredient">{`${i.amount} ${i.unit} ${i.item}`}</div>
-          ))}
-        </div>
-        <div className="Home-ViewRecipe-TextHeader Home-ViewRecipe-StepHeader ">Steps</div>
+            <div className="Home-IngredientsList">
+              {selectedRecipe.ingredients.map((i) => (
+                <div className="Home-IngredientsList-Ingredient">{`${i.amount} ${i.unit} ${i.item}`}</div>
+              ))}
+            </div>
+            <div className="Home-ViewRecipe-TextHeader Home-ViewRecipe-StepHeader ">Steps</div>
 
-        <div className="Home-DirectionList">
-          {selectedRecipe.directions.map((d, i) => (
-            <Direction direction={d} directionNumber={i} />
-          ))}
-        </div>
+            <div className="Home-DirectionList">
+              {selectedRecipe.directions.map((d, i) => (
+                <Direction direction={d} directionNumber={i} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

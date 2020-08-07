@@ -7,6 +7,7 @@ import AutosizeInput from "react-input-autosize";
 import RecipeProgression from "./RecipeProgression";
 import RecipeMeta from "../modules/RecipeMeta";
 import { get } from "../../utilities";
+import { navigate } from "@reach/router";
 
 import { post } from "../../utilities";
 
@@ -122,12 +123,14 @@ const AddRecipe = (props) => {
         <RecipeProgression
           setProgress={setViewMode}
           progress={viewMode}
-          editingRecipe={props.location.state != undefined && props.location.state != {}}
+          editingRecipe={props.location.state && props.location.state.name}
           onCompletion={() => {
             post("/api/recipe", {
               meta,
               directions: getFilledDirections(),
               ingredients: getFilledRows(),
+            }).then((res) => {
+              navigate("/");
             });
           }}
         />

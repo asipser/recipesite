@@ -97,3 +97,22 @@
   margin-top: 1rem;
   border-top: 1px solid gray;
 }
+
+.Home-ViewRecipe-Edit {
+  cursor: pointer;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.Home-ViewRecipe-Edit:hover::after {
+  content: "edit recipe";
+  position: absolute;
+  background: white;
+  left: 30px;
+  font-size: 14px;
+  top: 6px;
+  width: 70px;
+  border-radius: 2px;
+  border: 1px solid black;
+  padding: 1px;
+}

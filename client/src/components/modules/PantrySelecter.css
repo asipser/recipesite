@@ -46,17 +46,51 @@
   font-size: 2rem;
 }
 
-.PantrySelecter-Pantry-Table-Container {
-  display: flex;
-  flex-direction: column;
+.PantrySelecter-Pantry-Table {
+  column-count: 2;
+  column-gap: 40px;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+  font-size: 1.2rem;
 }
 
-.PantrySelecter-Pantry-Table-Row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.PantrySelecter-Row {
+  cursor: pointer;
+  user-select: none;
+  color: gray;
+}
+
+.PantrySelecter-Row:hover {
+  color: black;
+}
+
+.PantrySelecter-Row-Selected {
+  cursor: pointer;
+  user-select: none;
+  color: black;
+  border-bottom: black 1px solid;
+}
+
+.PantrySelecter-Row-Selected:hover {
+  color: gray;
 }
 
 .PantrySelecter-Pantry-Table-Header {
-  background-color: gray;
+  background-color: var(--primary);
+}
+
+.PantrySelecter-Ingredient-Cell {
+  flex-basis: 12rem;
+}
+
+.PantrySelecter-Action-Cell {
+  cursor: pointer;
+  background-color: #fdcb6e;
+  height: 1rem;
+  user-select: none;
+}
+
+.PantrySelecter-PantryRow-container {
+  padding-left: 6px;
+  text-indent: -6px;
 }

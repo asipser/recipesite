@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "recipesite",
       script: "node server/server.js",
-      watch: ["server", "client"],
+      watch: ["server"],
       env: {
         PORT: 3000,
         NODE_ENV: "development",
