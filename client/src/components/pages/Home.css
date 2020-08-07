@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: row;
   width: 100wh;
-  margin-top: 5rem;
-  justify-content: center;
+  margin: 5rem 20rem 0rem 20rem;
 }
 
 .Home-FilterRecipes {
   flex-basis: 13rem;
   flex-grow: 0;
-  padding-left: 2rem;
 }
 
 .Home-RecipeList {
@@ -21,7 +19,7 @@
   flex: 1;
   border-left: 1px solid gray;
   margin-left: 1rem;
-  max-width: 500px;
+  max-width: 575px;
 }
 
 .Home-IngredientsList {
