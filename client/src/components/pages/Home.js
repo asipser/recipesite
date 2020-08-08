@@ -33,6 +33,16 @@ const Home = ({ selectedShoppingRecipes, toggleShoppingListRecipe }) => {
     }
   };
 
+  const addTags = (addTags) => {
+    const newTags = Array.from(new Set([...selectedTags, ...addTags]));
+    setSelectedTags(newTags);
+  };
+
+  const removeTags = (removeTags) => {
+    const newTags = selectedTags.filter((tag) => !removeTags.includes(tag));
+    setSelectedTags(newTags);
+  };
+
   useEffect(() => {
     get("/api/recipes").then((recipes) => {
       setAllRecipes(recipes);
@@ -57,6 +67,8 @@ const Home = ({ selectedShoppingRecipes, toggleShoppingListRecipe }) => {
           fillerText={fillerText}
           setFillerText={setFillerText}
           toggleTags={toggleTags}
+          addTags={addTags}
+          removeTags={removeTags}
           selectedTags={selectedTags}
         />
       </div>

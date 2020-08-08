@@ -4,12 +4,13 @@ import { BrowserView } from "react-device-detect";
 import { get } from "../../utilities";
 import "./FilterRecipes.css";
 
-const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) => {
+const FilterRecipes = ({ fillerText, setFillerText, selectedTags, addTags, removeTags }) => {
   const [groupTags, setGroupTags] = useState([]);
 
   useEffect(() => {
     get("/api/tags").then((allTags) => {
       setGroupTags(allTags);
+      addTags(allTags.filter((group) => group.name == "main")[0].tags);
     });
   }, []);
 
@@ -20,7 +21,8 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
         title={group.name}
         tags={group.tags}
         selectedTags={selectedTags}
-        toggleTags={toggleTags}
+        addTags={addTags}
+        removeTags={removeTags}
       />
     );
   });
@@ -40,19 +42,44 @@ const FilterRecipes = ({ fillerText, setFillerText, toggleTags, selectedTags }) 
   );
 };
 
-const FilterGroup = ({ title, tags, selectedTags, toggleTags }) => {
+const FilterGroup = ({ title, tags, selectedTags, addTags, removeTags }) => {
+  const allTagsSelected = tags.filter((tag) => selectedTags.includes(tag)).length == tags.length;
+
+  const tagGroupClassName = allTagsSelected ? "FilterGroup-Tag-selected" : "FilterGroup-Tag";
+
   const tagList = tags.map((tag) => {
     const tagIsSelected = selectedTags.includes(tag);
     const className = tagIsSelected ? "FilterGroup-Tag-selected" : "FilterGroup-Tag";
     return (
-      <div key={`Tag-${tag}`} className={className} onClick={(e) => toggleTags(tag)}>
+      <div
+        key={`Tag-${tag}`}
+        className={className}
+        onClick={() => {
+          if (tagIsSelected) {
+            removeTags([tag]);
+          } else {
+            addTags([tag]);
+          }
+        }}
+      >
         {tag}
       </div>
     );
   });
   return (
     <div className="FilterGroup-Container">
-      <div className="FilterGroup-Title">{title}</div>
+      <div
+        onClick={() => {
+          if (allTagsSelected) {
+            removeTags(tags);
+          } else {
+            addTags(tags);
+          }
+        }}
+        className={`${tagGroupClassName} FilterGroup-Title`}
+      >
+        {title}
+      </div>
       <div className="FilterGroup-TagList">{tagList}</div>
     </div>
   );
