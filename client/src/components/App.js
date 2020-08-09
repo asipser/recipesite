@@ -7,7 +7,6 @@ import AddRecipe from "./pages/AddRecipe.js";
 import Navbar from "./modules/Navbar.js";
 import ViewRecipe from "./pages/ViewRecipe.js";
 import ShoppingList from "./pages/ShoppingList.js";
-import { getRawShoppingList } from "../utilities.js";
 
 const App = () => {
   const [selectedShoppingRecipes, setSelectedShoppingRecipes] = useState([]);
